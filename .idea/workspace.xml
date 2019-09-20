@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6db08369-25b6-4574-a1b9-f59d2710e456" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="6db08369-25b6-4574-a1b9-f59d2710e456" name="Default Changelist" comment="Criação de classes">
+      <change afterPath="$PROJECT_DIR$/src/br/ufrpe/SGEdu/turma/Turma.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/br/ufrpe/SGEdu/aluno/Responsavel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/ufrpe/SGEdu/aluno/Responsavel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/ufrpe/SGEdu/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/ufrpe/SGEdu/main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/ufrpe/SGEdu/aluno/Aluno.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/ufrpe/SGEdu/aluno/Aluno.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/ufrpe/SGEdu/gestao/Coordenador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/ufrpe/SGEdu/gestao/Coordenador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/ufrpe/SGEdu/gestao/Professor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/ufrpe/SGEdu/gestao/Professor.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -44,7 +47,7 @@
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="br.ufrpe.SGEdu.Main" />
+      <option name="MAIN_CLASS_NAME" value="br.ufrpe.SGEdu.main.Main" />
       <module name="SGEdu" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
       <RunnerSettings RunnerId="Run" />
@@ -64,8 +67,16 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1568946334826</updated>
-      <workItem from="1568946337984" duration="2680000" />
+      <workItem from="1568946337984" duration="3472000" />
     </task>
+    <task id="LOCAL-00001" summary="Criação de classes">
+      <created>1568949325478</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1568949325478</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -81,5 +92,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Criação de classes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Criação de classes" />
   </component>
 </project>
