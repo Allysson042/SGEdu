@@ -13,12 +13,14 @@ public class Turma {
     private ArrayList professoresTurma = new ArrayList();
     private ArrayList disciplinasTurma = new ArrayList();
 
+    Horario horario = new Horario();
 
     public Turma(String nome) {
         this.nome = nome;
         this.professoresTurma = professoresTurma;
         this.alunosTurma = alunosTurma;
         this.disciplinasTurma = disciplinasTurma;
+        this.horario = horario;
     }
 
     public String getNome() {
@@ -99,6 +101,13 @@ public class Turma {
             System.out.println("Turma ainda não possui professores! ");
         }
 
+    }
+    public String getDisciplina(int i){
+        return disciplinasTurma.get[i];
+    }
+
+    public int getTamanhoArrayDisciplina(){
+        return disciplinasTurma.size();
     }
 
     public void addDisciplina(Professor professor){
