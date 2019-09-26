@@ -22,7 +22,7 @@ public class Aluno {
     public String getNome() {
         return nome;
     }
-	
+
 	/*public void setResponsavel(Responsavel responsavel) {
 		this.responsavel=responsavel;
 	}
