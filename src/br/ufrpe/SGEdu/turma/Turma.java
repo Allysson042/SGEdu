@@ -1,7 +1,7 @@
 package br.ufrpe.SGEdu.turma;
 
-import br.ufrpe.SGEdu.aluno.*;
-import br.ufrpe.SGEdu.gestao.Professor;
+import br.ufrpe.SGEdu.usuarios.*;
+import br.ufrpe.SGEdu.gestao.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -36,7 +36,7 @@ public class Turma {
         if(!alunos.isEmpty()){
             for (int i = 0; i < alunos.size(); i++) {
                 alu = alunos.get(i).getNome();
-                alunos.add(alu);
+                alunosTurma.add(alu);
             }
         } else{
             System.out.println("Turma não possui alunos! ");
@@ -102,8 +102,8 @@ public class Turma {
         }
 
     }
-    public String getDisciplina(int i){
-        return disciplinasTurma.get[i];
+    public String getDisciplinaTurma(int i){
+        return disciplinasTurma.get(i);
     }
 
     public int getTamanhoArrayDisciplina(){
@@ -114,7 +114,7 @@ public class Turma {
         String disc;
         if(!professores.isEmpty()){
             for (int i = 0; i < professores.size(); i++) {
-                disc = professores.get(i).getDisciplina();
+                disc = professores.get(i).getDiciplina();
                 disciplinasTurma.add(disc);
             }
         } else{

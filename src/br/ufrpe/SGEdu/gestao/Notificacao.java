@@ -14,7 +14,7 @@ public class Notificacao {
     public void enviarNotificacao(){
         Scanner sc = new Scanner(System.in);
         Repositorio repositorio = new Repositorio();
-        Responsavel responsavel = new Responsavel();
+        Responsavel responsavel;
         int opcaoNotif;
         System.out.println("" +
                 "****************************************\n" +
