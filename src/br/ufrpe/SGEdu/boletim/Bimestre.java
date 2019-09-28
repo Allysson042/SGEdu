@@ -42,7 +42,7 @@ public class Bimestre{
     }
 
     public void setFrequencia() {
-        this.frequencia = frequencia+1;
+        this.frequencia = frequencia;
     }
 
     @java.lang.Override
