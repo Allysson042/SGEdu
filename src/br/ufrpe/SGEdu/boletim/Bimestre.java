@@ -11,8 +11,6 @@ public class Bimestre{
     public Bimestre(String nomeBimestre, Professor professor){
         this.nomeBimestre = nomeBimestre;
         this.professor = professor;
-        this.nota;
-        this.frequencia;
     }
 
     public Professor getProfessor() {
