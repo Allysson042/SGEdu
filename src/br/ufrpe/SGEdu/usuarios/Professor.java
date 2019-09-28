@@ -2,6 +2,7 @@ package br.ufrpe.SGEdu.usuarios;
 import java.util.Scanner;
 import br.ufrpe.SGEdu.repositorio.Repositorio;
 import br.ufrpe.SGEdu.gestao.*;
+import br.ufrpe.SGEdu.boletim.*;
 
 
 public class Professor extends Usuario{
@@ -22,7 +23,14 @@ public class Professor extends Usuario{
         return disciplina;
     }
 
-    public void addNotas(Repositorio repositorio) {
+    @Override
+    public String toString() {
+        return "Professor{" +
+                "disciplina='" + disciplina + '\'' +
+                '}';
+    }
+
+    /*public void addNotas(Repositorio repositorio) {
         String nome_aluno;
         float nota1,nota2,nota3,nota4;
         System.out.println("" +
@@ -57,9 +65,6 @@ public class Professor extends Usuario{
         }
         System.out.println("****!!!Aluno nao encontrado!!!***");
     }
-
-
-
-
+    */
 
 }

@@ -1,6 +1,7 @@
 package br.ufrpe.SGEdu.usuarios;
 import br.ufrpe.SGEdu.turma.*;
 import java.util.ArrayList;
+import br.ufrpe.SGEdu.boletim.*;
 
 import br.ufrpe.SGEdu.gestao.*;
 
@@ -8,8 +9,6 @@ public class Aluno extends Usuario {
     private Responsavel responsavel;
     private Turma turma;
     private Notificacao[] notificacao;
-    public ArrayList<Notas> boletim = new ArrayList<Notas>(); //ta public so pra teste, mas deixa default mesmo
-
 
     public Aluno(String nome, String login, String senha,Responsavel responsavel, Turma turma){
         super(nome, login, senha);
@@ -32,15 +31,6 @@ public class Aluno extends Usuario {
     }
     public Turma getTurma(Aluno aluno) {
         return aluno.turma;
-    }
-    
-    public void exibirBoletim() {
-    	for (Notas nota: this.boletim) {
-    		nota.exibirNotas();
-    		
-    	}
-    	
-    	
     }
     
     
