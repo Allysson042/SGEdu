@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6db08369-25b6-4574-a1b9-f59d2710e456" name="Default Changelist" comment="Criação de classes">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/br/ufrpe/SGEdu/gestao/Notificacao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/ufrpe/SGEdu/gestao/Notificacao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/br/ufrpe/SGEdu/turma/Horario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/ufrpe/SGEdu/turma/Horario.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/br/ufrpe/SGEdu/turma/Turma.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/ufrpe/SGEdu/turma/Turma.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/br/ufrpe/SGEdu/usuarios/Aluno.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/ufrpe/SGEdu/usuarios/Aluno.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/br/ufrpe/SGEdu/usuarios/Professor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/ufrpe/SGEdu/usuarios/Professor.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

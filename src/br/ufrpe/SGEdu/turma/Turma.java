@@ -103,7 +103,7 @@ public class Turma {
 
     }
     public String getDisciplinaTurma(int i){
-        return disciplinasTurma.get(i);
+       return disciplinasTurma.get(i).toString();
     }
 
     public int getTamanhoArrayDisciplina(){
