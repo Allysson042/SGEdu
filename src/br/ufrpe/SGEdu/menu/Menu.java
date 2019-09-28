@@ -24,7 +24,7 @@ public class Menu {
                     "( 4 ) - PARA LOGIN COMO COORDENADOR\n" +
                     "( 5 ) - PARA SAIR\n" +
                     "*********************************************\n" +
-                    "DIGITE A OPÇÃO DESEJADA: ");
+                    "DIGITE A OP??O DESEJADA: ");
             opcao = sc.next();
             System.out.println("" +
                     "*********************************************\n");
@@ -47,22 +47,22 @@ public class Menu {
                                 do {
                                     System.out.println("" +
                                             "*********************************************\n" +
-                                            "( 1 ) - PARA VER HISTÓRICO ESCOLAR\n" +
-                                            "( 2 ) - PARA VER FREQUÊNCIA\n" +
-                                            "( 3 ) - PARA VER NOTIFICAÇÔES\n" +
+                                            "( 1 ) - PARA VER HIST?RICO ESCOLAR\n" +
+                                            "( 2 ) - PARA VER FREQU?NCIA\n" +
+                                            "( 3 ) - PARA VER NOTIFICA??ES\n" +
                                             "( 4 ) - PARA SAIR\n" +
                                             "*********************************************\n" +
-                                            "DIGITE A OPÇÃO DESEJADA: ");
+                                            "DIGITE A OP??O DESEJADA: ");
                                     opcao_menu_aluno = sc.next();
                                     System.out.println("" +
                                             "*********************************************\n");
                                     switch (opcao_menu_aluno) {
                                         case "1":
-                                            //EXIBIR HISTÓRICO ESCOLAR
+                                            //EXIBIR HIST?RICO ESCOLAR
                                         case "2":
-                                            //EXIBIR FREQUÊNCIA
+                                            //EXIBIR FREQU?NCIA
                                         case "3":
-                                            //PARA VER NOTIFICAÇÔES
+                                            //PARA VER NOTIFICA??ES
                                     }
                                 } while (!opcao_menu_aluno.equals("4"));
                             }
@@ -94,22 +94,22 @@ public class Menu {
                                 do {
                                     System.out.println("" +
                                             "*********************************************\n" +
-                                            "( 1 ) - PARA VER HISTÓRICO ESCOLAR\n" +
-                                            "( 2 ) - PARA VER FREQUÊNCIA\n" +
-                                            "( 3 ) - PARA VER NOTIFICAÇÔES\n" +
+                                            "( 1 ) - PARA VER HIST?RICO ESCOLAR\n" +
+                                            "( 2 ) - PARA VER FREQU?NCIA\n" +
+                                            "( 3 ) - PARA VER NOTIFICA??ES\n" +
                                             "( 4 ) - PARA SAIR\n" +
                                             "*********************************************\n" +
-                                            "DIGITE A OPÇÃO DESEJADA: ");
+                                            "DIGITE A OP??O DESEJADA: ");
                                     opcao_menu_responsavel = sc.next();
                                     System.out.println("" +
                                             "*********************************************\n");
                                     switch (opcao_menu_responsavel) {
                                         case "1":
-                                            //EXIBIR HISTÓRICO ESCOLAR
+                                            //EXIBIR HIST?RICO ESCOLAR
                                         case "2":
-                                            //EXIBIR FREQUÊNCIA
+                                            //EXIBIR FREQU?NCIA
                                         case "3":
-                                            //PARA VER NOTIFICAÇÔES
+                                            //PARA VER NOTIFICA??ES
                                     }
                                 } while (!opcao_menu_responsavel.equals("4"));
                             }
@@ -136,21 +136,21 @@ public class Menu {
                                     System.out.println("" +
                                             "*********************************************\n" +
                                             "( 1 ) - PARA ADICIONAR NOTAS\n" +
-                                            "( 2 ) - PARA ADICIONAR FREQUÊNCIA\n" +
-                                            "( 3 ) - PARA FAZER UMA NOTIFICAÇÃO\n" +
+                                            "( 2 ) - PARA ADICIONAR FREQU?NCIA\n" +
+                                            "( 3 ) - PARA FAZER UMA NOTIFICA??O\n" +
                                             "( 4 ) - PARA SAIR\n" +
                                             "*********************************************\n" +
-                                            "DIGITE A OPÇÃO DESEJADA: ");
+                                            "DIGITE A OP??O DESEJADA: ");
                                     opcao_menu_professor = sc.next();
                                     System.out.println("" +
                                             "*********************************************\n");
                                     switch (opcao_menu_professor) {
                                         case "1":
-                                            //EXIBIR HISTÓRICO ESCOLAR
+                                            //EXIBIR HIST?RICO ESCOLAR
                                         case "2":
-                                            //EXIBIR FREQUÊNCIA
+                                            //EXIBIR FREQU?NCIA
                                         case "3":
-                                            //PARA VER NOTIFICAÇÔES
+                                            //PARA VER NOTIFICA??ES
                                     }
                                 } while (!opcao_menu_professor.equals("4"));
                             }
@@ -179,11 +179,11 @@ public class Menu {
                                             "( 1 ) - PARA CADASTRAR PROFESSORES\n" +
                                             "( 2 ) - PARA CADASTRAR ALUNOS\n" +
                                             "( 3 ) - PARA CADASTRAR TURMAS\n" +
-                                            "( 4 ) - PARA FAZER UMA NOTIFICAÇÃO\n" +
+                                            "( 4 ) - PARA FAZER UMA NOTIFICA??O\n" +
                                             "( 5 ) - ADICIONAR PROFESSOR EM TURMA\n" +
                                             "( 6 ) - PARA SAIR\n" +
                                             "*********************************************\n" +
-                                            "DIGITE A OPÇÃO DESEJADA: ");
+                                            "DIGITE A OP??O DESEJADA: ");
                                     opcao_menu_coordenador = sc.next();
                                     System.out.println("" +
                                             "*********************************************\n");
@@ -198,7 +198,7 @@ public class Menu {
                                             coordenador.cadTurma(repositorio);
                                             continue;
                                         case "4":
-                                            //FAZER NOTIFICAÇÃO
+                                            //FAZER NOTIFICA??O
                                         case "5":
                                             //ADICIONAR PROFESSOR EM TURMA
                                     }

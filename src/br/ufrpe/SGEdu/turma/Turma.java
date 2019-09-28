@@ -67,6 +67,18 @@ public class Turma {
 
     }
 
+    public boolean buscarAlunoNaTurma(String nome){
+        if(alunosTurma.contains(nome)){
+            return true;
+        } else{
+            return false;
+        }
+    }
+
+    public ArrayList getAlunosTurma() {
+        return alunosTurma;
+    }
+
     public void addProfessor(Professor professor) {
         String prof;
         if(!professores.isEmpty()){
