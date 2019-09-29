@@ -23,4 +23,10 @@ public class Responsavel extends Usuario {
         alunos.add(aluno);
     }
 
+    @Override
+    public String toString() {
+        return "Responsavel{" +
+                "alunos=" + alunos +
+                '}';
+    }
 }

@@ -166,5 +166,14 @@ public class Turma {
 
     }
 
-
+    @Override
+    public String toString() {
+        return "Turma{" +
+                "nome='" + nome + '\'' +
+                ", alunosTurma=" + alunosTurma +
+                ", professoresTurma=" + professoresTurma +
+                ", disciplinasTurma=" + disciplinasTurma +
+                ", horario=" + horario +
+                '}';
+    }
 }

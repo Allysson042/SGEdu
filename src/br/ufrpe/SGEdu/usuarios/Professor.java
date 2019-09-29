@@ -33,13 +33,6 @@ public class Professor extends Usuario{
         return disciplina;
     }
 
-    @Override
-    public String toString() {
-        return "Professor{" +
-                "disciplina='" + disciplina + '\'' +
-                '}';
-    }
-
     /*public void addNotas(Repositorio repositorio) {
         String nome_aluno;
         float nota1,nota2,nota3,nota4;
@@ -77,4 +70,18 @@ public class Professor extends Usuario{
     }
     */
 
+    public String getDisciplina() {
+        return disciplina;
+    }
+
+    public void setDisciplina(String disciplina) {
+        this.disciplina = disciplina;
+    }
+
+    @Override
+    public String toString() {
+        return "Professor{" +
+                "disciplina='" + disciplina + '\'' +
+                '}';
+    }
 }
