@@ -5,11 +5,23 @@ import br.ufrpe.SGEdu.boletim.*;
 
 import br.ufrpe.SGEdu.gestao.*;
 
+/**
+ * Classe Aluno, cria objetos(matrícula) do tipo aluno e associa a uma turma, SubClasse de Usuario;
+ * @author
+ */
 public class Aluno extends Usuario {
     private Responsavel responsavel;
     private Turma turma;
     private Notificacao[] notificacao;
 
+    /**
+     * Construtor Aluno
+     * @param nome
+     * @param login
+     * @param senha
+     * @param responsavel
+     * @param turma
+     */
     public Aluno(String nome, String login, String senha,Responsavel responsavel, Turma turma){
         super(nome, login, senha);
         this.responsavel=responsavel;

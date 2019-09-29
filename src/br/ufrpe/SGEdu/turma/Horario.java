@@ -4,6 +4,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import br.ufrpe.SGEdu.turma.Turma;
 
+/**
+ * Classe Horario: cria objetos do tipo horario para as turmas;
+ * @author Laisy
+ */
+
 public class Horario {
     private Turma turma;
     private String [][] horario;
