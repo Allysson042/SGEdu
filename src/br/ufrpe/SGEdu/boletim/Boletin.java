@@ -5,7 +5,7 @@ import br.ufrpe.SGEdu.turma.*;
 import java.util.ArrayList;
 
 /**Essa classe cria objetos do tipo Boletim onde é uma junção de Bimestres referentes a cada aluno;
- * @author
+ * @author Laisy
  */
 
 public class Boletin {
@@ -15,8 +15,8 @@ public class Boletin {
     private int ano;
     private double media;
     private int frequenciaTotal;
+    private Aluno aluno;
     private Turma turma;
-    private String aluno;
 
     /**
      * Construtor Boletin
@@ -24,7 +24,7 @@ public class Boletin {
      * @param aluno aluno ao qual o boletim pertence;
      */
 
-    public Boletin(int ano, String aluno) {
+    public Boletin(int ano, Aluno aluno) {
         this.ano = ano;
         this.aluno = aluno;
         this.bimestres = bimestres;
@@ -54,5 +54,61 @@ public class Boletin {
                 ", media=" + media +
                 ", frequenciaTotal=" + frequenciaTotal +
                 '\'' + '}';
+    }
+
+    public Bimestre getBimestre() {
+        return bimestre;
+    }
+
+    public void setBimestre(Bimestre bimestre) {
+        this.bimestre = bimestre;
+    }
+
+    public int getAno() {
+        return ano;
+    }
+
+    public void setAno(int ano) {
+        this.ano = ano;
+    }
+
+    public double getMedia() {
+        return media;
+    }
+
+    public void setMedia(double media) {
+        this.media = media;
+    }
+
+    public int getFrequenciaTotal() {
+        return frequenciaTotal;
+    }
+
+    public void setFrequenciaTotal(int frequenciaTotal) {
+        this.frequenciaTotal = frequenciaTotal;
+    }
+
+    public Aluno getAluno() {
+        return aluno;
+    }
+
+    public void setAluno(Aluno aluno) {
+        this.aluno = aluno;
+    }
+
+    public Turma getTurma() {
+        return turma;
+    }
+
+    public void setTurma(Turma turma) {
+        this.turma = turma;
+    }
+
+    public ArrayList<Bimestre> getBimestres() {
+        return bimestres;
+    }
+
+    public void setBimestres(ArrayList<Bimestre> bimestres) {
+        this.bimestres = bimestres;
     }
 }

@@ -1,6 +1,8 @@
 package br.ufrpe.SGEdu.usuarios;
 import br.ufrpe.SGEdu.turma.*;
 import java.util.ArrayList;
+import java.util.Arrays;
+
 import br.ufrpe.SGEdu.boletim.*;
 
 import br.ufrpe.SGEdu.gestao.*;
@@ -26,8 +28,7 @@ public class Aluno extends Usuario {
         super(nome, login, senha);
         this.responsavel=responsavel;
         this.turma=turma;
-
-        // turma.addAluno();
+        //turma.addAluno();
     }
 
 
@@ -44,6 +45,5 @@ public class Aluno extends Usuario {
     public Turma getTurma(Aluno aluno) {
         return aluno.turma;
     }
-    
-    
+
 }
