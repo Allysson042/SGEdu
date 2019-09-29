@@ -5,6 +5,10 @@ import br.ufrpe.SGEdu.gestao.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+/**
+ * Classe Turma, cria objetos do tipo Turma, são as turmas da escola, composta pelos alunos, professores e disciplinas;
+ * @author Laisy
+ */
 public class Turma {
     private String nome;
     private ArrayList<Aluno> alunos = new ArrayList<Aluno>();
@@ -15,6 +19,10 @@ public class Turma {
 
     Horario horario = new Horario();
 
+    /**
+     * Construtor Turma
+     * @param nome nome da Turma, ex:3º B
+     */
     public Turma(String nome) {
         this.nome = nome;
         this.professoresTurma = professoresTurma;

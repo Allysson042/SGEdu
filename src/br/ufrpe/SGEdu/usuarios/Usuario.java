@@ -1,10 +1,20 @@
 package br.ufrpe.SGEdu.usuarios;
 
+/**
+ * Classe Usuario, SuperClasse que cria objetos usuário ao qual utilizaram o sistema;
+ * @author
+ */
 public class Usuario {
     private String nome;
     private String login;
     private String senha;
 
+    /**
+     * Construtor Usuario
+     * @param nome
+     * @param login
+     * @param senha
+     */
     public Usuario(String nome, String login, String senha) {
         this.nome = nome;
         this.login = login;

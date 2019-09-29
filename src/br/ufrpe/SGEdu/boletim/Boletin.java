@@ -4,6 +4,10 @@ import br.ufrpe.SGEdu.usuarios.*;
 import br.ufrpe.SGEdu.turma.*;
 import java.util.ArrayList;
 
+/**Essa classe cria objetos do tipo Boletim onde é uma junção de Bimestres referentes a cada aluno;
+ * @author
+ */
+
 public class Boletin {
 
     private Bimestre bimestre;
@@ -13,6 +17,12 @@ public class Boletin {
     private int frequenciaTotal;
     private Turma turma;
     private String aluno;
+
+    /**
+     * Construtor Boletin
+     * @param ano ano que o boletim referencia;
+     * @param aluno aluno ao qual o boletim pertence;
+     */
 
     public Boletin(int ano, String aluno) {
         this.ano = ano;

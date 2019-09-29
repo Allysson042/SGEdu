@@ -7,6 +7,10 @@ import br.ufrpe.SGEdu.usuarios.Responsavel;
 
 import java.util.ArrayList;
 
+/**
+ * Classe de Repositorios do sistema;
+ * @author
+ */
 public class Repositorio {
     private ArrayList<Turma> listadeturmas = new ArrayList<>();
     private ArrayList<Responsavel> listaderesponsaveis = new ArrayList<>();

@@ -7,6 +7,10 @@ import br.ufrpe.SGEdu.usuarios.Professor;
 import br.ufrpe.SGEdu.usuarios.Responsavel;
 import br.ufrpe.SGEdu.script.*;
 
+/**
+ * Classe Menu ? a classe no main, onde todas as fun??es s?o chamadas;
+ * @author
+ */
 public class Menu {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);

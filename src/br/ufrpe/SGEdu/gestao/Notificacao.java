@@ -7,10 +7,15 @@ import br.ufrpe.SGEdu.turma.Turma;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**Essa classe cria objetos do tipo Notificação, onde vai criar as notificação que serão enviadas e recebidas pelos usuarios;
+ * @author
+ */
 public class Notificacao {
     ArrayList<String> notificacao = new ArrayList<>();
 
-
+    /**
+     * Construtor Notificacao
+     */
     public void enviarNotificacao(){
         Scanner sc = new Scanner(System.in);
         Repositorio repositorio = new Repositorio();
