@@ -7,6 +7,10 @@ import br.ufrpe.SGEdu.turma.Turma;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Classe Notificacao
+ * @author Lucas
+ */
 public class Notificacao {
     ArrayList<String> notificacao = new ArrayList<>();
     Scanner sc = new Scanner(System.in);

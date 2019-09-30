@@ -1,10 +1,20 @@
 package br.ufrpe.SGEdu.usuarios;
 
+/**
+ * Classe Usuario
+ * @author Allysson
+ */
 public class Usuario {
     private String nome;
     private String login;
     private String senha;
 
+    /**
+     * Construtor Usuario
+     * @param nome
+     * @param login
+     * @param senha
+     */
     public Usuario(String nome, String login, String senha) {
         this.nome = nome;
         this.login = login;

@@ -1,16 +1,27 @@
 package br.ufrpe.SGEdu.boletim;
 import br.ufrpe.SGEdu.usuarios.*;
 
+/**
+ * Classe Bimestre
+ * @author Laisy
+ */
 public class Bimestre{
 
     private Professor professor;
     private String nomeBimestre;
     private double nota;
     private int frequencia;
+    private String disciplina;
 
+    /**
+     * Construtor Bimestre
+     * @param nomeBimestre
+     * @param professor
+     */
     public Bimestre(String nomeBimestre, Professor professor){
         this.nomeBimestre = nomeBimestre;
         this.professor = professor;
+        this.disciplina = professor.getDiciplina();
     }
 
     public Professor getProfessor() {
@@ -45,14 +56,22 @@ public class Bimestre{
         this.frequencia = frequencia;
     }
 
-    @java.lang.Override
-    public java.lang.String toString() {
+    public String getDisciplina() {
+        return disciplina;
+    }
+
+    public void setDisciplina(String disciplina) {
+        this.disciplina = disciplina;
+    }
+
+    @Override
+    public String toString() {
         return "Bimestre{" +
                 "professor=" + professor +
                 ", nomeBimestre='" + nomeBimestre + '\'' +
                 ", nota=" + nota +
                 ", frequencia=" + frequencia +
+                ", disciplina='" + disciplina + '\'' +
                 '}';
     }
-
 }

@@ -5,6 +5,10 @@ import br.ufrpe.SGEdu.gestao.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+/**
+ * Classe Turma
+ * @author Laisy
+ */
 public class Turma {
     private String nome;
     private ArrayList<Aluno> alunos = new ArrayList<Aluno>();
@@ -15,6 +19,10 @@ public class Turma {
 
     Horario horario = new Horario();
 
+    /**
+     * Construtor Turma
+     * @param nome
+     */
     public Turma(String nome) {
         this.nome = nome;
         this.professoresTurma = professoresTurma;
@@ -57,14 +65,9 @@ public class Turma {
 
     public void printarAlunos(){
         int i;
-        if(!alunosTurma.isEmpty()){
-            for (i = 0; i < alunosTurma.size(); i++) {
-                System.out.printf("Aluno %d: %s \n", i, alunosTurma.get(i));
+        for (i = 0; i < alunosTurma.size(); i++) {
+            System.out.printf("Aluno %d: %s \n", i, alunosTurma.get(i));
             }
-        } else{
-            System.out.println("Turma ainda não possui alunos! ");
-        }
-
     }
 
     public boolean buscarAlunoNaTurma(String nome){
@@ -81,15 +84,10 @@ public class Turma {
 
     public void addProfessor(Professor professor) {
         String prof;
-        if(!professores.isEmpty()){
-            for (int i = 0; i < professores.size(); i++) {
+        for (int i = 0; i < professores.size(); i++) {
                 prof = professores.get(i).getNome();
                 professoresTurma.add(prof);
             }
-        } else{
-            System.out.println("Turma não possui professores! ");
-        }
-
     }
 
     public void removerProfessor(String nome){
@@ -157,6 +155,17 @@ public class Turma {
         }
 
     }
-
+    @Override
+    public String toString() {
+        return "Turma{" +
+                "nome='" + nome + '\'' +
+                ", alunos=" + alunos +
+                ", alunosTurma=" + alunosTurma +
+                ", professores=" + professores +
+                ", professoresTurma=" + professoresTurma +
+                ", disciplinasTurma=" + disciplinasTurma +
+                ", horario=" + horario +
+                '}';
+    }
 
 }

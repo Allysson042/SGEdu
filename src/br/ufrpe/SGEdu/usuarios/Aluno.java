@@ -5,11 +5,23 @@ import br.ufrpe.SGEdu.boletim.*;
 import br.ufrpe.SGEdu.gestao.Notificacao;
 import br.ufrpe.SGEdu.gestao.*;
 
+/**
+ * Classe Aluno
+ * @author Allysson
+ */
 public class Aluno extends Usuario {
     private Responsavel responsavel;
     private Turma turma;
     private ArrayList<String> notificacoes = new ArrayList<>();
 
+    /**
+     * Construtor Aluno
+     * @param nome
+     * @param login
+     * @param senha
+     * @param responsavel
+     * @param turma
+     */
     public Aluno(String nome, String login, String senha,Responsavel responsavel, Turma turma){
         super(nome, login, senha);
         this.responsavel=responsavel;
