@@ -1,30 +1,16 @@
 package br.ufrpe.SGEdu.boletim;
 import br.ufrpe.SGEdu.usuarios.*;
 
-/**Essa classe cria objetos do tipo Bimestre, serve criação do Boletim, que é um conjunto de objetos Bimestre;
- * @author Laisy
- */
-
 public class Bimestre{
 
     private Professor professor;
     private String nomeBimestre;
     private double nota;
     private int frequencia;
-    private String disciplina;
-
-    /**
-     * Construtor Bimestre
-     * @param nomeBimestre nome do Bimestre, ex: 1ºBimestre;
-     * @param professor
-     */
 
     public Bimestre(String nomeBimestre, Professor professor){
         this.nomeBimestre = nomeBimestre;
         this.professor = professor;
-        this.disciplina = professor.getDiciplina();
-        this.nota = nota;
-        this.frequencia = frequencia;
     }
 
     public Professor getProfessor() {
@@ -68,6 +54,5 @@ public class Bimestre{
                 ", frequencia=" + frequencia +
                 '}';
     }
-
 
 }

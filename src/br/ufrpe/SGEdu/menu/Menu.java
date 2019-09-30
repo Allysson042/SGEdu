@@ -1,5 +1,7 @@
 package br.ufrpe.SGEdu.menu;
 import java.util.Scanner;
+
+import br.ufrpe.SGEdu.turma.Turma;
 import br.ufrpe.SGEdu.usuarios.Aluno;
 import br.ufrpe.SGEdu.repositorio.Repositorio;
 import br.ufrpe.SGEdu.usuarios.Coordenador;
@@ -7,10 +9,6 @@ import br.ufrpe.SGEdu.usuarios.Professor;
 import br.ufrpe.SGEdu.usuarios.Responsavel;
 import br.ufrpe.SGEdu.script.*;
 
-/**
- * Classe Menu ? a classe no main, onde todas as fun??es s?o chamadas;
- * @author
- */
 public class Menu {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -18,6 +16,14 @@ public class Menu {
         Script script = new Script();
         script.addCoordenador(repositorio);
         String opcao;
+        Coordenador coord = new Coordenador("admin", "admin", "admin");
+        Responsavel respo = new Responsavel("juse", "juse", "juse");
+        Turma turm = new Turma("3a");
+        Aluno alun = new Aluno("aluno", "aluno", "aluno", respo, turm);
+        repositorio.adicionarCoordenadores(coord);
+        repositorio.adicionarAlunos(alun);
+        repositorio.adicionarTurmas(turm);
+        repositorio.adicionarResponsaveis(respo);
 
         do {
             System.out.println("" +
@@ -28,7 +34,7 @@ public class Menu {
                     "( 4 ) - PARA LOGIN COMO COORDENADOR\n" +
                     "( 5 ) - PARA SAIR\n" +
                     "*********************************************\n" +
-                    "DIGITE A OP??O DESEJADA: ");
+                    "DIGITE A OPÇÃO DESEJADA: ");
             opcao = sc.next();
             System.out.println("" +
                     "*********************************************\n");
@@ -51,22 +57,22 @@ public class Menu {
                                 do {
                                     System.out.println("" +
                                             "*********************************************\n" +
-                                            "( 1 ) - PARA VER HIST?RICO ESCOLAR\n" +
-                                            "( 2 ) - PARA VER FREQU?NCIA\n" +
-                                            "( 3 ) - PARA VER NOTIFICA??ES\n" +
+                                            "( 1 ) - PARA VER HISTÓRICO ESCOLAR\n" +
+                                            "( 2 ) - PARA VER FREQUÊNCIA\n" +
+                                            "( 3 ) - PARA VER NOTIFICAÇÔES\n" +
                                             "( 4 ) - PARA SAIR\n" +
                                             "*********************************************\n" +
-                                            "DIGITE A OP??O DESEJADA: ");
+                                            "DIGITE A OPÇÃO DESEJADA: ");
                                     opcao_menu_aluno = sc.next();
                                     System.out.println("" +
                                             "*********************************************\n");
                                     switch (opcao_menu_aluno) {
                                         case "1":
-                                            //EXIBIR HIST?RICO ESCOLAR
+                                            //EXIBIR HISTÓRICO ESCOLAR
                                         case "2":
-                                            //EXIBIR FREQU?NCIA
+                                            //EXIBIR FREQUÊNCIA
                                         case "3":
-                                            //PARA VER NOTIFICA??ES
+                                            aluno.exibirNotificacao();
                                     }
                                 } while (!opcao_menu_aluno.equals("4"));
                             }
@@ -77,7 +83,7 @@ public class Menu {
                                     "*********************************************\n");
                         }
                     }
-                break;
+                    break;
 
                 case "2":
                     String login_responsavel, senha_responsavel;
@@ -98,28 +104,28 @@ public class Menu {
                                 do {
                                     System.out.println("" +
                                             "*********************************************\n" +
-                                            "( 1 ) - PARA VER HIST?RICO ESCOLAR\n" +
-                                            "( 2 ) - PARA VER FREQU?NCIA\n" +
-                                            "( 3 ) - PARA VER NOTIFICA??ES\n" +
+                                            "( 1 ) - PARA VER HISTÓRICO ESCOLAR\n" +
+                                            "( 2 ) - PARA VER FREQUÊNCIA\n" +
+                                            "( 3 ) - PARA VER NOTIFICAÇÔES\n" +
                                             "( 4 ) - PARA SAIR\n" +
                                             "*********************************************\n" +
-                                            "DIGITE A OP??O DESEJADA: ");
+                                            "DIGITE A OPÇÃO DESEJADA: ");
                                     opcao_menu_responsavel = sc.next();
                                     System.out.println("" +
                                             "*********************************************\n");
                                     switch (opcao_menu_responsavel) {
                                         case "1":
-                                            //EXIBIR HIST?RICO ESCOLAR
+                                            //EXIBIR HISTÓRICO ESCOLAR
                                         case "2":
-                                            //EXIBIR FREQU?NCIA
+                                            //EXIBIR FREQUÊNCIA
                                         case "3":
-                                            //PARA VER NOTIFICA??ES
+                                            responsavel.exibirNotificacao();
                                     }
                                 } while (!opcao_menu_responsavel.equals("4"));
                             }
                         }
                     }
-                break;
+                    break;
 
                 case "3":
                     String login_professor, senha_professor;
@@ -140,27 +146,97 @@ public class Menu {
                                     System.out.println("" +
                                             "*********************************************\n" +
                                             "( 1 ) - PARA ADICIONAR NOTAS\n" +
-                                            "( 2 ) - PARA ADICIONAR FREQU?NCIA\n" +
-                                            "( 3 ) - PARA FAZER UMA NOTIFICA??O\n" +
+                                            "( 2 ) - PARA ADICIONAR FREQUÊNCIA\n" +
+                                            "( 3 ) - PARA FAZER UMA NOTIFICAÇÃO\n" +
                                             "( 4 ) - PARA SAIR\n" +
                                             "*********************************************\n" +
-                                            "DIGITE A OP??O DESEJADA: ");
+                                            "DIGITE A OPÇÃO DESEJADA: ");
                                     opcao_menu_professor = sc.next();
                                     System.out.println("" +
                                             "*********************************************\n");
                                     switch (opcao_menu_professor) {
                                         case "1":
-                                            //EXIBIR HIST?RICO ESCOLAR
+                                            //EXIBIR HISTÓRICO ESCOLAR
                                         case "2":
-                                            //EXIBIR FREQU?NCIA
+                                            //EXIBIR FREQUÊNCIA
                                         case "3":
-                                            //PARA VER NOTIFICA??ES
+                                            String opcao_notif_prof;
+                                            do {
+                                                System.out.println("" +
+                                                        "****************************************\n" +
+                                                        "SEJA BEM VINDO A CENTRAL DE NOTIFICAÇÕES\n" +
+                                                        "****************************************\n" +
+                                                        "DIGITE ( 1 ) - PARA UMA TURMA TODA\n" +
+                                                        "DIGITE ( 2 ) - PARA UM RESPONSÁVEL EM ESPECÍFICO\n" +
+                                                        "DIGITE ( 3 ) - PARA UM ALUNO EM ESPECÍFICO\n" +
+                                                        "DIGITE ( 4 ) - PARA VOLTAR\n" +
+                                                        "****************************************\n" +
+                                                        "PARA QUEM VOCÊ DESEJA ENVIAR A NOTIFICAÇÃO: ");
+                                                opcao_notif_prof = sc.next();
+
+                                                switch(opcao_notif_prof) {
+                                                    case "2":
+                                                        String nomeResponsavel;
+                                                        System.out.println("" +
+                                                                "****************************************\n" +
+                                                                "DIGITE O NOME DO RESPONSÁVEL QUE VOCÊ DESEJA ENVIAR A NOTIFICAÇÃO: ");
+                                                        nomeResponsavel = sc.nextLine();
+                                                        System.out.println("****************************************\n");
+
+                                                        for (Responsavel nome: repositorio.getResponsaveis()) {
+                                                            if (nome.getNome().equals(nomeResponsavel)){
+                                                                String mensagem;
+                                                                System.out.println("" +
+                                                                        "****************************************\n" +
+                                                                        "DIGITE A NOTIFICACAO QUE DESEJA ENVIAR: ");
+                                                                mensagem = sc.next();
+                                                                System.out.println("****************************************\n");
+
+                                                                nome.addNotificacao(mensagem);
+                                                            } else {
+                                                                System.out.println("" +
+                                                                        "RESPONSÁVEL NÃO ENCONTRADO" +
+                                                                        "****************************************\n");
+                                                            }
+                                                        }
+
+                                                        continue;
+
+                                                    case "3":
+                                                        String nomeAluno;
+                                                        System.out.println("" +
+                                                                "****************************************\n" +
+                                                                "DIGITE O NOME DO ALUNO QUE VOCÊ DESEJA ENVIAR A NOTIFICAÇÃO: ");
+                                                        nomeAluno = sc.nextLine();
+                                                        System.out.println("****************************************\n");
+
+                                                        for (Aluno nome: repositorio.getAlunos()) {
+                                                            if (nome.getNome().equals(nomeAluno)){
+                                                                String mensagem;
+                                                                System.out.println("" +
+                                                                        "****************************************\n" +
+                                                                        "DIGITE A NOTIFICACAO QUE DESEJA ENVIAR: ");
+                                                                mensagem = sc.next();
+                                                                System.out.println("****************************************\n");
+
+                                                                nome.addNotificacao(mensagem);
+                                                            } else {
+                                                                System.out.println("" +
+                                                                        "ALUNO NÃO ENCONTRADO" +
+                                                                        "****************************************\n");
+                                                            }
+                                                        }
+
+                                                        continue;
+                                                }
+                                            } while (!opcao_notif_prof.equals("4"));
                                     }
                                 } while (!opcao_menu_professor.equals("4"));
                             }
                         }
                     }
-                break;
+
+                    break;
 
                 case "4":
                     String login_coordenador, senha_coordenador;
@@ -183,11 +259,11 @@ public class Menu {
                                             "( 1 ) - PARA CADASTRAR PROFESSORES\n" +
                                             "( 2 ) - PARA CADASTRAR ALUNOS\n" +
                                             "( 3 ) - PARA CADASTRAR TURMAS\n" +
-                                            "( 4 ) - PARA FAZER UMA NOTIFICA??O\n" +
+                                            "( 4 ) - PARA FAZER UMA NOTIFICAÇÃO\n" +
                                             "( 5 ) - ADICIONAR PROFESSOR EM TURMA\n" +
                                             "( 6 ) - PARA SAIR\n" +
                                             "*********************************************\n" +
-                                            "DIGITE A OP??O DESEJADA: ");
+                                            "DIGITE A OPÇÃO DESEJADA: ");
                                     opcao_menu_coordenador = sc.next();
                                     System.out.println("" +
                                             "*********************************************\n");
@@ -202,7 +278,79 @@ public class Menu {
                                             coordenador.cadTurma(repositorio);
                                             continue;
                                         case "4":
-                                            //FAZER NOTIFICA??O
+                                            String opcao_notif_coord;
+                                            do {
+                                                System.out.println("" +
+                                                        "****************************************\n" +
+                                                        "SEJA BEM VINDO A CENTRAL DE NOTIFICAÇÕES\n" +
+                                                        "****************************************\n" +
+                                                        "DIGITE ( 1 ) - PARA UMA TURMA TODA\n" +
+                                                        "DIGITE ( 2 ) - PARA UM RESPONSÁVEL EM ESPECÍFICO\n" +
+                                                        "DIGITE ( 3 ) - PARA UM ALUNO EM ESPECÍFICO\n" +
+                                                        "DIGITE ( 4 ) - PARA VOLTAR\n" +
+                                                        "****************************************\n" +
+                                                        "PARA QUEM VOCÊ DESEJA ENVIAR A NOTIFICAÇÃO: ");
+                                                opcao_notif_coord = sc.next();
+
+                                                switch(opcao_notif_coord) {
+                                                    case "1":
+                                                        break;
+                                                    case "2":
+                                                        String nomeResponsavel = null;
+                                                        System.out.println("" +
+                                                                "****************************************\n" +
+                                                                "DIGITE O NOME DO RESPONSÁVEL QUE VOCÊ DESEJA ENVIAR A NOTIFICAÇÃO: ");
+                                                        nomeResponsavel = sc.nextLine();
+                                                        System.out.println("****************************************\n");
+
+                                                        for (Responsavel nome: repositorio.getResponsaveis()) {
+                                                            if (nome.getNome().equals(nomeResponsavel)){
+                                                                String mensagem;
+                                                                System.out.println("" +
+                                                                        "****************************************\n" +
+                                                                        "DIGITE A NOTIFICACAO QUE DESEJA ENVIAR: ");
+                                                                mensagem = sc.nextLine();
+                                                                System.out.println("" +
+                                                                        "****************************************\n");
+
+                                                                nome.addNotificacao(mensagem);
+                                                            } else {
+                                                                System.out.println("" +
+                                                                        "RESPONSÁVEL NÃO ENCONTRADO\n" +
+                                                                        "****************************************\n");
+                                                            }
+                                                        }
+
+                                                        break;
+
+                                                    case "3":
+                                                        String nomeAluno;
+                                                        System.out.println("" +
+                                                                "****************************************\n" +
+                                                                "DIGITE O NOME DO ALUNO QUE VOCÊ DESEJA ENVIAR A NOTIFICAÇÃO: ");
+                                                        nomeAluno = sc.nextLine();
+                                                        System.out.println("****************************************\n");
+
+                                                        for (Aluno nome: repositorio.getAlunos()) {
+                                                            if (nome.getNome().equals(nomeAluno)){
+                                                                String mensagem;
+                                                                System.out.println("" +
+                                                                        "****************************************\n" +
+                                                                        "DIGITE A NOTIFICACAO QUE DESEJA ENVIAR: ");
+                                                                mensagem = sc.next();
+                                                                System.out.println("****************************************\n");
+
+                                                                nome.addNotificacao(mensagem);
+                                                            } else {
+                                                                System.out.println("" +
+                                                                        "ALUNO NÃO ENCONTRADO" +
+                                                                        "****************************************\n");
+                                                            }
+                                                        }
+
+                                                        break;
+                                                }
+                                            } while (!opcao_notif_coord.equals("4"));
                                         case "5":
                                             //ADICIONAR PROFESSOR EM TURMA
                                     }
@@ -210,7 +358,7 @@ public class Menu {
                             }
                         }
                     }
-                break;
+                    break;
             }
         } while (!opcao.equals("5"));
     }

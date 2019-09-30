@@ -7,19 +7,13 @@ import br.ufrpe.SGEdu.turma.Turma;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-/**Essa classe cria objetos do tipo Notificação, onde vai criar as notificação que serão enviadas e recebidas pelos usuarios;
- * @author
- */
 public class Notificacao {
     ArrayList<String> notificacao = new ArrayList<>();
+    Scanner sc = new Scanner(System.in);
+    Repositorio repositorio = new Repositorio();
 
-    /**
-     * Construtor Notificacao
-     */
     public void enviarNotificacao(){
-        Scanner sc = new Scanner(System.in);
-        Repositorio repositorio = new Repositorio();
-        Responsavel responsavel;
+
         int opcaoNotif;
         System.out.println("" +
                 "****************************************\n" +
@@ -40,17 +34,17 @@ public class Notificacao {
                 nomeTurma = sc.nextLine();
                 for (Turma nome: repositorio.getTurmas()) {
                     if (nome.getNome().equals(nomeTurma)){
-                        //AAAAAAAAAAAAA
+                        //aaa
                     }
                 }
 
             case 2:
                 String nomeResponsavel;
-                System.out.println("DIGITE O NOME DO RESPONSAVEL QUE DESEJA ENCAMINHAR A NOTIFICAÇÃO");
+                System.out.println("DIGITE O NOME DO RESPONSAVEL QUE DESEJA ENCAMINHAR A NOTIFICAÇÃO: ");
                 nomeResponsavel = sc.nextLine();
                 for (Responsavel nome: repositorio.getResponsaveis()) {
                     if (nome.getNome().equals(nomeResponsavel)) {
-                        //AAAAAAAAAAAAAAAAAA
+
                     }
                 }
 
@@ -67,14 +61,6 @@ public class Notificacao {
             case 4:
                 //VOLTAAAAAAAAAAAAR
         }
-
-    }
-
-    public void exibirNotificacao(Aluno aluno) {
-
-    }
-
-    public void exibirNotificacao(Responsavel responsavel) {
 
     }
 }

@@ -4,19 +4,9 @@ import java.util.Scanner;
 import br.ufrpe.SGEdu.repositorio.Repositorio;
 import br.ufrpe.SGEdu.turma.Turma;
 
-/**
- * Classe Coordenador, cria objetos coordenador, SubClasse de Usuario;
- * @author
- */
 public class Coordenador extends Usuario {
     Scanner sc = new Scanner(System.in);
 
-    /**
-     * Construtor Coordenador
-     * @param nome
-     * @param login
-     * @param senha
-     */
     public Coordenador(String nome, String login, String senha) {
         super(nome, login, senha);
     }
@@ -34,9 +24,9 @@ public class Coordenador extends Usuario {
         System.out.println("" +
                 "DISCIPLINA: ");
         disciplina= sc.next();
-        
-        
-        
+
+
+
         System.out.println("" +
                 "LOGIN DO PROFESSOR: ");
         login= sc.next();
@@ -75,54 +65,57 @@ public class Coordenador extends Usuario {
         Turma turma_aluno = null;
         System.out.println("" +
                 "*********************************************\n" +
-                "              CADASTRAR ALUNOS" +
+                "              CADASTRAR ALUNOS\n" +
                 "*********************************************\n" +
                 "NOME DO ALUNO: : ");
         nome= sc.next();
 
-        while (!nome_responsavel.toUpperCase().equals("SAIR")){
+        while (!nome_responsavel.toUpperCase().equals("SAIR")) {
             System.out.println("" +
-                    "NOME DO RESPONSÃ�VEL: ");
+                    "NOME DO RESPONSÁVEL: ");
             nome_responsavel= sc.next();
 
             for(Responsavel responsavel: repositorio.getResponsaveis()) {
                 if(responsavel.getNome().equals(nome_responsavel)) {
-                    responsavel_aluno=responsavel;
+                    responsavel_aluno = responsavel;
+                } else {
+                    System.out.println("" +
+                            "*********************************************\n" +
+                            "        RESPONSAVEL NAO ENCONTRADO\n" +
+                            "*********************************************\n" +
+                            "INSIRA OUTRO NOME DO RESPONSÃ�VEL\n"+
+                            "OU DIGITE SAIR PARA SAIR: ");
+                    nome_responsavel = sc.next();
                 }
             }
-            System.out.println("" +
-                    "*********************************************\n" +
-                    "        RESPONSAVEL NAO ENCONTRADO" +
-                    "*********************************************\n" +
-                    "INSIRA OUTRO NOME DO RESPONSÃ�VEL\n"+
-                    "OU DIGITE SAIR PARA SAIR: ");
-            nome_responsavel = sc.next();
+
             if (nome_responsavel.toUpperCase().equals("SAIR")) {
                 break;
             }
         }
 
-        while (!nome_turma.toUpperCase().equals("SAIR")){
+        do {
             System.out.println("" +
                     "TURMA: ");
-            nome_turma= sc.next();
+            nome_turma = sc.next();
 
-            for(Turma turma: repositorio.getTurmas()) {
-                if(turma.getNome().equals(nome_turma)) {
-                    turma_aluno=turma;
+            for (Turma turma : repositorio.getTurmas()) {
+                if (turma.getNome().equals(nome_turma)) {
+                    turma_aluno = turma;
                 }
             }
             System.out.println("" +
                     "*********************************************\n" +
                     "           TURMA NAO ENCONTRADA\n" +
                     "*********************************************\n" +
-                    "INSIRA OUTRO NOME DA TURMA \n"+
+                    "INSIRA OUTRO NOME DA TURMA \n" +
                     "OU DIGITE SAIR PARA SAIR");
-            nome_turma= sc.next();
+            nome_turma = sc.next();
             if (nome_turma.toUpperCase().equals("SAIR")) {
                 break;
             }
-        }
+        } while (!nome_turma.toUpperCase().equals("SAIR"));
+
 
         System.out.println("" +
                 "LOGIN DO ALUNO: ");
@@ -136,6 +129,4 @@ public class Coordenador extends Usuario {
 
         repositorio.adicionarAlunos(aluno);
     }
-
-
 }
