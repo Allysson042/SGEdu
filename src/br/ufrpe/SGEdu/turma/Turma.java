@@ -12,10 +12,10 @@ import java.util.Arrays;
 public class Turma {
     private String nome;
     private ArrayList<Aluno> alunos = new ArrayList<Aluno>();
-    private ArrayList alunosTurma = new ArrayList();
+    private ArrayList String alunosTurma = new ArrayList();
     private ArrayList<Professor> professores = new ArrayList<Professor>();
-    private ArrayList professoresTurma = new ArrayList();
-    private ArrayList disciplinasTurma = new ArrayList();
+    private ArrayList String professoresTurma = new ArrayList();
+    private ArrayList String disciplinasTurma = new ArrayList();
 
     Horario horario = new Horario();
 
@@ -41,15 +41,10 @@ public class Turma {
 
     public void addAluno(Aluno aluno) {
         String alu;
-        if(!alunos.isEmpty()){
-            for (int i = 0; i < alunos.size(); i++) {
-                alu = alunos.get(i).getNome();
-                alunosTurma.add(alu);
+        for (int i = 0; i < alunos.size(); i++) {
+            alu = alunos.get(i).getNome();
+            alunosTurma.add(alu);
             }
-        } else{
-            System.out.println("Turma não possui alunos! ");
-        }
-
     }
 
     public void removerAluno(String nome){
@@ -65,14 +60,8 @@ public class Turma {
 
     public void printarAlunos(){
         int i;
-        if(!alunosTurma.isEmpty()){
-            for (i = 0; i < alunosTurma.size(); i++) {
+        for (i = 0; i < alunosTurma.size(); i++) {
                 System.out.printf("Aluno %d: %s \n", i, alunosTurma.get(i));
-            }
-        } else{
-            System.out.println("Turma ainda não possui alunos! ");
-        }
-
     }
 
     public boolean buscarAlunoNaTurma(String nome){
@@ -89,15 +78,10 @@ public class Turma {
 
     public void addProfessor(Professor professor) {
         String prof;
-        if(!professores.isEmpty()){
-            for (int i = 0; i < professores.size(); i++) {
-                prof = professores.get(i).getNome();
-                professoresTurma.add(prof);
-            }
-        } else{
-            System.out.println("Turma não possui professores! ");
+        for (int i = 0; i < professores.size(); i++) {
+            prof = professores.get(i).getNome();
+            professoresTurma.add(prof);
         }
-
     }
 
     public void removerProfessor(String nome){

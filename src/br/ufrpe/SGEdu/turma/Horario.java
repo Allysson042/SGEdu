@@ -11,7 +11,7 @@ import br.ufrpe.SGEdu.turma.Turma;
 
 public class Horario {
     private Turma turma;
-    private String [][] horario;
+    private String[][] horario;
     private String[] diasSem = new String[]{"SEGUNDA", "TERÇA", "QUARTA", "QUINTA", "SEXTA"};
 
     public Horario(){
@@ -27,7 +27,6 @@ public class Horario {
                 } else{
                     k=0;
                 } horario[i][j] = turma.getDisciplinaTurma(k);
-
             }
         }
     }
@@ -43,9 +42,5 @@ public class Horario {
 
     public String[][] getHorario() {
         return horario;
-    }
-
-    public void setHorario(String[][] horario) {
-        this.horario = horario;
     }
 }
