@@ -4,10 +4,20 @@ import br.ufrpe.SGEdu.gestao.Notificacao;
 
 import java.util.ArrayList;
 
+/**
+ * Classe Responsavel
+ * @author Allysson
+ */
 public class Responsavel extends Usuario {
     private ArrayList<Aluno> alunos = new ArrayList<Aluno>();
     private ArrayList<String> notificacoes = new ArrayList<>();
 
+    /**
+     * Construtor Responsavel
+     * @param nome
+     * @param login
+     * @param senha
+     */
     public Responsavel(String nome, String login, String senha) {
         super(nome, login, senha);
     }

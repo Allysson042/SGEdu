@@ -4,9 +4,19 @@ import java.util.Scanner;
 import br.ufrpe.SGEdu.repositorio.Repositorio;
 import br.ufrpe.SGEdu.turma.Turma;
 
+/**
+ * Classe Coordenador
+ * @author Allysson
+ */
 public class Coordenador extends Usuario {
     Scanner sc = new Scanner(System.in);
 
+    /**
+     * Construtor Coordenador
+     * @param nome
+     * @param login
+     * @param senha
+     */
     public Coordenador(String nome, String login, String senha) {
         super(nome, login, senha);
     }

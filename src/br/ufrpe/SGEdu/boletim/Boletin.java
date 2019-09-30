@@ -4,6 +4,10 @@ import br.ufrpe.SGEdu.usuarios.*;
 import br.ufrpe.SGEdu.turma.*;
 import java.util.ArrayList;
 
+/**
+ * Classe Boletin
+ * @author Laisy
+ */
 public class Boletin {
 
     private Bimestre bimestre;
@@ -14,6 +18,11 @@ public class Boletin {
     private Turma turma;
     private String aluno;
 
+    /**
+     * Construtor Boletin
+     * @param ano
+     * @param aluno
+     */
     public Boletin(int ano, String aluno) {
         this.ano = ano;
         this.aluno = aluno;
@@ -45,4 +54,5 @@ public class Boletin {
                 ", frequenciaTotal=" + frequenciaTotal +
                 '\'' + '}';
     }
+
 }

@@ -2,6 +2,10 @@ package br.ufrpe.SGEdu.script;
 import br.ufrpe.SGEdu.repositorio.Repositorio;
 import br.ufrpe.SGEdu.usuarios.*;
 
+/**
+ * Classe Script
+ * @author Allysson
+ */
 public class Script {
     public void addCoordenador(Repositorio repositorio) {
         String nome = "jooj", login = "coord", senha = "123";

@@ -4,11 +4,18 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import br.ufrpe.SGEdu.turma.Turma;
 
+/**
+ * Classe Horario
+ * @author Laisy
+ */
 public class Horario {
     private Turma turma;
     private String [][] horario;
     private String[] diasSem = new String[]{"SEGUNDA", "TERÇA", "QUARTA", "QUINTA", "SEXTA"};
 
+    /**
+     * Construtor Horario
+     */
     public Horario(){
         this.horario = new String[5][5];
     }
