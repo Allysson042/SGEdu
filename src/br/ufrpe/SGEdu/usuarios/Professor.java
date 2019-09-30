@@ -1,25 +1,16 @@
 package br.ufrpe.SGEdu.usuarios;
+import java.util.ArrayList;
 import java.util.Scanner;
 import br.ufrpe.SGEdu.repositorio.Repositorio;
 import br.ufrpe.SGEdu.gestao.*;
 import br.ufrpe.SGEdu.boletim.*;
 
-/**
- * Classe Professor, cria objetos Professor, SubClasse de Usuario;
- * @author
- */
+
 public class Professor extends Usuario{
     private String disciplina;
     Repositorio repositorio = new Repositorio();
     Scanner sc = new Scanner(System.in);
 
-    /**
-     * Construtor Professor
-     * @param nome
-     * @param login
-     * @param senha
-     * @param disciplina
-     */
     public Professor(String nome, String login, String senha, String disciplina) {
         super(nome, login, senha);
         this.disciplina=disciplina;
@@ -31,6 +22,13 @@ public class Professor extends Usuario{
 
     public String getDiciplina() {
         return disciplina;
+    }
+
+    @Override
+    public String toString() {
+        return "Professor{" +
+                "disciplina='" + disciplina + '\'' +
+                '}';
     }
 
     /*public void addNotas(Repositorio repositorio) {
@@ -70,18 +68,4 @@ public class Professor extends Usuario{
     }
     */
 
-    public String getDisciplina() {
-        return disciplina;
-    }
-
-    public void setDisciplina(String disciplina) {
-        this.disciplina = disciplina;
-    }
-
-    @Override
-    public String toString() {
-        return "Professor{" +
-                "disciplina='" + disciplina + '\'' +
-                '}';
-    }
 }

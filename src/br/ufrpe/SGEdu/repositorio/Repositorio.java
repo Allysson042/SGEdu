@@ -7,10 +7,6 @@ import br.ufrpe.SGEdu.usuarios.Responsavel;
 
 import java.util.ArrayList;
 
-/**
- * Classe de Repositorios do sistema;
- * @author
- */
 public class Repositorio {
     private ArrayList<Turma> listadeturmas = new ArrayList<>();
     private ArrayList<Responsavel> listaderesponsaveis = new ArrayList<>();
@@ -36,9 +32,12 @@ public class Repositorio {
     public void adicionarProfessores(Professor professor) {
         listadeprofessores.add(professor);
     }
+    public void adicionarResponsaveis(Responsavel responsavel) {
+        listaderesponsaveis.add(responsavel);
+    }
     public ArrayList<Coordenador> getCoordenadores() { return listadecoordenadores; }
     public void adicionarCoordenadores(Coordenador coordenador) {
-    	listadecoordenadores.add(coordenador);
+        listadecoordenadores.add(coordenador);
     }
 
     public void adicionarTurmas(Turma turma) {

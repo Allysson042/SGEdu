@@ -5,24 +5,16 @@ import br.ufrpe.SGEdu.gestao.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-/**
- * Classe Turma, cria objetos do tipo Turma, são as turmas da escola, composta pelos alunos, professores e disciplinas;
- * @author Laisy
- */
 public class Turma {
     private String nome;
     private ArrayList<Aluno> alunos = new ArrayList<Aluno>();
-    private ArrayList String alunosTurma = new ArrayList();
+    private ArrayList alunosTurma = new ArrayList();
     private ArrayList<Professor> professores = new ArrayList<Professor>();
-    private ArrayList String professoresTurma = new ArrayList();
-    private ArrayList String disciplinasTurma = new ArrayList();
+    private ArrayList professoresTurma = new ArrayList();
+    private ArrayList disciplinasTurma = new ArrayList();
 
     Horario horario = new Horario();
 
-    /**
-     * Construtor Turma
-     * @param nome nome da Turma, ex:3º B
-     */
     public Turma(String nome) {
         this.nome = nome;
         this.professoresTurma = professoresTurma;
@@ -41,10 +33,15 @@ public class Turma {
 
     public void addAluno(Aluno aluno) {
         String alu;
-        for (int i = 0; i < alunos.size(); i++) {
-            alu = alunos.get(i).getNome();
-            alunosTurma.add(alu);
+        if(!alunos.isEmpty()){
+            for (int i = 0; i < alunos.size(); i++) {
+                alu = alunos.get(i).getNome();
+                alunosTurma.add(alu);
             }
+        } else{
+            System.out.println("Turma não possui alunos! ");
+        }
+
     }
 
     public void removerAluno(String nome){
@@ -60,8 +57,14 @@ public class Turma {
 
     public void printarAlunos(){
         int i;
-        for (i = 0; i < alunosTurma.size(); i++) {
+        if(!alunosTurma.isEmpty()){
+            for (i = 0; i < alunosTurma.size(); i++) {
                 System.out.printf("Aluno %d: %s \n", i, alunosTurma.get(i));
+            }
+        } else{
+            System.out.println("Turma ainda não possui alunos! ");
+        }
+
     }
 
     public boolean buscarAlunoNaTurma(String nome){
@@ -78,10 +81,15 @@ public class Turma {
 
     public void addProfessor(Professor professor) {
         String prof;
-        for (int i = 0; i < professores.size(); i++) {
-            prof = professores.get(i).getNome();
-            professoresTurma.add(prof);
+        if(!professores.isEmpty()){
+            for (int i = 0; i < professores.size(); i++) {
+                prof = professores.get(i).getNome();
+                professoresTurma.add(prof);
+            }
+        } else{
+            System.out.println("Turma não possui professores! ");
         }
+
     }
 
     public void removerProfessor(String nome){
@@ -107,7 +115,7 @@ public class Turma {
 
     }
     public String getDisciplinaTurma(int i){
-       return disciplinasTurma.get(i).toString();
+        return disciplinasTurma.get(i).toString();
     }
 
     public int getTamanhoArrayDisciplina(){
@@ -150,14 +158,5 @@ public class Turma {
 
     }
 
-    @Override
-    public String toString() {
-        return "Turma{" +
-                "nome='" + nome + '\'' +
-                ", alunosTurma=" + alunosTurma +
-                ", professoresTurma=" + professoresTurma +
-                ", disciplinasTurma=" + disciplinasTurma +
-                ", horario=" + horario +
-                '}';
-    }
+
 }
