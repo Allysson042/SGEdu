@@ -1,81 +1,40 @@
 package br.ufrpe.SGEdu.usuarios;
 import java.util.ArrayList;
-import java.util.Scanner;
-import br.ufrpe.SGEdu.repositorio.Repositorio;
-import br.ufrpe.SGEdu.gestao.*;
-import br.ufrpe.SGEdu.boletim.*;
+
+import br.ufrpe.SGEdu.turma.Disciplina;
+import br.ufrpe.SGEdu.turma.Turma;
 
 /**
- * Classe Professor
- * @author Allysson
+ * Class Professor
+ * @author Allysson & Lucas Leonardo
  */
+
 public class Professor extends Usuario{
-    private String disciplina;
-    Repositorio repositorio = new Repositorio();
-    Scanner sc = new Scanner(System.in);
-
-    /**
-     * Construtor Professor
-     * @param nome
-     * @param login
-     * @param senha
-     * @param disciplina
-     */
-    public Professor(String nome, String login, String senha, String disciplina) {
+    private Disciplina disciplina;
+    private ArrayList <Turma> turmas;
+    
+    public Professor(String nome, String login, String senha, Disciplina disciplina) {
         super(nome, login, senha);
-        this.disciplina=disciplina;
+        this.disciplina = disciplina;
+        this.turmas = new ArrayList<Turma>();
     }
 
-    public void setDiciplina(String diciplina) {
-        this.disciplina=diciplina;
-    }
+	public Disciplina getDisciplina() {
+		return disciplina;
+	}
 
-    public String getDiciplina() {
-        return disciplina;
-    }
+	public void setDisciplina(Disciplina disciplina) {
+		this.disciplina = disciplina;
+	}
 
-    @Override
-    public String toString() {
-        return "Professor{" +
-                "disciplina='" + disciplina + '\'' +
-                '}';
-    }
+	public ArrayList<Turma> getTurmas() {
+		return turmas;
+	}
 
-    /*public void addNotas(Repositorio repositorio) {
-        String nome_aluno;
-        float nota1,nota2,nota3,nota4;
-        System.out.println("" +
-                "****************Adição de notas**************\n" +
-                "Nome do aluno: ");
-        nome_aluno = sc.next();
-        for(Aluno aluno: repositorio.getAlunos()) {
-            if(aluno.getNome().equals(nome_aluno)) {
-                System.out.println("" +
-                        "Nota do primeiro semestre: ");
-                nota1 = sc.nextFloat();
-                System.out.println("" +
-                        "Nota do segundo semestre: ");
-                nota2 = sc.nextFloat();
-                System.out.println("" +
-                        "Nota do terceiro semestre: ");
-                nota3 = sc.nextFloat();
-                System.out.println("" +
-                        "Nota do quarto semestre: ");
-                nota4 = sc.nextFloat();
-
-
-                Notas notas=new Notas(this.disciplina,nota1,nota2,nota3,nota4);//cria um objeto notas com as notas lidas
-                aluno.boletim.add(notas);//adiciona essas notas lidas para o array boletim do aluno selecionado
-
-
-                System.out.println("" +
-                        "Notas inseridas com sucesso"+
-                        "*********************************************\n");
-                break;
-            }
-        }
-        System.out.println("****!!!Aluno nao encontrado!!!***");
-    }
-    */
+	public void addTurma(Turma turma){
+		turmas.add(turma);
+	}
+	
+	
 
 }

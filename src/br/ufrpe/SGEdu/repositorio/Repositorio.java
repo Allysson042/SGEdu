@@ -1,15 +1,15 @@
 package br.ufrpe.SGEdu.repositorio;
 import br.ufrpe.SGEdu.usuarios.Aluno;
+import br.ufrpe.SGEdu.diario.*;
 import br.ufrpe.SGEdu.turma.Turma;
 import br.ufrpe.SGEdu.usuarios.Coordenador;
 import br.ufrpe.SGEdu.usuarios.Professor;
 import br.ufrpe.SGEdu.usuarios.Responsavel;
 
 import java.util.ArrayList;
-
 /**
- * Classe Repositorio
- * @author Lucas
+ * Class Repositorio
+ * @author Lucas Leonardo
  */
 public class Repositorio {
     private ArrayList<Turma> listadeturmas = new ArrayList<>();
@@ -17,6 +17,7 @@ public class Repositorio {
     private ArrayList<Aluno> listadealunos = new ArrayList<>();
     private ArrayList<Professor> listadeprofessores = new ArrayList<>();
     private ArrayList<Coordenador> listadecoordenadores = new ArrayList<>();
+    private ArrayList<Boletim> listadeboletins = new ArrayList<>();
 
     public ArrayList<Turma> getTurmas() {
         return listadeturmas;
@@ -26,6 +27,9 @@ public class Repositorio {
     }
     public ArrayList<Aluno> getAlunos() {
         return listadealunos;
+    }
+    public ArrayList<Boletim> getBoletins(){
+        return listadeboletins;
     }
     public void adicionarAlunos(Aluno aluno) {
         listadealunos.add(aluno);
@@ -39,12 +43,17 @@ public class Repositorio {
     public void adicionarResponsaveis(Responsavel responsavel) {
         listaderesponsaveis.add(responsavel);
     }
-    public ArrayList<Coordenador> getCoordenadores() { return listadecoordenadores; }
+    public ArrayList<Coordenador> getCoordenadores() {
+        return listadecoordenadores;
+    }
     public void adicionarCoordenadores(Coordenador coordenador) {
         listadecoordenadores.add(coordenador);
     }
 
     public void adicionarTurmas(Turma turma) {
         listadeturmas.add(turma);
+    }
+    public void adicionarBoletins(Boletim boletim) {
+        listadeboletins.add(boletim);
     }
 }

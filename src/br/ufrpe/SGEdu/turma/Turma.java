@@ -1,171 +1,72 @@
 package br.ufrpe.SGEdu.turma;
 
-import br.ufrpe.SGEdu.usuarios.*;
-import br.ufrpe.SGEdu.gestao.*;
 import java.util.ArrayList;
-import java.util.Arrays;
+
+import br.ufrpe.SGEdu.usuarios.Aluno;
 
 /**
- * Classe Turma
+ * Class Turma
  * @author Laisy
  */
+
 public class Turma {
     private String nome;
-    private ArrayList<Aluno> alunos = new ArrayList<Aluno>();
-    private ArrayList alunosTurma = new ArrayList();
-    private ArrayList<Professor> professores = new ArrayList<Professor>();
-    private ArrayList professoresTurma = new ArrayList();
-    private ArrayList disciplinasTurma = new ArrayList();
+    private int ano;
+    private ArrayList<Disciplina> disciplinas;
+    private ArrayList<Aluno> alunos;
 
-    Horario horario = new Horario();
-
-    /**
-     * Construtor Turma
-     * @param nome
-     */
-    public Turma(String nome) {
-        this.nome = nome;
-        this.professoresTurma = professoresTurma;
-        this.alunosTurma = alunosTurma;
-        this.disciplinasTurma = disciplinasTurma;
-        this.horario = horario;
+    public Turma(String nome, int ano){
+        this.nome = nome;  //unica
+        this.ano = ano;		//unica
+        this.disciplinas = new ArrayList<Disciplina>();
+        this.alunos = new ArrayList<Aluno>();
+        
     }
 
-    public String getNome() {
-        return nome;
-    }
+	public String getNome() {
+		return nome;
+	}
 
-    public void setNome(String nome){
-        this.nome = nome;
-    }
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
 
-    public void addAluno(Aluno aluno) {
-        String alu;
-        if(!alunos.isEmpty()){
-            for (int i = 0; i < alunos.size(); i++) {
-                alu = alunos.get(i).getNome();
-                alunosTurma.add(alu);
-            }
-        } else{
-            System.out.println("Turma não possui alunos! ");
-        }
+	public int getAno() {
+		return ano;
+	}
 
-    }
+	public void setAno(int ano) {
+		this.ano = ano;
+	}
 
-    public void removerAluno(String nome){
-        int index;
-        if(alunosTurma.contains(nome)){
-            index = alunosTurma.indexOf(nome);
-            alunosTurma.remove(index);
-            System.out.println("Aluno removido! ");
-        } else{
-            System.out.println("Aluno não pertence a turma! ");
-        }
-    }
+	public ArrayList<Disciplina> getDisciplinas() {
+		return disciplinas;
+	}
 
-    public void printarAlunos(){
-        int i;
-        for (i = 0; i < alunosTurma.size(); i++) {
-            System.out.printf("Aluno %d: %s \n", i, alunosTurma.get(i));
-            }
-    }
+	public void addDisciplina(Disciplina disciplina) {
+		disciplinas.add(disciplina);
+	}
+	
+	public void removeDisciplina(Disciplina disciplina) {
+		int index = disciplinas.indexOf(disciplina);
+		if(index > -1) {
+			disciplinas.remove(disciplina);
+		}
+	}
 
-    public boolean buscarAlunoNaTurma(String nome){
-        if(alunosTurma.contains(nome)){
-            return true;
-        } else{
-            return false;
-        }
-    }
+	public ArrayList<Aluno> getAlunos() {
+		return alunos;
+	}
 
-    public ArrayList getAlunosTurma() {
-        return alunosTurma;
-    }
-
-    public void addProfessor(Professor professor) {
-        String prof;
-        for (int i = 0; i < professores.size(); i++) {
-                prof = professores.get(i).getNome();
-                professoresTurma.add(prof);
-            }
-    }
-
-    public void removerProfessor(String nome){
-        int index;
-        if(professoresTurma.contains(nome)){
-            index = professoresTurma.indexOf(nome);
-            professoresTurma.remove(index);
-            System.out.println("Professor removido! ");
-        } else{
-            System.out.println("Professor não pertence a  turma! ");
-        }
-    }
-
-    public void printarProfessores(){
-        int i;
-        if(!professoresTurma.isEmpty()){
-            for (i = 0; i < professoresTurma.size(); i++) {
-                System.out.printf("Professor %d: %s \n", i, professoresTurma.get(i));
-            }
-        } else{
-            System.out.println("Turma ainda não possui professores! ");
-        }
-
-    }
-    public String getDisciplinaTurma(int i){
-        return disciplinasTurma.get(i).toString();
-    }
-
-    public int getTamanhoArrayDisciplina(){
-        return disciplinasTurma.size();
-    }
-
-    public void addDisciplina(Professor professor){
-        String disc;
-        if(!professores.isEmpty()){
-            for (int i = 0; i < professores.size(); i++) {
-                disc = professores.get(i).getDiciplina();
-                disciplinasTurma.add(disc);
-            }
-        } else{
-            System.out.println("Cadastre um professor! ");
-        }
-
-    }
-
-    public void removerDisciplina(String nome){
-        int index;
-        if(disciplinasTurma.contains(nome)){
-            index = disciplinasTurma.indexOf(nome);
-            disciplinasTurma.remove(index);
-            System.out.println("Disciplina removida! ");
-        } else{
-            System.out.println("Disciplina não pertence a turma! ");
-        }
-    }
-
-    public void printarDisciplinas(){
-        int i;
-        if(!disciplinasTurma.isEmpty()){
-            for (i = 0; i < disciplinasTurma.size(); i++) {
-                System.out.printf("Disciplina %d: %s \n", i, disciplinasTurma.get(i));
-            }
-        } else{
-            System.out.println("Turma ainda não possui Disciplinas! ");
-        }
-
-    }
-    @Override
-    public String toString() {
-        return "Turma{" +
-                "nome='" + nome + '\'' +
-                ", alunos=" + alunos +
-                ", alunosTurma=" + alunosTurma +
-                ", professores=" + professores +
-                ", professoresTurma=" + professoresTurma +
-                ", disciplinasTurma=" + disciplinasTurma +
-                ", horario=" + horario +
-                '}';
-    }
-
+	public void addAlunos(Aluno aluno) {
+		alunos.add(aluno);
+	}
+	
+	public void removeAluno(Aluno aluno) {
+		int index = alunos.indexOf(aluno);
+		if(index > -1) {
+			alunos.remove(aluno);
+		}
+	}
+    
 }

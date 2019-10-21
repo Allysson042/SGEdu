@@ -1,64 +1,36 @@
 package br.ufrpe.SGEdu.usuarios;
-import br.ufrpe.SGEdu.turma.*;
 import java.util.ArrayList;
-import br.ufrpe.SGEdu.boletim.*;
-import br.ufrpe.SGEdu.gestao.Notificacao;
-import br.ufrpe.SGEdu.gestao.*;
+
+import br.ufrpe.SGEdu.diario.Boletim;
+
 
 /**
- * Classe Aluno
- * @author Allysson
+ * Class Aluno
+ * @author Allysson & Lucas Leonardo
  */
 public class Aluno extends Usuario {
-    private Responsavel responsavel;
-    private Turma turma;
-    private ArrayList<String> notificacoes = new ArrayList<>();
-
-    /**
-     * Construtor Aluno
-     * @param nome
-     * @param login
-     * @param senha
-     * @param responsavel
-     * @param turma
-     */
-    public Aluno(String nome, String login, String senha,Responsavel responsavel, Turma turma){
+	
+	private ArrayList<Boletim> boletins;
+	private Responsavel responsavel;
+	
+    public Aluno(String nome, String login, String senha){
         super(nome, login, senha);
-        this.responsavel=responsavel;
-        this.turma=turma;
-
-        // turma.addAluno();
     }
 
+	public ArrayList<Boletim> getBoletins() {
+		return boletins;
+	}
 
+	public void addBoletins(Boletim boletim) {
+		boletins.add(boletim);
+	}
 
-    public void setResponsavel(Responsavel responsavel) {
-        this.responsavel=responsavel;
-    }
-    public String getResponsavel() {
-        return responsavel.getNome();
-    }
+	public Responsavel getResponsavel() {
+		return responsavel;
+	}
 
-    public void setTurma(Turma turma) {
-        this.turma=turma;
-    }
-    public Turma getTurma(Aluno aluno) {
-        return aluno.turma;
-    }
+	public void setResponsavel(Responsavel responsavel) {
+		this.responsavel = responsavel;
+	}
 
-    public void addNotificacao(String notificacao) {
-        this.notificacoes.add(notificacao);
-    }
-    public void exibirNotificacao() {
-        if (notificacoes.isEmpty()){
-            System.out.println("" +
-                    "*********************************************\n" +
-                    "    NÃO TEM NENHUMA NOTIFICAÇÃO PARA VOCÊ\n" +
-                    "*********************************************\n");
-        } else {
-            for (String mensagem: notificacoes) {
-                System.out.println(mensagem+"\n");
-            }
-        }
-    }
 }

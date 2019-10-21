@@ -1,25 +1,23 @@
 package br.ufrpe.SGEdu.usuarios;
-
-import br.ufrpe.SGEdu.gestao.Notificacao;
-
 import java.util.ArrayList;
 
-/**
- * Classe Responsavel
- * @author Allysson
- */
-public class Responsavel extends Usuario {
-    private ArrayList<Aluno> alunos = new ArrayList<Aluno>();
-    private ArrayList<String> notificacoes = new ArrayList<>();
+import br.ufrpe.SGEdu.diario.Boletim;
+import br.ufrpe.SGEdu.repositorio.Repositorio;
 
-    /**
-     * Construtor Responsavel
-     * @param nome
-     * @param login
-     * @param senha
-     */
+/**
+ * Class Responsavel
+ * @author Allysson & Lucas Leonardo
+ */
+
+public class Responsavel extends Usuario {
+    private ArrayList<Aluno> alunos;
+    private ArrayList<String> notificacoes;
+    
+    //obrigatório ao menos 1 aluno para associar o responsável
     public Responsavel(String nome, String login, String senha) {
         super(nome, login, senha);
+        this.alunos = new ArrayList<Aluno>();
+        this.notificacoes = new ArrayList<>();
     }
 
     public void addAluno(Aluno aluno) {
