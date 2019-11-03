@@ -10,20 +10,29 @@ import SGEdu.usuarios.Professor;
 
 public class Disciplina {
 	
-	private String disciplina;
-	private Professor professor;
+	private String nome;
+	private Professor professor; 
+	private int quantAulas;
 	
-	public Disciplina(String disciplina){
-		this.disciplina = disciplina;
-		
+	public Disciplina(String nome, int quantAulas){
+		this.nome = nome;
+		this.quantAulas = quantAulas;
 	}
 
-	public String getDisciplina() {
-		return disciplina;
+	public String getNome() {
+		return nome;
 	}
 
-	public void setDisciplina(String disciplina) {
-		this.disciplina = disciplina;
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	
+	public int quantAulas() {
+		return quantAulas;
+	}
+	
+	public void getQuantAulas(int quantAulas) {
+		this.quantAulas = quantAulas;
 	}
 
 	public Professor getProfessor() {
