@@ -1,6 +1,6 @@
-package br.ufrpe.SGEdu.turma;
+package SGEdu.turma;
 
-import br.ufrpe.SGEdu.usuarios.Professor;
+import SGEdu.usuarios.Professor;
 
 /**
  * Class Disciplina

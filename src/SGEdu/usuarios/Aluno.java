@@ -1,7 +1,8 @@
-package br.ufrpe.SGEdu.usuarios;
+package SGEdu.usuarios;
 import java.util.ArrayList;
 
-import br.ufrpe.SGEdu.diario.Boletim;
+
+import SGEdu.diario.Boletim;
 
 
 /**

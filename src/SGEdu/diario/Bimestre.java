@@ -1,4 +1,4 @@
-package br.ufrpe.SGEdu.diario;
+package SGEdu.diario;
 
 import java.util.ArrayList;
 

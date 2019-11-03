@@ -1,8 +1,9 @@
-package br.ufrpe.SGEdu.turma;
+package SGEdu.turma;
 
 import java.util.ArrayList;
 
-import br.ufrpe.SGEdu.usuarios.Aluno;
+
+import SGEdu.usuarios.Aluno;
 
 /**
  * Class Turma

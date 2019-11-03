@@ -1,4 +1,4 @@
-package br.ufrpe.SGEdu.usuarios;
+package SGEdu.usuarios;
 
 /**
  * Superclass Usuario
