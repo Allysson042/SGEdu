@@ -1,9 +1,6 @@
 package SGEdu.usuarios;
+
 import java.util.ArrayList;
-
-
-import SGEdu.diario.Boletim;
-import SGEdu.repositorios.Repositorio;
 
 /**
  * Class Responsavel
