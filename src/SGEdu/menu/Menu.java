@@ -1,15 +1,11 @@
-package br.ufrpe.SGEdu.menu;
+package SGEdu.menu;
 import java.util.Scanner;
 
-import br.ufrpe.SGEdu.turma.Turma;
-import br.ufrpe.SGEdu.usuarios.Aluno;
-import br.ufrpe.SGEdu.diario.Boletim;
-import br.ufrpe.SGEdu.repositorio.Repositorio;
-import br.ufrpe.SGEdu.usuarios.Coordenador;
-import br.ufrpe.SGEdu.usuarios.Professor;
-import br.ufrpe.SGEdu.usuarios.Responsavel;
-import br.ufrpe.SGEdu.seeder.*;
-import br.ufrpe.SGEdu.turma.Horario;
+
+import SGEdu.diario.*;
+import SGEdu.repositorios.*;
+import SGEdu.turma.*;
+import SGEdu.usuarios.*;
 
 
 /**

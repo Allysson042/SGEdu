@@ -1,6 +1,6 @@
-package br.ufrpe.SGEdu.diario;
+package SGEdu.diario;
 
-import br.ufrpe.SGEdu.turma.Disciplina;
+import SGEdu.turma.Disciplina;
 
 public class BimestreDisciplina{
 	

@@ -1,7 +1,8 @@
-package br.ufrpe.SGEdu.diario;
+package SGEdu.diario;
 import java.util.ArrayList;
 
-import br.ufrpe.SGEdu.turma.Turma;
+
+import SGEdu.turma.Turma;
 
 /**
  * Class Boletim

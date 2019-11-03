@@ -1,8 +1,8 @@
-package br.ufrpe.SGEdu.usuarios;
+package SGEdu.usuarios;
 import java.util.ArrayList;
 
-import br.ufrpe.SGEdu.turma.Disciplina;
-import br.ufrpe.SGEdu.turma.Turma;
+import SGEdu.turma.Disciplina;
+import SGEdu.turma.Turma;
 
 /**
  * Class Professor
