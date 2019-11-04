@@ -2,7 +2,6 @@ package SGEdu.menu;
 
 import java.util.Scanner;
 
-import SGEdu.diario.Boletim;
 import SGEdu.turma.*;
 import SGEdu.usuarios.*;
 import SGEdu.repositorios.*;
@@ -16,22 +15,33 @@ public class Menu {
     public static void main(String[] args) {
     	
         Scanner sc = new Scanner(System.in);
-        RepositorioUsuarios repositorioUsuarios = new RepositorioUsuarios();
+        RepositorioAluno repositorioAluno = new RepositorioAluno();
         RepositorioTurma repostiorioTurma = new RepositorioTurma();
+        RepositorioProfessor repositorioProfessor = new RepositorioProfessor();
         RepositorioDisciplina repositorioDisciplina = new RepositorioDisciplina();
+        RepositorioCoordenador repositorioCoordenador = new RepositorioCoordenador();
+        RepositorioResponsavel repositorioResponsavel = new RepositorioResponsavel();
 
-        Usuario coord = new Coordenador("Allysson", "admin", "admin");
-        Usuario respo = new Responsavel("Lucas", "Lucas", "123");
+        Coordenador coord = new Coordenador("Coord", "admin", "admin");
+        Responsavel respo = new Responsavel("Lucas", "Lucas", "123");
         Turma turm = new Turma("3a", 2019);
-        Usuario alun = new Aluno("Laisy", "Laisy", "123");
-        Disciplina d = new Disciplina("Matematica", 50);
-        Usuario prof = new Professor("Pedro", "Pedro", "123", d);
+        Aluno alun = new Aluno("Laisy", "Laisy", "123");
         
-        repositorioUsuarios.addUsuario(coord);
-        repositorioUsuarios.addUsuario(respo);
-        repositorioUsuarios.addUsuario(alun);
+        Disciplina d = new Disciplina("Matematica", 50);
+        Professor prof = new Professor("Pedro", "Pedro", "123", d);
+        
+        d.setProfessor(prof);
+        turm.addDisciplina(d);
+        turm.addAlunos(alun);
+        alun.setResponsavel(respo);
+        prof.addTurma(turm);
+        respo.addAluno(alun);
+        
+        repositorioCoordenador.addCoordenador(coord);
+        repositorioResponsavel.addResponsavel(respo);
+        repositorioAluno.addAluno(alun);
         repostiorioTurma.addTurma(turm);
-        repositorioUsuarios.addUsuario(prof);
+        repositorioProfessor.addProfessor(prof);
         repositorioDisciplina.addDisciplina(d);
         
     }
