@@ -25,7 +25,7 @@ public class Aluno extends Usuario {
 	public void addBoletins(Boletim boletim) {
 		boletins.add(boletim);
 	}
-
+	
 	public Responsavel getResponsavel() {
 		return responsavel;
 	}
