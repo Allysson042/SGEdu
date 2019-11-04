@@ -2,6 +2,8 @@ package SGEdu.diario;
 
 import java.util.ArrayList;
 
+import SGEdu.turma.Disciplina;
+
 /**
  * Class Bimestre
  * @author Laisy
@@ -28,11 +30,9 @@ public class Bimestre{
 		return bimestreDisciplinas;
 	}
 
-	public void addBimestreDisciplinas(BimestreDisciplina bimestreDisciplina) {
+	public void addBimestreDisciplinas(Disciplina disciplina) {
+		BimestreDisciplina bimestreDisciplina = new BimestreDisciplina(disciplina);
 		bimestreDisciplinas.add(bimestreDisciplina);
-	}
-    
-	
-    
+	}   
 
 }
