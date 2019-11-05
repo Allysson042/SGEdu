@@ -2,6 +2,14 @@ package SGEdu.diario;
 
 import SGEdu.turma.Disciplina;
 
+/**
+ * Classe BimestreDisciplina
+ * A Classe BimestreDisciplina possui uma disciplina, a nota e frequencia deferente a essa disciplina,
+ * para cada bimestre.
+ * E uma composição com a Classe Bimestre, um BimestreDisciplina não existe se uma Bimestre não existir;
+ */
+
+
 public class BimestreDisciplina{
 	
 	private double nota;

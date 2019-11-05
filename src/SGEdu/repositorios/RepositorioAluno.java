@@ -18,19 +18,13 @@ public class RepositorioAluno{
 	}
 	
 	public void removerAlunoNome(String nome) {
-		for(int i=0; i<alunos.size(); i++) {
-			if(alunos.get(i).getNome().contentEquals(nome)) {
-				alunos.remove(i);
-			}
-		}
+		Aluno a = buscarAlunoNome(nome);
+		alunos.remove(a);
 	}
 	
 	public void removerAlunoLogin(String login) {
-		for(int i=0; i<alunos.size(); i++) {
-			if(alunos.get(i).getLogin().contentEquals(login)) {
-				alunos.remove(i);
-			}
-		}
+		Aluno a = buscarAlunoLogin(login);
+		alunos.remove(a);
 	}
 	
 	public Aluno buscarAlunoNome(String nome) {
@@ -65,17 +59,8 @@ public class RepositorioAluno{
 		return null;
 	}
 	
-	public Boletim removerBoletim(Aluno aluno, int ano) {
-		for(int i=0; i<alunos.size(); i++) {
-			if(alunos.get(i).equals(aluno)) {
-				Aluno a = alunos.get(i);
-				for(int k=0; k<a.getBoletins().size(); k++) {
-					if(a.getBoletins().get(k).getAno() == ano) {
-						a.getBoletins().remove(k);
-					}
-				}
-			}
-		}
-		return null;
+	public void removerBoletim(Aluno aluno, int ano) {
+		Boletim boletim = buscarBoletim(aluno, ano);
+		aluno.getBoletins().remove(boletim);
 	}
 }

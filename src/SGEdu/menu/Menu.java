@@ -8,7 +8,6 @@ import SGEdu.repositorios.*;
 
 /**
  * Class Menu
- * @author Lucas Leonardo
  */
 
 public class Menu {
@@ -43,6 +42,7 @@ public class Menu {
         repostiorioTurma.addTurma(turm);
         repositorioProfessor.addProfessor(prof);
         repositorioDisciplina.addDisciplina(d);
+        
         
     }
 }

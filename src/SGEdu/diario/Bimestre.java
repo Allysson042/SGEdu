@@ -6,7 +6,9 @@ import SGEdu.turma.Disciplina;
 
 /**
  * Class Bimestre
- * @author Laisy
+ * A Classe Bimestre possui o nome do bismetre, ex "1° Bimestre" e uma conjunto de bimestres disciplina,
+ * que são a nota e frequência de uma referida disciplina.
+ * É uma composição com a Classe Boletim, um Bimestre não existe se uma Boletim não existir.
  */
 
 public class Bimestre{

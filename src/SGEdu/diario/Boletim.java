@@ -5,7 +5,9 @@ import SGEdu.usuarios.Aluno;
 
 /**
  * Class Boletim
- * @author Laisy
+ * A Classe Boletim, serve para criar objetos Boletim. Um boletim é um conjunto de bimestres, 
+ * no qual possuem nota e frequência pra cada disciplina referente a cada bimestre,
+ * ele pertence a uma aluno e possui o ano ao qual ele está refido.
  */
 
 public class Boletim {
