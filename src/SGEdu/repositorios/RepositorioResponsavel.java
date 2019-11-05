@@ -16,19 +16,13 @@ public class RepositorioResponsavel {
 	}
 	
 	public void removerResponsavelNome(String nome) {
-		for(int i=0; i<responsaveis.size(); i++) {
-			if(responsaveis.get(i).getNome().contentEquals(nome)) {
-				responsaveis.remove(i);
-			}
-		}
+		Responsavel r = buscarResponsavelNome(nome);
+		responsaveis.remove(r);
 	}
 	
 	public void removerResponsavelLogin(String login) {
-		for(int i=0; i<responsaveis.size(); i++) {
-			if(responsaveis.get(i).getLogin().contentEquals(login)) {
-				responsaveis.remove(i);
-			}
-		}
+		Responsavel r = buscarResponsavelLogin(login);
+		responsaveis.remove(r);
 	}
 	
 	public Responsavel buscarResponsavelNome(String nome) {

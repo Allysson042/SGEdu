@@ -5,6 +5,7 @@ import SGEdu.usuarios.Professor;
 /**
  * Class Disciplina
  * @author laisy
+ * A classe Disciplina 
  *
  */
 

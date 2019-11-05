@@ -16,11 +16,8 @@ public class RepositorioDisciplina {
 	}
 	
 	public void removerDisciplina(String nome) {
-		for(int i=0; i<disciplinas.size(); i++) {
-			if(disciplinas.get(i).getNome().contentEquals(nome)) {
-				disciplinas.remove(i);
-			}
-		}
+		Disciplina d = buscarDisciplina(nome);
+		disciplinas.remove(d);
 	}
 	
 	public Disciplina buscarDisciplina(String nome) {

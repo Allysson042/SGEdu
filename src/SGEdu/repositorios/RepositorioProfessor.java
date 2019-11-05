@@ -16,19 +16,14 @@ public class RepositorioProfessor{
 	}
 	
 	public void removerProfessorNome(String nome) {
-		for(int i=0; i<professores.size(); i++) {
-			if(professores.get(i).getNome().contentEquals(nome)) {
-				professores.remove(i);
-			}
-		}
+		Professor p = buscarProfessorNome(nome);
+		professores.remove(p);
 	}
 	
 	public void removerProfessorLogin(String login) {
-		for(int i=0; i<professores.size(); i++) {
-			if(professores.get(i).getLogin().contentEquals(login)) {
-				professores.remove(i);
-			}
-		}
+		Professor p = buscarProfessorLogin(login);
+		professores.remove(p);
+
 	}
 	
 	public Professor buscarProfessorNome(String nome) {

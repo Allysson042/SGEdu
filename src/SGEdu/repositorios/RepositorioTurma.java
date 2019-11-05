@@ -16,11 +16,8 @@ public class RepositorioTurma {
 	}
 	
 	public void removerTurma(String nome, int ano) {
-		for(int i=0; i<turmas.size(); i++) {
-			if(turmas.get(i).getNome().contentEquals(nome) && turmas.get(i).getAno() == ano) {
-				turmas.remove(i);
-			}
-		}
+		Turma t = buscarTurma(nome, ano);
+		turmas.remove(t);
 	}
 	
 	public Turma buscarTurma(String nome, int ano) {

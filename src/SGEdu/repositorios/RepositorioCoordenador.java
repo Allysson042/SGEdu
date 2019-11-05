@@ -15,19 +15,14 @@ public class RepositorioCoordenador {
 	}
 	
 	public void removerCoordenadorNome(String nome) {
-		for(int i=0; i<coordenadores.size(); i++) {
-			if(coordenadores.get(i).getNome().contentEquals(nome)) {
-				coordenadores.remove(i);
-			}
-		}
+		Coordenador coord = buscarCoordenadorNome(nome);
+		coordenadores.remove(coord);
+		
 	}
 	
 	public void removerCoordenadorLogin(String login) {
-		for(int i=0; i<coordenadores.size(); i++) {
-			if(coordenadores.get(i).getLogin().contentEquals(login)) {
-				coordenadores.remove(i);
-			}
-		}
+		Coordenador coord = buscarCoordenadorLogin(login);
+		coordenadores.remove(coord);
 	}
 	
 	public Coordenador buscarCoordenadorNome(String nome) {
