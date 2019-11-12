@@ -1,6 +1,8 @@
 package SGEdu.repositorios;
 
 import java.util.ArrayList;
+
+import SGEdu.usuarios.Professor;
 import SGEdu.usuarios.Responsavel;
 
 public class RepositorioResponsavel {
@@ -42,5 +44,20 @@ public class RepositorioResponsavel {
 		}
 		return null;
 	}
-
+	
+	public void alterarSenhaResponsavel(Responsavel responsavel){ 
+		Responsavel r = buscarResponsavelLogin(responsavel.getLogin());
+		if(r == null) {
+			//throw new ResponsavelNaoExisteException();
+		} 
+		responsavel.setSenha(r.getSenha());
+	}
+	
+	public void alterarNomeResponsavel(Responsavel responsavel){ 
+		Responsavel r = buscarResponsavelLogin(responsavel.getLogin());
+		if(r == null) {
+			//throw new ResponsavelNaoExisteException();
+		} 
+		responsavel.setNome(r.getNome());
+	}
 }

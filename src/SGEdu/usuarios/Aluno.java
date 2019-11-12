@@ -1,4 +1,5 @@
 package SGEdu.usuarios;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 
@@ -9,7 +10,7 @@ import SGEdu.diario.Boletim;
  * Class Aluno
  * @author Allysson & Lucas Leonardo
  */
-public class Aluno extends Usuario {
+public class Aluno extends Usuario implements Serializable{
 	
 	private ArrayList<Boletim> boletins;
 	private Responsavel responsavel;

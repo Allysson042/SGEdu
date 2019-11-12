@@ -5,7 +5,7 @@ package SGEdu.usuarios;
  * @author Allysson & Lucas Leonardo
  */
 
-public class Coordenador extends Usuario {
+public class Coordenador extends Usuario{
 
     public Coordenador(String nome, String login, String senha) {
         super(nome, login, senha);
