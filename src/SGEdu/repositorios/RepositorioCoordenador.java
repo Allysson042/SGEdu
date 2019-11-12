@@ -1,6 +1,8 @@
 package SGEdu.repositorios;
 
 import java.util.ArrayList;
+
+import SGEdu.usuarios.Aluno;
 import SGEdu.usuarios.Coordenador;
 
 public class RepositorioCoordenador {
@@ -42,4 +44,21 @@ public class RepositorioCoordenador {
 		}
 		return null;
 	}
+	
+	public void alterarSenhaCoordenador(Coordenador coordenador){ 
+		Coordenador c = buscarCoordenadorLogin(coordenador.getLogin());
+		if(c == null) {
+			//throw new CoordenadorNaoExisteException();
+		} 
+		coordenador.setSenha(c.getSenha());
+	}
+	
+	public void alterarNomeCoordenador(Coordenador coordenador){ 
+		Coordenador c = buscarCoordenadorLogin(coordenador.getLogin());
+		if(c == null) {
+			//throw new CoordenadorNaoExisteException();
+		} 
+		coordenador.setNome(c.getNome());
+	}
+	
 }

@@ -2,6 +2,7 @@ package SGEdu.repositorios;
 
 import java.util.ArrayList;
 import SGEdu.turma.Disciplina;
+import SGEdu.usuarios.Coordenador;
 
 public class RepositorioDisciplina {
 	
@@ -29,6 +30,13 @@ public class RepositorioDisciplina {
 		return null;
 	}
 	
+	public void alterarDisciplina(Disciplina disciplina){ 
+		Disciplina d = buscarDisciplina(disciplina.getNome());
+		if(d == null) {
+			//throw new DisciplinaNaoExisteException();
+		} 
+		disciplina.setNome(d.getNome());
+	}
 	
 	
 }

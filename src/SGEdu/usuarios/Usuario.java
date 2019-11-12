@@ -1,10 +1,12 @@
 package SGEdu.usuarios;
 
+import java.io.Serializable;
+
 /**
  * Superclass Usuario
  * @author Allysson & Lucas Leonardo
  */
-public class Usuario {
+public class Usuario implements Serializable {
     private String nome;
     private String login;
     private String senha;
@@ -19,10 +21,12 @@ public class Usuario {
 
     public void setNome(String nome) { this.nome = nome; }
 
-    public void redefirSenha(String senha) { this.senha = senha; }
+    public void setSenha(String senha) { this.senha = senha; }
 
     public String getLogin() { return login; }
 
+    public String getSenha() { return senha; }
+    
     public boolean verificaSenha(String senha) {
         if (this.senha.equals(senha)) {
             return true;

@@ -2,6 +2,7 @@ package SGEdu.repositorios;
 
 import java.util.ArrayList;
 import SGEdu.turma.Turma;
+import SGEdu.usuarios.Responsavel;
 
 public class RepositorioTurma {
 	
@@ -27,5 +28,14 @@ public class RepositorioTurma {
 			}
 		}
 		return null;
+	}
+	
+	public void alterarTurma(Turma turma){ 
+		Turma t = buscarTurma(turma.getNome(), turma.getAno());
+		if(t == null) {
+			//throw new TurmaNaoExisteException();
+		} 
+		turma.setNome(t.getNome());
+		turma.setAno(t.getAno());
 	}
 }

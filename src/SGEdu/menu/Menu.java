@@ -1,7 +1,5 @@
 package SGEdu.menu;
 
-import java.util.Scanner;
-
 import SGEdu.turma.*;
 import SGEdu.usuarios.*;
 import SGEdu.repositorios.*;
@@ -13,7 +11,6 @@ import SGEdu.repositorios.*;
 public class Menu {
     public static void main(String[] args) {
     	
-        Scanner sc = new Scanner(System.in);
         RepositorioAluno repositorioAluno = new RepositorioAluno();
         RepositorioTurma repostiorioTurma = new RepositorioTurma();
         RepositorioProfessor repositorioProfessor = new RepositorioProfessor();

@@ -1,6 +1,8 @@
 package SGEdu.repositorios;
 
 import java.util.ArrayList;
+
+import SGEdu.usuarios.Coordenador;
 import SGEdu.usuarios.Professor;
 
 public class RepositorioProfessor{
@@ -44,6 +46,20 @@ public class RepositorioProfessor{
 		return null;
 	}
 	
+	public void alterarSenhaProfessor(Professor professor){ 
+		Professor p = buscarProfessorLogin(professor.getLogin());
+		if(p == null) {
+			//throw new ProfessorNaoExisteException();
+		} 
+		professor.setSenha(p.getSenha());
+	}
 	
+	public void alterarNomeProfessor(Professor professor){ 
+		Professor p = buscarProfessorLogin(professor.getLogin());
+		if(p == null) {
+			//throw new ProfessorNaoExisteException();
+		} 
+		professor.setNome(p.getNome());
+	}
 	
 }
