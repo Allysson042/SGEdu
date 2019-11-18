@@ -1,6 +1,10 @@
-package SGEdu.notificacao;
+package sgedu.notificacao;
 
-public class Notificacao {
+import java.io.Serializable;
+
+import sgedu.repositorios.RepositorioNotificacoes;
+
+public class Notificacao implements Serializable{
 	private String notificacao;
 	private String nomeRemetente;
 	private String nomeDestinatario;
@@ -43,7 +47,7 @@ public class Notificacao {
 	}
 	
 	public void setId(int id) {
-		this.id=id;
+		this.id = RepositorioNotificacoes.contadorNotificacao;
 	}
 	
 }

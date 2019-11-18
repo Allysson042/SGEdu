@@ -1,4 +1,4 @@
-package SGEdu.usuarios;
+package sgedu.usuarios;
 
 import java.io.Serializable;
 
@@ -6,15 +6,15 @@ import java.io.Serializable;
  * Superclass Usuario
  * @author Allysson & Lucas Leonardo
  */
-public class Usuario implements Serializable {
+public abstract class Usuario implements Serializable {
     private String nome;
-    private String login;
     private String senha;
+    private String login;
 
-    public Usuario(String nome, String login, String senha) {
+    public Usuario(String nome, String senha) {
         this.nome = nome;
-        this.login = login;
         this.senha = senha;
+        this.login = gerarLogin();
     }
 
     public String getNome() { return nome; }
@@ -23,7 +23,13 @@ public class Usuario implements Serializable {
 
     public void setSenha(String senha) { this.senha = senha; }
 
-    public String getLogin() { return login; }
+    public String getLogin() {
+		return login;
+	}
+    
+    public abstract String gerarLogin();
+    
+    //public abstract void verificaLogin();
 
     public String getSenha() { return senha; }
     

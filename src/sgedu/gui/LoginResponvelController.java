@@ -1,4 +1,4 @@
-package SGEdu.GUI;
+package sgedu.gui;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

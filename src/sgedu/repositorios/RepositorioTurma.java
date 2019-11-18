@@ -1,8 +1,9 @@
-package SGEdu.repositorios;
+package sgedu.repositorios;
 
 import java.util.ArrayList;
-import SGEdu.turma.Turma;
-import SGEdu.usuarios.Responsavel;
+
+import sgedu.turma.Turma;
+import sgedu.usuarios.Responsavel;
 
 public class RepositorioTurma {
 	
@@ -38,4 +39,6 @@ public class RepositorioTurma {
 		turma.setNome(t.getNome());
 		turma.setAno(t.getAno());
 	}
+	
+	//public Aluno buscarAlunoTurma() {}
 }

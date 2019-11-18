@@ -1,23 +1,33 @@
-package SGEdu.usuarios;
+package sgedu.usuarios;
 
+import java.io.Serializable;
 import java.util.ArrayList;
+
+import sgedu.repositorios.RepositorioResponsavel;;
 
 /**
  * Class Responsavel
  * @author Allysson & Lucas Leonardo
  */
 
-public class Responsavel extends Usuario {
+public class Responsavel extends Usuario implements Serializable{
+	private String login;
     private ArrayList<Aluno> alunos;
 
     //obrigatório ao menos 1 aluno para associar o responsável
-    public Responsavel(String nome, String login, String senha) {
-        super(nome, login, senha);
+    public Responsavel(String nome, String senha) {
+        super(nome, senha);
         this.alunos = new ArrayList<Aluno>();
     }
 
     public void addAluno(Aluno aluno) {
         alunos.add(aluno);
     }
+
+	@Override
+	public String gerarLogin() {
+		login = "RESP" + RepositorioResponsavel.contadorResponsavel;
+		return login;
+	}
 
 }

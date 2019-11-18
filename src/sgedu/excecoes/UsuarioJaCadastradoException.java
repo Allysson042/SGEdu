@@ -1,4 +1,4 @@
-package SGEdu.excecoes;
+package sgedu.excecoes;
 
 public class UsuarioJaCadastradoException extends Exception{
 	

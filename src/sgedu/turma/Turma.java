@@ -1,9 +1,8 @@
-package SGEdu.turma;
+package sgedu.turma;
 
 import java.util.ArrayList;
 
-
-import SGEdu.usuarios.Aluno;
+import sgedu.usuarios.Aluno;
 
 /**
  * Class Turma
@@ -44,11 +43,12 @@ public class Turma {
 		return disciplinas;
 	}
 
-	public void addDisciplina(Disciplina disciplina) {
+	public void addDisciplinaTurma(Disciplina disciplina) {
 		disciplinas.add(disciplina);
 	}
 	
-	public void removeDisciplina(Disciplina disciplina) {
+
+	public void removeDisciplinaTurma(Disciplina disciplina) {
 		int index = disciplinas.indexOf(disciplina);
 		if(index > -1) {
 			disciplinas.remove(disciplina);
@@ -59,11 +59,11 @@ public class Turma {
 		return alunos;
 	}
 
-	public void addAlunos(Aluno aluno) {
+	public void addAlunosTurma(Aluno aluno) {
 		alunos.add(aluno);
 	}
 	
-	public void removeAluno(Aluno aluno) {
+	public void removeAlunoTurma(Aluno aluno) {
 		int index = alunos.indexOf(aluno);
 		if(index > -1) {
 			alunos.remove(aluno);

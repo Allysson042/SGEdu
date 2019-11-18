@@ -1,8 +1,7 @@
-package SGEdu.repositorios;
+package sgedu.repositorios;
 
 import java.util.ArrayList;
-import SGEdu.turma.Disciplina;
-import SGEdu.usuarios.Coordenador;
+import sgedu.turma.Disciplina;
 
 public class RepositorioDisciplina {
 	

@@ -1,13 +1,13 @@
-package SGEdu.repositorios;
+package sgedu.repositorios;
 
 import java.util.ArrayList;
-
-import SGEdu.excecoes.UsuarioJaCadastradoException;
-import SGEdu.excecoes.UsuarioNaoEncontradoException;
-import SGEdu.usuarios.Coordenador;
+import sgedu.excecoes.UsuarioJaCadastradoException;
+import sgedu.excecoes.UsuarioNaoEncontradoException;
+import sgedu.usuarios.Coordenador;
 
 public class RepositorioCoordenador {
 	ArrayList <Coordenador> coordenadores;
+	public static int contadorCoordenador;
 	
 	public RepositorioCoordenador() {
 		coordenadores = new ArrayList<Coordenador>();
@@ -18,17 +18,23 @@ public class RepositorioCoordenador {
 			throw new UsuarioJaCadastradoException("Coordenador já cadastrado! ");
 		}
 		coordenadores.add(c);
+		contadorCoordenador ++;
 	}
 	
-	public void removerCoordenadorNome(String nome) {
-		Coordenador coord = buscarCoordenadorNome(nome);
-		coordenadores.remove(coord);
-		
+	public void removerCoordenadorNome(String nome) throws UsuarioNaoEncontradoException {
+		Coordenador c = buscarCoordenadorNome(nome);
+		if(c == null) {
+			throw new UsuarioNaoEncontradoException("Coordenador não encontrado! ");
+		}
+		coordenadores.remove(c);
 	}
 	
-	public void removerCoordenadorLogin(String login) {
-		Coordenador coord = buscarCoordenadorLogin(login);
-		coordenadores.remove(coord);
+	public void removerCoordenadorLogin(String login) throws UsuarioNaoEncontradoException{
+		Coordenador c = buscarCoordenadorLogin(login);
+		if(c == null) {
+			throw new UsuarioNaoEncontradoException("Coordenador não encontrado! ");
+		}
+		coordenadores.remove(c);
 	}
 	
 	public Coordenador buscarCoordenadorNome(String nome) {
@@ -57,10 +63,10 @@ public class RepositorioCoordenador {
 		coordenador.setSenha(c.getSenha());
 	}
 	
-	public void alterarNomeCoordenador(Coordenador coordenador){ 
+	public void alterarNomeCoordenador(Coordenador coordenador) throws UsuarioNaoEncontradoException{ 
 		Coordenador c = buscarCoordenadorLogin(coordenador.getLogin());
 		if(c == null) {
-			//throw new CoordenadorNaoExisteException();
+			throw new UsuarioNaoEncontradoException("Coordenador não encontrado! ");
 		} 
 		coordenador.setNome(c.getNome());
 	}
