@@ -1,13 +1,13 @@
-package excecoes;
+package SGEdu.excecoes;
 
-public class AlunoNaoEncontradoException extends Exception{
+public class UsuarioNaoEncontradoException extends Exception{
 	
-	public AlunoNaoEncontradoException(String mensagem) {
+	public UsuarioNaoEncontradoException(String mensagem) {
 		super(mensagem);
 	}
 	
-	public AlunoNaoEncontradoException() {
-		super("Aluno não encontrado! ");
+	public UsuarioNaoEncontradoException() {
+		super("Usuario não encontrado! ");
 	}
 
 }

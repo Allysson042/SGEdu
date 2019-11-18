@@ -1,12 +1,12 @@
-package excecoes;
+package SGEdu.excecoes;
 
-public class AlunoJaCadastradoException extends Exception{
+public class UsuarioJaCadastradoException extends Exception{
 	
-	public AlunoJaCadastradoException(String mensagem) {
+	public UsuarioJaCadastradoException(String mensagem) {
 		super(mensagem);
 	}
 	
-	public AlunoJaCadastradoException() {
-		super("Aluno já cadastrado! ");
+	public UsuarioJaCadastradoException() {
+		super("Usuario já cadastrado! ");
 	}
 }

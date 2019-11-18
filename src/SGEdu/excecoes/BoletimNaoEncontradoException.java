@@ -1,4 +1,4 @@
-package excecoes;
+package SGEdu.excecoes;
 
 public class BoletimNaoEncontradoException extends Exception{
 	
