@@ -2,12 +2,12 @@ package SGEdu.repositorios;
 
 import java.util.ArrayList;
 
+
 import SGEdu.diario.Boletim;
+import SGEdu.excecoes.BoletimNaoEncontradoException;
+import SGEdu.excecoes.UsuarioJaCadastradoException;
+import SGEdu.excecoes.UsuarioNaoEncontradoException;
 import SGEdu.usuarios.Aluno;
-import excecoes.AlunoJaCadastradoException;
-import excecoes.AlunoNaoEncontradoException;
-import excecoes.AlunoNaoExisteException;
-import excecoes.BoletimNaoEncontradoException;
 
 public class RepositorioAluno{
 	
@@ -17,45 +17,46 @@ public class RepositorioAluno{
 		alunos = new ArrayList<Aluno>();
 	}
 	
-	public void addAluno(Aluno a) throws AlunoJaCadastradoException, AlunoNaoEncontradoException{
+	public void addAluno(Aluno a) throws UsuarioJaCadastradoException, UsuarioNaoEncontradoException{
 		if(buscarAlunoLogin(a.getLogin()) != null) {
-			throw new AlunoJaCadastradoException();
+			throw new UsuarioJaCadastradoException("Aluno já cadastrado! ");
 		} 
 		alunos.add(a);
 	}
 	
-	public void removerAlunoNome(String nome) throws AlunoNaoExisteException, AlunoNaoEncontradoException{
+	public void removerAlunoNome(String nome) throws UsuarioNaoEncontradoException{
 		Aluno a = buscarAlunoNome(nome);
 		if(a == null) {
-			throw new AlunoNaoExisteException();
+			throw new UsuarioNaoEncontradoException("Aluno não encontrado! ");
 		}
 		alunos.remove(a);
 	}
 	
-	public void removerAlunoLogin(String login) throws AlunoNaoExisteException, AlunoNaoEncontradoException{
+	public void removerAlunoLogin(String login) throws UsuarioNaoEncontradoException{
 		Aluno a = buscarAlunoLogin(login);
 		if(a == null) {
-			throw new AlunoNaoExisteException();
+			throw new UsuarioNaoEncontradoException("Aluno não encontrado! ");
 		}
 		alunos.remove(a);
 	}
 	
-	public Aluno buscarAlunoNome(String nome) throws AlunoNaoEncontradoException{
+	public Aluno buscarAlunoNome(String nome) throws UsuarioNaoEncontradoException{
 		for(int i=0; i<alunos.size(); i++) {
 			if(alunos.get(i).getNome().contentEquals(nome)) {
 				return alunos.get(i);
 			}
 		}
-		throw new AlunoNaoEncontradoException();
+		throw new UsuarioNaoEncontradoException("Aluno não encontrado! ");
 	}
 	
-	public Aluno buscarAlunoLogin(String login) throws AlunoNaoEncontradoException{
+	public Aluno buscarAlunoLogin(String login) throws UsuarioNaoEncontradoException{
 		for(int i=0; i<alunos.size(); i++) {
 			if(alunos.get(i).getLogin().contentEquals(login)) {
 				return alunos.get(i);
 			}
 		}
-		throw new AlunoNaoEncontradoException();
+		return null;///////////////
+		throw new UsuarioNaoEncontradoException("Aluno não encontrado! ");
 	}
 	
 	public Boletim buscarBoletim(Aluno aluno, int ano) throws BoletimNaoEncontradoException{
@@ -80,18 +81,18 @@ public class RepositorioAluno{
 		aluno.getBoletins().remove(boletim);
 	}
 	
-	public void alterarNomeAluno(Aluno aluno) throws AlunoNaoExisteException, AlunoNaoEncontradoException{ 
+	public void alterarNomeAluno(Aluno aluno) throws UsuarioNaoEncontradoException{ 
 		Aluno a = buscarAlunoNome(aluno.getNome());
 		if(a == null) {
-			throw new AlunoNaoExisteException();
+			throw new UsuarioNaoEncontradoException("Aluno não encontrado! ");
 		} 
 		aluno.setNome(a.getNome());
 	}
 	
-	public void alterarSenhaAluno(Aluno aluno) throws AlunoNaoExisteException, AlunoNaoEncontradoException{ 
+	public void alterarSenhaAluno(Aluno aluno) throws UsuarioNaoEncontradoException{ 
 		Aluno a = buscarAlunoLogin(aluno.getLogin());
 		if(a == null) {
-			throw new AlunoNaoExisteException();
+			throw new UsuarioNaoEncontradoException("Aluno não encontrado! ");
 		} 
 		aluno.setSenha(a.getSenha());
 	}

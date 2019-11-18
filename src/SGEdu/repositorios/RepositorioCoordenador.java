@@ -2,7 +2,8 @@ package SGEdu.repositorios;
 
 import java.util.ArrayList;
 
-import SGEdu.usuarios.Aluno;
+import SGEdu.excecoes.UsuarioJaCadastradoException;
+import SGEdu.excecoes.UsuarioNaoEncontradoException;
 import SGEdu.usuarios.Coordenador;
 
 public class RepositorioCoordenador {
@@ -12,7 +13,10 @@ public class RepositorioCoordenador {
 		coordenadores = new ArrayList<Coordenador>();
 	}
 	
-	public void addCoordenador(Coordenador c) {
+	public void addCoordenador(Coordenador c) throws UsuarioJaCadastradoException {
+		if(buscarCoordenadorLogin(c.getLogin()) != null) {
+			throw new UsuarioJaCadastradoException("Coordenador já cadastrado! ");
+		}
 		coordenadores.add(c);
 	}
 	
@@ -45,10 +49,10 @@ public class RepositorioCoordenador {
 		return null;
 	}
 	
-	public void alterarSenhaCoordenador(Coordenador coordenador){ 
+	public void alterarSenhaCoordenador(Coordenador coordenador) throws UsuarioNaoEncontradoException{ 
 		Coordenador c = buscarCoordenadorLogin(coordenador.getLogin());
 		if(c == null) {
-			//throw new CoordenadorNaoExisteException();
+			throw new UsuarioNaoEncontradoException("Coordenador não encontrado! ");
 		} 
 		coordenador.setSenha(c.getSenha());
 	}

@@ -1,10 +1,8 @@
 package SGEdu.usuarios;
+
 import java.io.Serializable;
 import java.util.ArrayList;
-
-
 import SGEdu.diario.Boletim;
-
 
 /**
  * Class Aluno
