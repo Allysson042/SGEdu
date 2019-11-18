@@ -1,27 +1,28 @@
-package SGEdu.repositorios;
+package sgedu.repositorios;
 
 import java.util.ArrayList;
 
-
-import SGEdu.diario.Boletim;
-import SGEdu.excecoes.BoletimNaoEncontradoException;
-import SGEdu.excecoes.UsuarioJaCadastradoException;
-import SGEdu.excecoes.UsuarioNaoEncontradoException;
-import SGEdu.usuarios.Aluno;
+import sgedu.diario.Boletim;
+import sgedu.excecoes.BoletimNaoEncontradoException;
+import sgedu.excecoes.UsuarioJaCadastradoException;
+import sgedu.excecoes.UsuarioNaoEncontradoException;
+import sgedu.usuarios.Aluno;
 
 public class RepositorioAluno{
 	
 	ArrayList <Aluno> alunos;
+	public static int contadorAluno;
 	
 	public RepositorioAluno() {
 		alunos = new ArrayList<Aluno>();
 	}
 	
-	public void addAluno(Aluno a) throws UsuarioJaCadastradoException, UsuarioNaoEncontradoException{
+	public void addAluno(Aluno a) throws UsuarioJaCadastradoException{
 		if(buscarAlunoLogin(a.getLogin()) != null) {
 			throw new UsuarioJaCadastradoException("Aluno já cadastrado! ");
 		} 
 		alunos.add(a);
+		contadorAluno ++;
 	}
 	
 	public void removerAlunoNome(String nome) throws UsuarioNaoEncontradoException{
@@ -40,26 +41,25 @@ public class RepositorioAluno{
 		alunos.remove(a);
 	}
 	
-	public Aluno buscarAlunoNome(String nome) throws UsuarioNaoEncontradoException{
+	public Aluno buscarAlunoNome(String nome){
 		for(int i=0; i<alunos.size(); i++) {
 			if(alunos.get(i).getNome().contentEquals(nome)) {
 				return alunos.get(i);
 			}
 		}
-		throw new UsuarioNaoEncontradoException("Aluno não encontrado! ");
+		return null;
 	}
 	
-	public Aluno buscarAlunoLogin(String login) throws UsuarioNaoEncontradoException{
+	public Aluno buscarAlunoLogin(String login){
 		for(int i=0; i<alunos.size(); i++) {
 			if(alunos.get(i).getLogin().contentEquals(login)) {
 				return alunos.get(i);
 			}
 		}
-		return null;///////////////
-		throw new UsuarioNaoEncontradoException("Aluno não encontrado! ");
+		return null;
 	}
 	
-	public Boletim buscarBoletim(Aluno aluno, int ano) throws BoletimNaoEncontradoException{
+	public Boletim buscarBoletim(Aluno aluno, int ano){
 		for(int i=0; i<alunos.size(); i++) {
 			if(alunos.get(i).equals(aluno)) {
 				Aluno a = alunos.get(i);
@@ -70,7 +70,7 @@ public class RepositorioAluno{
 				}
 			}
 		}
-		throw new BoletimNaoEncontradoException();
+		return null;
 	}
 	
 	public void removerBoletim(Aluno aluno, int ano) throws BoletimNaoEncontradoException{ 

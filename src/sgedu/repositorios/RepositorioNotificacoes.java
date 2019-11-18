@@ -1,16 +1,19 @@
-package SGEdu.repositorios;
+package sgedu.repositorios;
 import java.util.ArrayList;
-import SGEdu.notificacao.*;
+
+import sgedu.notificacao.*;
 
 public class RepositorioNotificacoes {
 	ArrayList <Notificacao> notificacoes;
+	public static int contadorNotificacao;
 	
 	public RepositorioNotificacoes() {
 		this.notificacoes=new ArrayList<Notificacao>();
 	}
 	
 	public void addNotificacao(Notificacao noti) {
-		notificacoes.add(noti);		
+		notificacoes.add(noti);
+		contadorNotificacao++;
 	}
 	
 	public Notificacao buscaNotificacaoRemetente(String remetente) {

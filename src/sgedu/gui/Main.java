@@ -1,4 +1,4 @@
-package SGEdu.GUI;
+package sgedu.gui;
 	
 import java.io.IOException;
 
@@ -20,6 +20,7 @@ public class Main extends Application {
 	private static Scene loginProfessor;
 	private static Scene loginResponsavel;
 	private static Scene loginCoordenador;
+	private static Scene VisualizarBoletim;
 	
 	
 	@Override
@@ -41,6 +42,12 @@ public class Main extends Application {
 		
 		Parent FXMLLoginCoordenador = FXMLLoader.load(getClass().getResource("LoginCoordenador.fxml"));
 		loginCoordenador=new Scene(FXMLLoginCoordenador);
+		
+		
+		Parent FXMLVisualizarBoletim = FXMLLoader.load(getClass().getResource("VisualizarBoletim.fxml"));
+		VisualizarBoletim=new Scene(FXMLVisualizarBoletim);
+		
+		
 		
 		
 		

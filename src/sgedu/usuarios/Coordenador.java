@@ -1,6 +1,8 @@
-package SGEdu.usuarios;
+package sgedu.usuarios;
 
 import java.io.Serializable;
+
+import sgedu.repositorios.RepositorioCoordenador;
 
 /**
  * Class Coordenador
@@ -8,8 +10,16 @@ import java.io.Serializable;
  */
 
 public class Coordenador extends Usuario implements Serializable{
-
-    public Coordenador(String nome, String login, String senha) {
-        super(nome, login, senha);
+	
+	private String login;
+	
+    public Coordenador(String nome, String senha) {
+        super(nome, senha);
     }
+    
+    @Override
+	public String gerarLogin() {
+		login = "COORD" + RepositorioCoordenador.contadorCoordenador;
+		return login;
+	}
 }

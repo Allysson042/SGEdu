@@ -1,8 +1,9 @@
-package SGEdu.menu;
+package sgedu.menu;
 
-import SGEdu.turma.*;
-import SGEdu.usuarios.*;
-import SGEdu.repositorios.*;
+import sgedu.repositorios.*;
+
+import sgedu.turma.*;
+import sgedu.usuarios.*;
 
 /**
  * Class Menu
@@ -28,7 +29,7 @@ public class Menu {
         
         d.setProfessor(prof);
         turm.addDisciplina(d);
-        turm.addAlunos(alun);
+        turm.addAlunosTurma(alun);
         alun.setResponsavel(respo);
         prof.addTurma(turm);
         respo.addAluno(alun);

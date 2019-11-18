@@ -1,6 +1,8 @@
 package SGEdu.diario;
 
 import java.util.ArrayList;
+
+import SGEdu.turma.Turma;
 import SGEdu.usuarios.Aluno;
 
 /**
@@ -20,10 +22,20 @@ public class Boletim {
     //Pegar em Turma: nome, ano, disciplinas
     
 
-    public Boletim(int ano, Aluno aluno) {
+    public Boletim(int ano, Aluno aluno,Turma turma) {
         this.bimestres = new ArrayList<Bimestre>();
         this.aluno = aluno;
         this.ano = ano;
+        
+        Bimestre b1 = new Bimestre("1 Bimestre",turma);
+        Bimestre b2 = new Bimestre("2 Bimestre",turma);
+        Bimestre b3 = new Bimestre("3 Bimestre",turma);
+        Bimestre b4 = new Bimestre("4 Bimestre",turma);
+        
+        this.bimestres.add(b1);
+        this.bimestres.add(b2);
+        this.bimestres.add(b3);
+        this.bimestres.add(b4);
     }
 
     public Aluno getAluno() {
@@ -42,10 +54,17 @@ public class Boletim {
     	this.ano = ano;
     }
     
+    public ArrayList<Bimestre> getBimestres(){
+    	return bimestres;
+    }
+    
+    /*
     public void adicionarBimestre(String nome){
     	Bimestre bimestre = new Bimestre(nome);
         this.bimestres.add(bimestre);
-    }
+    }*/
+    
+  
     
 
 }

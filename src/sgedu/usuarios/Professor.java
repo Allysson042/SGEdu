@@ -1,20 +1,24 @@
-package SGEdu.usuarios;
+package sgedu.usuarios;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 
-import SGEdu.turma.Disciplina;
-import SGEdu.turma.Turma;
+import sgedu.repositorios.RepositorioProfessor;
+import sgedu.turma.Disciplina;
+import sgedu.turma.Turma;
 
 /**
  * Class Professor
- * @author Allysson & Lucas Leonardo
+ * @author 
  */
 
-public class Professor extends Usuario{
+public class Professor extends Usuario implements Serializable {
     private Disciplina disciplina;
     private ArrayList <Turma> turmas;
+    private String login;
     
-    public Professor(String nome, String login, String senha, Disciplina disciplina) {
-        super(nome, login, senha);
+    public Professor(String nome, String senha, Disciplina disciplina) {
+        super(nome, senha);
         this.disciplina = disciplina;
         this.turmas = new ArrayList<Turma>();
     }
@@ -35,6 +39,10 @@ public class Professor extends Usuario{
 		turmas.add(turma);
 	}
 	
+	@Override
+	public String gerarLogin() {
+		login = "PROF" + RepositorioProfessor.contadorProfessor;
+		return login;
+	}
 	
-
 }

@@ -1,6 +1,6 @@
-package SGEdu.turma;
+package sgedu.turma;
 
-import SGEdu.usuarios.Professor;
+import sgedu.usuarios.Professor;
 
 /**
  * Class Disciplina

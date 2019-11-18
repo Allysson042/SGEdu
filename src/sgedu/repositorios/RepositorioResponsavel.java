@@ -1,29 +1,41 @@
-package SGEdu.repositorios;
+package sgedu.repositorios;
 
 import java.util.ArrayList;
 
-import SGEdu.usuarios.Professor;
-import SGEdu.usuarios.Responsavel;
+import sgedu.excecoes.UsuarioJaCadastradoException;
+import sgedu.excecoes.UsuarioNaoEncontradoException;
+import sgedu.usuarios.Responsavel;
 
 public class RepositorioResponsavel {
 	
+	public static int contadorResponsavel;
 	ArrayList <Responsavel> responsaveis;
 	
 	public RepositorioResponsavel() {
 		responsaveis = new ArrayList<Responsavel>();
 	}
 	
-	public void addResponsavel(Responsavel r) {
+	public void addResponsavel(Responsavel r) throws UsuarioJaCadastradoException {
+		if(buscarResponsavelLogin(r.getLogin()) != null) {
+			throw new UsuarioJaCadastradoException("Responsavel já cadastrado! ");
+		}
 		responsaveis.add(r);
+		contadorResponsavel++;
 	}
 	
-	public void removerResponsavelNome(String nome) {
+	public void removerResponsavelNome(String nome) throws UsuarioNaoEncontradoException {
 		Responsavel r = buscarResponsavelNome(nome);
+		if(r == null) {
+			throw new UsuarioNaoEncontradoException("Responsavel não encontrado! ");
+		}
 		responsaveis.remove(r);
 	}
 	
-	public void removerResponsavelLogin(String login) {
+	public void removerResponsavelLogin(String login) throws UsuarioNaoEncontradoException {
 		Responsavel r = buscarResponsavelLogin(login);
+		if(r == null) {
+			throw new UsuarioNaoEncontradoException("Responsavel não encontrado! ");
+		}
 		responsaveis.remove(r);
 	}
 	
@@ -45,18 +57,18 @@ public class RepositorioResponsavel {
 		return null;
 	}
 	
-	public void alterarSenhaResponsavel(Responsavel responsavel){ 
+	public void alterarSenhaResponsavel(Responsavel responsavel) throws UsuarioNaoEncontradoException{ 
 		Responsavel r = buscarResponsavelLogin(responsavel.getLogin());
 		if(r == null) {
-			//throw new ResponsavelNaoExisteException();
+			throw new UsuarioNaoEncontradoException("Responsavel não encontrado! ");
 		} 
 		responsavel.setSenha(r.getSenha());
 	}
 	
-	public void alterarNomeResponsavel(Responsavel responsavel){ 
+	public void alterarNomeResponsavel(Responsavel responsavel) throws UsuarioNaoEncontradoException{ 
 		Responsavel r = buscarResponsavelLogin(responsavel.getLogin());
 		if(r == null) {
-			//throw new ResponsavelNaoExisteException();
+			throw new UsuarioNaoEncontradoException("Responsavel não encontrado! ");
 		} 
 		responsavel.setNome(r.getNome());
 	}
