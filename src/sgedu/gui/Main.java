@@ -5,6 +5,11 @@ import java.io.IOException;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
+import sgedu.excecoes.UsuarioJaCadastradoException;
+import sgedu.fachada.Fachada;
+import sgedu.repositorios.RepositorioAluno;
+import sgedu.usuarios.Aluno;
+import sgedu.usuarios.negocios.NegocioAluno;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
@@ -21,6 +26,7 @@ public class Main extends Application {
 	private static Scene loginResponsavel;
 	private static Scene loginCoordenador;
 	private static Scene VisualizarBoletim;
+	private static Scene AlunoLogado;
 	
 	
 	@Override
@@ -42,6 +48,9 @@ public class Main extends Application {
 		
 		Parent FXMLLoginCoordenador = FXMLLoader.load(getClass().getResource("./telas/LoginCoordenador.fxml"));
 		loginCoordenador=new Scene(FXMLLoginCoordenador);
+		
+		Parent FXMLAlunoLogado = FXMLLoader.load(getClass().getResource("./telas/AlunoLogado.fxml"));
+		AlunoLogado=new Scene(FXMLAlunoLogado);
 		
 		/*
 		Parent FXMLVisualizarBoletim = FXMLLoader.load(getClass().getResource("./telas/VisualizarBoletim.fxml"));
@@ -80,13 +89,27 @@ public class Main extends Application {
 			case "LoginCoordenador":
 				stage.setScene(loginCoordenador);
 				break;
+			case "AlunoLogado":
+				stage.setScene(AlunoLogado);
+				break;
 				
 		
 		}
 		
 	}
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws UsuarioJaCadastradoException {
+		
+		RepositorioAluno repositorioAluno=new RepositorioAluno();
+		NegocioAluno negocioAluno=new NegocioAluno(repositorioAluno);
+		Fachada fachada=new Fachada(negocioAluno);
+		
+		Aluno aluno = new Aluno("Allysson","123");
+		System.out.println(aluno.getLogin());
+		
+		Fachada.negocioAluno.adicionar(aluno);
+		
+		
 		launch(args);
 	}
 }

@@ -17,6 +17,7 @@ public class Aluno extends Usuario implements Serializable{
 	
     public Aluno(String nome, String senha){
         super(nome, senha);
+        this.gerarLogin();
     }
 
 	public ArrayList<Boletim> getBoletins() {
