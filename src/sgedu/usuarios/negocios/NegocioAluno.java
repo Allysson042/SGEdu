@@ -1,5 +1,7 @@
 package sgedu.usuarios.negocios;
 
+import java.io.IOException;
+
 import sgedu.excecoes.UsuarioJaCadastradoException;
 import sgedu.repositorios.RepositorioAluno;
 import sgedu.usuarios.Aluno;
@@ -12,7 +14,7 @@ public class NegocioAluno {
 		this.repositorio=repositorio;	
 	}
 	
-	public void adicionar(Aluno aluno) throws UsuarioJaCadastradoException {
+	public void adicionar(Aluno aluno) throws UsuarioJaCadastradoException, IOException {
 		Aluno alunoBusca=repositorio.buscarAlunoLogin(aluno.getLogin());
 		
 		if(alunoBusca!=null) {
