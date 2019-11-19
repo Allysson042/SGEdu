@@ -31,5 +31,12 @@ public class NegocioAluno {
 	}
 	
 	
+	public boolean confirmaLogin(String login, String senha) {
+		return repositorio.buscarAlunoLogin(login).verificaSenha(senha);		
+	}
+	
+	
+	
+	
 	
 }
