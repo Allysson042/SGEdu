@@ -1,4 +1,4 @@
-package SGEdu.diario;
+package sgedu.diario;
 
 public class GerenciadorBoletim {
 

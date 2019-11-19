@@ -18,11 +18,11 @@ public class Notificacao implements Serializable{
 		
 	}
 	
-	public void setNotificação(String notificacao) {
+	public void setNotificacao(String notificacao) {
 		this.notificacao=notificacao;
 	} 
 	
-	public String getNotificação() {
+	public String getNotificacao() {
 		return this.notificacao;		
 	}
 	

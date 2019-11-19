@@ -1,5 +1,6 @@
 package sgedu.menu;
 
+import sgedu.excecoes.UsuarioJaCadastradoException;
 import sgedu.repositorios.*;
 
 import sgedu.turma.*;
@@ -10,7 +11,7 @@ import sgedu.usuarios.*;
  */
 
 public class Menu {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws UsuarioJaCadastradoException {
     	
         RepositorioAluno repositorioAluno = new RepositorioAluno();
         RepositorioTurma repostiorioTurma = new RepositorioTurma();
@@ -19,16 +20,16 @@ public class Menu {
         RepositorioCoordenador repositorioCoordenador = new RepositorioCoordenador();
         RepositorioResponsavel repositorioResponsavel = new RepositorioResponsavel();
 
-        Coordenador coord = new Coordenador("Coord", "admin", "admin");
-        Responsavel respo = new Responsavel("Lucas", "Lucas", "123");
+        Coordenador coord = new Coordenador("Coord", "admin");
+        Responsavel respo = new Responsavel("Lucas", "123");
         Turma turm = new Turma("3a", 2019);
-        Aluno alun = new Aluno("Laisy", "Laisy", "123");
+        Aluno alun = new Aluno("Laisy", "123");
         
         Disciplina d = new Disciplina("Matematica", 50);
-        Professor prof = new Professor("Pedro", "Pedro", "123", d);
+        Professor prof = new Professor("Pedro", "123", d);
         
         d.setProfessor(prof);
-        turm.addDisciplina(d);
+        turm.addDisciplinaTurma(d);
         turm.addAlunosTurma(alun);
         alun.setResponsavel(respo);
         prof.addTurma(turm);

@@ -1,5 +1,10 @@
 package sgedu.repositorios;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 import sgedu.diario.Boletim;
@@ -17,28 +22,45 @@ public class RepositorioAluno{
 		alunos = new ArrayList<Aluno>();
 	}
 	
-	public void addAluno(Aluno a) throws UsuarioJaCadastradoException{
+	public void salvarArquivoAluno() throws IOException {
+		FileOutputStream file = new FileOutputStream("Alunos.dat");
+		ObjectOutputStream os = new ObjectOutputStream(file);
+		os.writeObject(alunos);
+		os.close();
+	}
+	
+	public void buscarArquivoAluno() throws IOException, ClassNotFoundException {
+		FileInputStream file = new FileInputStream("Alunos.dat");
+		ObjectInputStream is = new ObjectInputStream(file);
+		alunos = (ArrayList<Aluno>) is.readObject();
+		is.close();
+	}
+	
+	public void addAluno(Aluno a) throws UsuarioJaCadastradoException, IOException{
 		if(buscarAlunoLogin(a.getLogin()) != null) {
 			throw new UsuarioJaCadastradoException("Aluno já cadastrado! ");
 		} 
 		alunos.add(a);
+		salvarArquivoAluno();
 		contadorAluno ++;
 	}
 	
-	public void removerAlunoNome(String nome) throws UsuarioNaoEncontradoException{
+	public void removerAlunoNome(String nome) throws UsuarioNaoEncontradoException, IOException{
 		Aluno a = buscarAlunoNome(nome);
 		if(a == null) {
 			throw new UsuarioNaoEncontradoException("Aluno não encontrado! ");
 		}
 		alunos.remove(a);
+		salvarArquivoAluno();
 	}
 	
-	public void removerAlunoLogin(String login) throws UsuarioNaoEncontradoException{
+	public void removerAlunoLogin(String login) throws UsuarioNaoEncontradoException, IOException{
 		Aluno a = buscarAlunoLogin(login);
 		if(a == null) {
 			throw new UsuarioNaoEncontradoException("Aluno não encontrado! ");
 		}
 		alunos.remove(a);
+		salvarArquivoAluno();
 	}
 	
 	public Aluno buscarAlunoNome(String nome){
@@ -73,28 +95,30 @@ public class RepositorioAluno{
 		return null;
 	}
 	
-	public void removerBoletim(Aluno aluno, int ano) throws BoletimNaoEncontradoException{ 
+	public void removerBoletim(Aluno aluno, int ano) throws BoletimNaoEncontradoException, IOException{ 
 		Boletim boletim = buscarBoletim(aluno, ano);
 		if(boletim == null) {
 			throw new BoletimNaoEncontradoException();
 		}
 		aluno.getBoletins().remove(boletim);
+		salvarArquivoAluno();
 	}
 	
-	public void alterarNomeAluno(Aluno aluno) throws UsuarioNaoEncontradoException{ 
+	public void alterarNomeAluno(Aluno aluno) throws UsuarioNaoEncontradoException, IOException{ 
 		Aluno a = buscarAlunoNome(aluno.getNome());
 		if(a == null) {
 			throw new UsuarioNaoEncontradoException("Aluno não encontrado! ");
 		} 
 		aluno.setNome(a.getNome());
+		salvarArquivoAluno();
 	}
 	
-	public void alterarSenhaAluno(Aluno aluno) throws UsuarioNaoEncontradoException{ 
+	public void alterarSenhaAluno(Aluno aluno) throws UsuarioNaoEncontradoException, IOException{ 
 		Aluno a = buscarAlunoLogin(aluno.getLogin());
 		if(a == null) {
 			throw new UsuarioNaoEncontradoException("Aluno não encontrado! ");
 		} 
 		aluno.setSenha(a.getSenha());
+		salvarArquivoAluno();
 	}
-	
 }

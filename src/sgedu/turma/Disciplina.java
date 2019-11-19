@@ -1,5 +1,7 @@
 package sgedu.turma;
 
+import java.io.Serializable;
+
 import sgedu.usuarios.Professor;
 
 /**
@@ -9,7 +11,7 @@ import sgedu.usuarios.Professor;
  *
  */
 
-public class Disciplina {
+public class Disciplina implements Serializable{
 	
 	private String nome;
 	private Professor professor; 

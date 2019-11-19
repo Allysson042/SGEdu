@@ -28,24 +28,24 @@ public class Main extends Application {
 		stage=Pstage;
 		
 		///criando o cache de cenas
-		Parent FXMLMenu = FXMLLoader.load(getClass().getResource("Menu.fxml"));
+		Parent FXMLMenu = FXMLLoader.load(getClass().getResource("./telas/Menu.fxml"));
 		menu=new Scene(FXMLMenu);
 		
-		Parent FXMLLoginAluno = FXMLLoader.load(getClass().getResource("LoginAluno.fxml"));
+		Parent FXMLLoginAluno = FXMLLoader.load(getClass().getResource("./telas/LoginAluno.fxml"));
 		loginAluno=new Scene(FXMLLoginAluno);
 		
-		Parent FXMLLoginProfessor = FXMLLoader.load(getClass().getResource("LoginProfessor.fxml"));
+		Parent FXMLLoginProfessor = FXMLLoader.load(getClass().getResource("./telas/LoginProfessor.fxml"));
 		loginProfessor=new Scene(FXMLLoginProfessor);
 		
-		Parent FXMLLoginResponsavel = FXMLLoader.load(getClass().getResource("LoginResponsavel.fxml"));
+		Parent FXMLLoginResponsavel = FXMLLoader.load(getClass().getResource("./telas/LoginResponsavel.fxml"));
 		loginResponsavel=new Scene(FXMLLoginResponsavel);
 		
-		Parent FXMLLoginCoordenador = FXMLLoader.load(getClass().getResource("LoginCoordenador.fxml"));
+		Parent FXMLLoginCoordenador = FXMLLoader.load(getClass().getResource("./telas/LoginCoordenador.fxml"));
 		loginCoordenador=new Scene(FXMLLoginCoordenador);
 		
-		
-		Parent FXMLVisualizarBoletim = FXMLLoader.load(getClass().getResource("VisualizarBoletim.fxml"));
-		VisualizarBoletim=new Scene(FXMLVisualizarBoletim);
+		/*
+		Parent FXMLVisualizarBoletim = FXMLLoader.load(getClass().getResource("./telas/VisualizarBoletim.fxml"));
+		VisualizarBoletim=new Scene(FXMLVisualizarBoletim);*/
 		
 		
 		
