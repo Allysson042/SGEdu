@@ -1,10 +1,10 @@
-package SGEdu.diario;
+package sgedu.diario;
 
 import java.util.ArrayList;
 
-import SGEdu.turma.Disciplina;
-import SGEdu.turma.Turma;
-import SGEdu.usuarios.Aluno;
+import sgedu.turma.Disciplina;
+import sgedu.turma.Turma;
+import sgedu.usuarios.Aluno;
 
 /**
  * Class Bimestre

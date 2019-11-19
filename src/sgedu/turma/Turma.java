@@ -1,5 +1,6 @@
 package sgedu.turma;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import sgedu.usuarios.Aluno;
@@ -9,7 +10,7 @@ import sgedu.usuarios.Aluno;
  * @author Laisy
  */
 
-public class Turma {
+public class Turma implements Serializable {
     private String nome;
     private int ano;
     private ArrayList<Disciplina> disciplinas;

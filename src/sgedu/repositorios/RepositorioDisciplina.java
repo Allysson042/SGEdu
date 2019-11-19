@@ -1,6 +1,14 @@
 package sgedu.repositorios;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+
+import sgedu.excecoes.DisciplinaJaCadastradaException;
+import sgedu.excecoes.DisciplinaNaoEncontradaException;
 import sgedu.turma.Disciplina;
 
 public class RepositorioDisciplina {
@@ -11,13 +19,36 @@ public class RepositorioDisciplina {
 		disciplinas = new ArrayList<Disciplina>();
 	}
 	
-	public void addDisciplina(Disciplina d) {
-		disciplinas.add(d);
+	public void salvarArquivoDisciplina() throws IOException {
+		FileOutputStream file = new FileOutputStream("Disciplinas.dat");
+		ObjectOutputStream os = new ObjectOutputStream(file);
+		os.writeObject(disciplinas);
+		os.close();
 	}
 	
-	public void removerDisciplina(String nome) {
+	public void buscarArquivoDisciplina() throws IOException, ClassNotFoundException {
+		FileInputStream file = new FileInputStream("Disciplinas.dat");
+		ObjectInputStream is = new ObjectInputStream(file);
+		disciplinas = (ArrayList<Disciplina>) is.readObject();
+		is.close();
+	}
+	
+	public void addDisciplina(Disciplina d) throws DisciplinaJaCadastradaException, IOException {
+		if(buscarDisciplina(d.getNome()) != null){
+			throw new DisciplinaJaCadastradaException();
+		}
+		disciplinas.add(d);
+		salvarArquivoDisciplina();
+	}
+	
+	
+	public void removerDisciplina(String nome) throws DisciplinaNaoEncontradaException, IOException{
 		Disciplina d = buscarDisciplina(nome);
+		if(d == null) {
+			throw new DisciplinaNaoEncontradaException();
+		}
 		disciplinas.remove(d);
+		salvarArquivoDisciplina();
 	}
 	
 	public Disciplina buscarDisciplina(String nome) {
@@ -29,12 +60,13 @@ public class RepositorioDisciplina {
 		return null;
 	}
 	
-	public void alterarDisciplina(Disciplina disciplina){ 
+	public void alterarDisciplina(Disciplina disciplina) throws DisciplinaNaoEncontradaException, IOException{ 
 		Disciplina d = buscarDisciplina(disciplina.getNome());
 		if(d == null) {
-			//throw new DisciplinaNaoExisteException();
+			throw new DisciplinaNaoEncontradaException();
 		} 
 		disciplina.setNome(d.getNome());
+		salvarArquivoDisciplina();
 	}
 	
 	

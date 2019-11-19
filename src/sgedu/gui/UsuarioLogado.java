@@ -1,10 +1,10 @@
 package sgedu.gui;
 
-import SGEdu.usuarios.Usuario;
+import sgedu.usuarios.Usuario;
 
 public class UsuarioLogado {
 	
-	 static Usuario user;
+	 public static Usuario user;
 	
 	public static Usuario getUserLogada() {
 		return user;

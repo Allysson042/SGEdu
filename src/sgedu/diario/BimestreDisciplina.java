@@ -1,6 +1,6 @@
-package SGEdu.diario;
+package sgedu.diario;
 
-import SGEdu.turma.Disciplina;
+import sgedu.turma.Disciplina;
 
 /**
  * Classe BimestreDisciplina
