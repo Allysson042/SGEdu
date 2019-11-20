@@ -3,7 +3,7 @@ package sgedu.gui.controllers;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import sgedu.gui.Main;
+import sgedu.main.Main;
 
 public class MenuController {
 

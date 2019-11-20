@@ -6,7 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import sgedu.fachada.Fachada;
-import sgedu.gui.Main;
+import sgedu.main.Main;
 
 public class LoginAlunoController {
 
