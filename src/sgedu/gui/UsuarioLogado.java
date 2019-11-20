@@ -1,6 +1,6 @@
 package sgedu.gui;
 
-import sgedu.usuarios.Usuario;
+import sgedu.negocios.entidade.usuarios.Usuario;
 
 public class UsuarioLogado {
 	
