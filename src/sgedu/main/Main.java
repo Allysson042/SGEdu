@@ -10,8 +10,12 @@ import javafx.stage.Stage;
 import sgedu.dados.usuarios.RepositorioAluno;
 import sgedu.dados.usuarios.UsuarioJaCadastradoException;
 import sgedu.fachada.Fachada;
+import sgedu.fachada.Fachada;
 import sgedu.negocios.NegocioAluno;
+import sgedu.negocios.entidade.turma.Disciplina;
 import sgedu.negocios.entidade.usuarios.Aluno;
+import sgedu.negocios.entidade.usuarios.Coordenador;
+import sgedu.negocios.entidade.usuarios.Professor;
 
 
 public class Main extends Application {
@@ -121,14 +125,32 @@ public class Main extends Application {
 	
 	public static void main(String[] args) throws UsuarioJaCadastradoException, IOException {
 		
-		RepositorioAluno repositorioAluno=new RepositorioAluno();
-		NegocioAluno negocioAluno=new NegocioAluno(repositorioAluno);
-		Fachada fachada=new Fachada(negocioAluno);
 		
+		Fachada fachada=Fachada.criaObjeto();
+		
+		
+		//////////usuarios testes///////////
 		Aluno aluno = new Aluno("Allysson","123");
 		System.out.println(aluno.getLogin());
 		
-		Fachada.negocioAluno.adicionar(aluno);
+		fachada.adicionarAluno(aluno);
+
+		///////////
+		Coordenador coordenador = new Coordenador("Jooj","123");
+		System.out.println(coordenador.getLogin());
+		fachada.adicionarCoordenador(coordenador);
+		//////////
+		Disciplina matematica=new Disciplina("matematica",60);
+		Professor professor = new Professor("arlindo", "123",matematica);
+		System.out.println(professor.getLogin());
+		matematica.setProfessor(professor);
+		fachada.adicionarProfessor(professor);
+		
+		/////////////////////
+		
+		
+		
+		
 		
 		
 		launch(args);

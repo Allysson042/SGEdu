@@ -1,7 +1,4 @@
-/BoletimNaoEncontradoException.class
-/RepositorioAluno.class
-/RepositorioCoordenador.class
-/RepositorioProfessor.class
-/RepositorioResponsavel.class
-/UsuarioJaCadastradoException.class
-/UsuarioNaoEncontradoException.class
+/IRepositorioAluno.class
+/IRepositorioCoordenador.class
+/IRepositorioProfessor.class
+/IRepositorioResponsavel.class

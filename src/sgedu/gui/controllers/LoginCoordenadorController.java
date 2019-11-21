@@ -21,14 +21,19 @@ public class LoginCoordenadorController {
     
     @FXML
     private PasswordField pfSenha;
+    
+    Fachada fachada=Fachada.criaObjeto();
 
     @FXML
     void BotaoLogar(ActionEvent event) {
-    	if(Fachada.negocioAluno.confirmaLogin(tfLogin.getText(),pfSenha.getText())) {
+    	if(fachada.confirmaLoginCoordenador(tfLogin.getText(),pfSenha.getText())) {
     		Main.changeScreen("CoordenadorLogado");
+    		System.out.println("Logou coordenador");
     	}else {
     		Main.changeScreen("menu");
+    		System.out.println("falha no login");
     	}
+    	
 
     }
 

@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 import sgedu.negocios.entidade.usuarios.Coordenador;
 
-public class RepositorioCoordenador {
+public class RepositorioCoordenador implements IRepositorioCoordenador {
 	ArrayList <Coordenador> coordenadores;
 	public static int contadorCoordenador;
 	
@@ -31,29 +31,22 @@ public class RepositorioCoordenador {
 		is.close();
 	}
 	
-	public void addCoordenador(Coordenador c) throws UsuarioJaCadastradoException, IOException {
-		if(buscarCoordenadorLogin(c.getLogin()) != null) {
-			throw new UsuarioJaCadastradoException("Coordenador já cadastrado! ");
-		}
+	public void addCoordenador(Coordenador c) throws IOException {
 		coordenadores.add(c);
 		contadorCoordenador ++;
 		salvarArquivoCoordenador();
 	}
 	
-	public void removerCoordenadorNome(String nome) throws UsuarioNaoEncontradoException, IOException {
+	public void removerCoordenadorNome(String nome) throws IOException {
 		Coordenador c = buscarCoordenadorNome(nome);
-		if(c == null) {
-			throw new UsuarioNaoEncontradoException("Coordenador não encontrado! ");
-		}
+		
 		coordenadores.remove(c);
 		salvarArquivoCoordenador();
 	}
 	
-	public void removerCoordenadorLogin(String login) throws UsuarioNaoEncontradoException, IOException{
+	public void removerCoordenadorLogin(String login) throws IOException{
 		Coordenador c = buscarCoordenadorLogin(login);
-		if(c == null) {
-			throw new UsuarioNaoEncontradoException("Coordenador não encontrado! ");
-		}
+		
 		coordenadores.remove(c);
 		salvarArquivoCoordenador();
 	}
@@ -76,20 +69,16 @@ public class RepositorioCoordenador {
 		return null;
 	}
 	
-	public void alterarSenhaCoordenador(Coordenador coordenador) throws UsuarioNaoEncontradoException, IOException{ 
+	public void alterarSenhaCoordenador(Coordenador coordenador) throws IOException{ 
 		Coordenador c = buscarCoordenadorLogin(coordenador.getLogin());
-		if(c == null) {
-			throw new UsuarioNaoEncontradoException("Coordenador não encontrado! ");
-		} 
+		
 		coordenador.setSenha(c.getSenha());
 		salvarArquivoCoordenador();
 	}
 	
-	public void alterarNomeCoordenador(Coordenador coordenador) throws UsuarioNaoEncontradoException, IOException{ 
+	public void alterarNomeCoordenador(Coordenador coordenador) throws IOException{ 
 		Coordenador c = buscarCoordenadorLogin(coordenador.getLogin());
-		if(c == null) {
-			throw new UsuarioNaoEncontradoException("Coordenador não encontrado! ");
-		} 
+		 
 		coordenador.setNome(c.getNome());
 		salvarArquivoCoordenador();
 	}

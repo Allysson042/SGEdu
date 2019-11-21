@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 import sgedu.negocios.entidade.turma.Disciplina;
 
-public class RepositorioDisciplina {
+public class RepositorioDisciplina implements IRepositorioDisciplina {
 	
 	ArrayList <Disciplina> disciplinas;
 	
@@ -31,20 +31,14 @@ public class RepositorioDisciplina {
 		is.close();
 	}
 	
-	public void addDisciplina(Disciplina d) throws DisciplinaJaCadastradaException, IOException {
-		if(buscarDisciplina(d.getNome()) != null){
-			throw new DisciplinaJaCadastradaException();
-		}
+	public void addDisciplina(Disciplina d) throws IOException {
 		disciplinas.add(d);
 		salvarArquivoDisciplina();
 	}
 	
 	
-	public void removerDisciplina(String nome) throws DisciplinaNaoEncontradaException, IOException{
+	public void removerDisciplina(String nome) throws IOException{
 		Disciplina d = buscarDisciplina(nome);
-		if(d == null) {
-			throw new DisciplinaNaoEncontradaException();
-		}
 		disciplinas.remove(d);
 		salvarArquivoDisciplina();
 	}
@@ -58,11 +52,8 @@ public class RepositorioDisciplina {
 		return null;
 	}
 	
-	public void alterarDisciplina(Disciplina disciplina) throws DisciplinaNaoEncontradaException, IOException{ 
+	public void alterarDisciplina(Disciplina disciplina) throws IOException{ 
 		Disciplina d = buscarDisciplina(disciplina.getNome());
-		if(d == null) {
-			throw new DisciplinaNaoEncontradaException();
-		} 
 		disciplina.setNome(d.getNome());
 		salvarArquivoDisciplina();
 	}

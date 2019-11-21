@@ -25,11 +25,7 @@ public class LoginResponvelController {
 
     @FXML
     void BotaoLogar(ActionEvent event) {
-    	if(Fachada.negocioAluno.confirmaLogin(tfLogin.getText(),pfSenha.getText())) {
-    		Main.changeScreen("ResponsavelLogado");
-    	}else {
-    		Main.changeScreen("menu");
-    	}
+    	
 
     }
 

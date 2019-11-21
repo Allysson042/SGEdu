@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 import sgedu.negocios.entidade.usuarios.Responsavel;
 
-public class RepositorioResponsavel {
+public class RepositorioResponsavel implements IRepositorioResponsavel{
 	
 	public static int contadorResponsavel;
 	ArrayList <Responsavel> responsaveis;
@@ -32,29 +32,22 @@ public class RepositorioResponsavel {
 		is.close();
 	}
 	
-	public void addResponsavel(Responsavel r) throws UsuarioJaCadastradoException, IOException {
-		if(buscarResponsavelLogin(r.getLogin()) != null) {
-			throw new UsuarioJaCadastradoException("Responsavel já cadastrado! ");
-		}
+	public void addResponsavel(Responsavel r) throws IOException {
 		responsaveis.add(r);
 		contadorResponsavel++;
 		salvarArquivoResponsavel();
 	}
 	
-	public void removerResponsavelNome(String nome) throws UsuarioNaoEncontradoException, IOException {
+	public void removerResponsavelNome(String nome) throws IOException {
 		Responsavel r = buscarResponsavelNome(nome);
-		if(r == null) {
-			throw new UsuarioNaoEncontradoException("Responsavel não encontrado! ");
-		}
+
 		responsaveis.remove(r);
 		salvarArquivoResponsavel();
 	}
 	
-	public void removerResponsavelLogin(String login) throws UsuarioNaoEncontradoException, IOException {
+	public void removerResponsavelLogin(String login) throws IOException {
 		Responsavel r = buscarResponsavelLogin(login);
-		if(r == null) {
-			throw new UsuarioNaoEncontradoException("Responsavel não encontrado! ");
-		}
+		
 		responsaveis.remove(r);
 		salvarArquivoResponsavel();
 	}
@@ -77,20 +70,16 @@ public class RepositorioResponsavel {
 		return null;
 	}
 	
-	public void alterarSenhaResponsavel(Responsavel responsavel) throws UsuarioNaoEncontradoException, IOException{ 
+	public void alterarSenhaResponsavel(Responsavel responsavel) throws IOException{ 
 		Responsavel r = buscarResponsavelLogin(responsavel.getLogin());
-		if(r == null) {
-			throw new UsuarioNaoEncontradoException("Responsavel não encontrado! ");
-		} 
+		
 		responsavel.setSenha(r.getSenha());
 		salvarArquivoResponsavel();
 	}
 	
-	public void alterarNomeResponsavel(Responsavel responsavel) throws UsuarioNaoEncontradoException, IOException{ 
+	public void alterarNomeResponsavel(Responsavel responsavel) throws IOException{ 
 		Responsavel r = buscarResponsavelLogin(responsavel.getLogin());
-		if(r == null) {
-			throw new UsuarioNaoEncontradoException("Responsavel não encontrado! ");
-		} 
+		
 		responsavel.setNome(r.getNome());
 		salvarArquivoResponsavel();
 	}

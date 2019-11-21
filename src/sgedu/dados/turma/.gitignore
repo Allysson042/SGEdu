@@ -1,6 +1,2 @@
-/DisciplinaJaCadastradaException.class
-/DisciplinaNaoEncontradaException.class
-/RepositorioDisciplina.class
-/RepositorioTurma.class
-/TurmaJaCriadaException.class
-/TurmaNaoEncontradaException.class
+/IRepositorioDisciplina.class
+/IRepositorioTurma.class

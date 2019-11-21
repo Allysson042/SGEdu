@@ -6,6 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import sgedu.fachada.Fachada;
+import sgedu.fachada.Fachada;
 import sgedu.main.Main;
 
 public class LoginAlunoController {
@@ -22,6 +23,8 @@ public class LoginAlunoController {
     @FXML
     private PasswordField pfSenha;
     
+    Fachada fachada=Fachada.criaObjeto();
+    
     
     @FXML
     void botaoVoltar() {
@@ -31,10 +34,12 @@ public class LoginAlunoController {
     
     @FXML
     void botaoLogar(ActionEvent event) {
-    	if(Fachada.negocioAluno.confirmaLogin(tfLogin.getText(),pfSenha.getText())) {
+    	if(fachada.confirmaLoginAluno(tfLogin.getText(),pfSenha.getText())) {
     		Main.changeScreen("AlunoLogado");
+    		System.out.println("Logou aluno");
     	}else {
     		Main.changeScreen("menu");
+    		System.out.println("falha no login");
     	}
 
     }
