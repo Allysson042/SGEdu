@@ -13,7 +13,7 @@ import sgedu.negocios.entidade.turma.Disciplina;
 public class BimestreDisciplina{
 	
 	private double nota;
-	private int frequencia;
+	private int frequencia;//faltas
 	private Disciplina disciplina; 
 	
 	public BimestreDisciplina(Disciplina disciplina){

@@ -17,11 +17,10 @@ public class NegocioAluno {
 	public void adicionar(Aluno aluno) throws UsuarioJaCadastradoException, IOException {
 		Aluno alunoBusca=repositorio.buscarAlunoLogin(aluno.getLogin());
 		
-		if(alunoBusca!=null) {
-			throw new UsuarioJaCadastradoException();
-			
-		}else {
-			repositorio.addAluno(aluno);
+		if(alunoBusca==null) {
+			//System.out.println("contador Aluno: "+RepositorioAluno.contadorAluno);
+			repositorio.addAluno(aluno);	
+			//System.out.println("contador Aluno: "+RepositorioAluno.contadorAluno);
 		}
 		
 	}

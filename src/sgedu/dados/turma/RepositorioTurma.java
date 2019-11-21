@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 import sgedu.negocios.entidade.turma.Turma;
 
-public class RepositorioTurma {
+public class RepositorioTurma implements IRepositorioTurma{
 	
 	ArrayList <Turma> turmas;
 	
@@ -32,19 +32,13 @@ public class RepositorioTurma {
 	}
 
 
-	public void addTurma(Turma t) throws IOException, TurmaJaCriadaException{
-		if(buscarTurma(t.getNome(), t.getAno()) != null) {
-			throw new TurmaJaCriadaException();
-		}
+	public void addTurma(Turma t) throws IOException{
 		turmas.add(t);
 		salvarArquivoTurma();
 	}
 	
-	public void removerTurma(String nome, int ano) throws IOException, TurmaNaoEncontradaException {
+	public void removerTurma(String nome, int ano) throws IOException{
 		Turma t = buscarTurma(nome, ano);
-		if(t == null) {
-			throw new TurmaNaoEncontradaException();
-		}
 		turmas.remove(t);
 		salvarArquivoTurma();
 	}
@@ -58,11 +52,9 @@ public class RepositorioTurma {
 		return null;
 	}
 	
-	public void alterarTurma(Turma turma) throws IOException, TurmaNaoEncontradaException{ 
+	public void alterarTurma(Turma turma) throws IOException{ 
 		Turma t = buscarTurma(turma.getNome(), turma.getAno());
-		if(t == null) {
-			throw new TurmaNaoEncontradaException();
-		} 
+		
 		turma.setNome(t.getNome());
 		turma.setAno(t.getAno());
 		salvarArquivoTurma();

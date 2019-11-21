@@ -22,13 +22,17 @@ public class LoginProfessorController {
     
     @FXML
     private PasswordField pfSenha;
+    
+    Fachada fachada=Fachada.criaObjeto();
 
     @FXML
-    void BotaoLogar(ActionEvent event) {
-    	if(Fachada.negocioAluno.confirmaLogin(tfLogin.getText(),pfSenha.getText())) {
+    void botaoLogar(ActionEvent event) {
+    	if(fachada.confirmaLoginProfessor(tfLogin.getText(),pfSenha.getText())) {
     		Main.changeScreen("ProfessorLogado");
+    		System.out.println("Logou professor");
     	}else {
     		Main.changeScreen("menu");
+    		System.out.println("falha no login");
     	}
 
     }

@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 import sgedu.negocios.entidade.usuarios.Professor;
 
-public class RepositorioProfessor{
+public class RepositorioProfessor implements IRepositorioProfessor{
 	public static int contadorProfessor;
 	ArrayList <Professor> professores;
 	
@@ -32,29 +32,22 @@ public class RepositorioProfessor{
 		is.close();
 	}
 
-	public void addProfessor(Professor p) throws UsuarioJaCadastradoException, IOException{
-		if(buscarProfessorLogin(p.getLogin()) != null){
-			throw new UsuarioJaCadastradoException("Professor Já cadastrado! ");
-		}
+	public void addProfessor(Professor p) throws IOException{
 		professores.add(p);
 		contadorProfessor ++;
 		salvarArquivoProfessor();
 	}
 	
-	public void removerProfessorNome(String nome) throws UsuarioNaoEncontradoException, IOException {
+	public void removerProfessorNome(String nome) throws IOException {
 		Professor p = buscarProfessorNome(nome);
-		if(p == null) {
-			throw new UsuarioNaoEncontradoException("Professor não encontrado! ");
-		}
+		
 		professores.remove(p);
 		salvarArquivoProfessor();
 	}
 	
-	public void removerProfessorLogin(String login) throws UsuarioNaoEncontradoException, IOException {
+	public void removerProfessorLogin(String login) throws IOException {
 		Professor p = buscarProfessorLogin(login);
-		if(p == null) {
-			throw new UsuarioNaoEncontradoException("Professor não encontrado! ");
-		}
+		
 		professores.remove(p);
 		salvarArquivoProfessor();
 
@@ -78,20 +71,16 @@ public class RepositorioProfessor{
 		return null;
 	}
 	
-	public void alterarSenhaProfessor(Professor professor) throws UsuarioNaoEncontradoException, IOException{ 
+	public void alterarSenhaProfessor(Professor professor) throws IOException{ 
 		Professor p = buscarProfessorLogin(professor.getLogin());
-		if(p == null) {
-			throw new UsuarioNaoEncontradoException("Professor não encontrado! ");
-		} 
+		
 		professor.setSenha(p.getSenha());
 		salvarArquivoProfessor();
 	}
 	
-	public void alterarNomeProfessor(Professor professor) throws UsuarioNaoEncontradoException, IOException{ 
+	public void alterarNomeProfessor(Professor professor) throws IOException{ 
 		Professor p = buscarProfessorLogin(professor.getLogin());
-		if(p == null) {
-			throw new UsuarioNaoEncontradoException("Professor não encontrado! ");
-		} 
+		
 		professor.setNome(p.getNome());
 		salvarArquivoProfessor();
 	}

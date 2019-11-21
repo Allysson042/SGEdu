@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 import sgedu.negocios.entidade.notificacao.Notificacao;
 
-public class RepositorioNotificacoes {
+public class RepositorioNotificacoes implements IRepositorioNotificacoes{
 	ArrayList <Notificacao> notificacoes;
 	public static int contadorNotificacao;
 	
@@ -31,10 +31,7 @@ public class RepositorioNotificacoes {
 		is.close();
 	}
 	
-	public void addNotificacao(Notificacao noti) throws NotificacaoJaAdicionadaException, IOException {
-		if(buscaNotificacaoID(noti.getId()) != null) {
-			throw new NotificacaoJaAdicionadaException();
-		}
+	public void addNotificacao(Notificacao noti) throws IOException {
 		notificacoes.add(noti);
 		contadorNotificacao++;
 		salvarArquivoNotificacao();
@@ -67,11 +64,8 @@ public class RepositorioNotificacoes {
 		return null;
 	}
 	
-	public void removerNotificacao(int id) throws NotificacaoNaoEncontradaException, IOException {
+	public void removerNotificacao(int id) throws IOException {
 		Notificacao noti = buscaNotificacaoID(id);
-		if(noti == null) {
-			throw new NotificacaoNaoEncontradaException();
-		}
 		notificacoes.remove(noti);
 		salvarArquivoNotificacao();
 	}
