@@ -30,12 +30,16 @@ public class Disciplina implements Serializable{
 		this.nome = nome;
 	}
 	
-	public int quantAulas() {
+	public int getQuantAulas() {
 		return quantAulas;
 	}
 	
-	public void getQuantAulas(int quantAulas) {
+	public void setQuantAulas(int quantAulas) {
 		this.quantAulas = quantAulas;
+	}
+	
+	public int getQuantAulasBimestre() {
+		return quantAulas%4;
 	}
 
 	public Professor getProfessor() {
