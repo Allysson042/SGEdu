@@ -2,33 +2,52 @@ package sgedu.fachada;
 
 import java.io.IOException;
 
+import sgedu.dados.usuarios.IRepositorioAluno;
+import sgedu.dados.usuarios.IRepositorioCoordenador;
+import sgedu.dados.usuarios.IRepositorioProfessor;
+import sgedu.dados.usuarios.IRepositorioResponsavel;
 import sgedu.dados.usuarios.RepositorioAluno;
 import sgedu.dados.usuarios.RepositorioCoordenador;
 import sgedu.dados.usuarios.RepositorioProfessor;
+import sgedu.dados.usuarios.RepositorioResponsavel;
 import sgedu.dados.usuarios.UsuarioJaCadastradoException;
 import sgedu.negocios.NegocioAluno;
 import sgedu.negocios.NegocioCoordenador;
 import sgedu.negocios.NegocioProfessor;
+import sgedu.negocios.NegocioResponsavel;
 import sgedu.negocios.entidade.usuarios.Aluno;
 import sgedu.negocios.entidade.usuarios.Coordenador;
 import sgedu.negocios.entidade.usuarios.Professor;
+import sgedu.negocios.entidade.usuarios.Responsavel;
+import sgedu.negocios.entidade.usuarios.Usuario;
 
 
 public class Fachada {
 	private static Fachada objeto;
 	
 	private NegocioAluno negocioAluno;
+	private NegocioResponsavel negocioResponsavel;
 	private NegocioCoordenador negocioCoordenador;
 	private NegocioProfessor negocioProfessor;
+	private Usuario usuarioLogado;
 	
 
 	private Fachada() {
-		RepositorioAluno repositorioAluno=new RepositorioAluno();
+		usuarioLogado=null;
+		
+		IRepositorioAluno repositorioAluno=new RepositorioAluno();
 		this.negocioAluno=new NegocioAluno(repositorioAluno);
-		RepositorioCoordenador repositorioCoordenador=new RepositorioCoordenador();
+		
+		IRepositorioResponsavel repositorioResponsavel=new RepositorioResponsavel();
+		this.negocioResponsavel = new NegocioResponsavel(repositorioResponsavel);
+		
+		IRepositorioCoordenador repositorioCoordenador=new RepositorioCoordenador();
 		this.negocioCoordenador=new NegocioCoordenador(repositorioCoordenador);
-		RepositorioProfessor repositorioProfessor=new RepositorioProfessor();
+		
+		IRepositorioProfessor repositorioProfessor=new RepositorioProfessor();
 		this.negocioProfessor=new NegocioProfessor(repositorioProfessor);
+		
+		
 	
 	}
 	
@@ -41,14 +60,36 @@ public class Fachada {
 	}
 	
 	
+	public void setUsuarioLogado(Usuario user) {
+		usuarioLogado=user;
+	}
+	
+	public Usuario getUsuarioLogado() {
+		return usuarioLogado;
+	}
+	
 	///////////////////Aluno
-	public void adicionarAluno(Aluno aluno) throws UsuarioJaCadastradoException, IOException {
+	public void adicionarAluno(Aluno aluno) throws UsuarioJaCadastradoException, IOException, ClassNotFoundException {
 		negocioAluno.adicionar(aluno);
 	}
 	
 	
 	public boolean confirmaLoginAluno(String login, String senha) {
 		return negocioAluno.confirmaLogin(login, senha);
+	}
+	
+	public Aluno buscarLoginAluno(String login) {
+		return negocioAluno.buscarLogin(login);
+	}
+	
+	///////////////Responsavel
+	
+	public void adicionarReponsavel(Responsavel responsavel) throws IOException {
+		negocioResponsavel.adicionar(responsavel);
+	}
+	
+	public boolean confirmaLoginResponsavel(String login,String senha) {
+		return negocioResponsavel.confirmaLogin(login, senha);
 	}
 	
 	
@@ -64,6 +105,11 @@ public class Fachada {
 		return negocioCoordenador.confirmaLogin(login, senha);
 	}
 	
+	public Usuario buscarLoginCoordenador(String login) {
+		return negocioCoordenador.buscarLogin(login);
+	}
+	
+	
 	
 	/////////professor
 	
@@ -75,6 +121,11 @@ public class Fachada {
 		return negocioProfessor.confirmaLogin(login, senha);
 	}
 	
+	public Professor buscarLoginProfessor(String login) {
+		return negocioProfessor.buscarLogin(login);
+	}
+
+
 	
 	
 	

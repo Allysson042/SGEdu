@@ -8,7 +8,6 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
-import sgedu.gui.UsuarioLogado;
 import sgedu.negocios.entidade.diario.Bimestre;
 import sgedu.negocios.entidade.diario.BimestreDisciplina;
 import sgedu.negocios.entidade.diario.Boletim;
@@ -19,7 +18,7 @@ public class VisualizarBoletimController implements Initializable {
     @FXML
     private ListView<BimestreDisciplina> lvBimestre1;
     
-    Aluno usuarioLogado=(Aluno) UsuarioLogado.user;
+   // Aluno usuarioLogado=(Aluno) UsuarioLogado.user;
     
     
     
@@ -38,18 +37,7 @@ public class VisualizarBoletimController implements Initializable {
     
     
     public void carregarCategoria() {
-    	ArrayList<Boletim> arrayBoletim=usuarioLogado.getBoletins();
-        Boletim boletim=arrayBoletim.get(0);
-        
-        ArrayList<Bimestre> bimestres = boletim.getBimestres();
-        Bimestre bimestre=bimestres.get(0);
     	
-        notas=bimestre.getBimestreDisciplinas();
-    	
-    	
-    	obsNotas=FXCollections.observableArrayList(notas);
-    	
-    	lvBimestre1.setItems(obsNotas);	
     }
     
     

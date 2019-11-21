@@ -2,15 +2,17 @@ package sgedu.negocios;
 
 import java.io.IOException;
 
-import sgedu.dados.usuarios.RepositorioProfessor;
+import sgedu.dados.usuarios.IRepositorioProfessor;
 import sgedu.dados.usuarios.UsuarioJaCadastradoException;
+import sgedu.negocios.entidade.usuarios.Coordenador;
 import sgedu.negocios.entidade.usuarios.Professor;
+import sgedu.negocios.entidade.usuarios.Usuario;
 
 public class NegocioProfessor {
 	
-	private RepositorioProfessor repositorio;
+	private IRepositorioProfessor repositorio;
 	
-	public NegocioProfessor(RepositorioProfessor repositorio) {
+	public NegocioProfessor(IRepositorioProfessor repositorio) {
 		this.repositorio=repositorio;
 	}
 	
@@ -21,6 +23,10 @@ public class NegocioProfessor {
 			repositorio.addProfessor(professor);	
 		}
 		
+	}
+	
+	public Professor buscarLogin(String login) {
+		return repositorio.buscarProfessorLogin(login);
 	}
 	
 	

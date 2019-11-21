@@ -2,16 +2,16 @@ package sgedu.negocios;
 
 import java.io.IOException;
 
-import sgedu.dados.usuarios.RepositorioCoordenador;
+import sgedu.dados.usuarios.IRepositorioCoordenador;
 import sgedu.dados.usuarios.UsuarioJaCadastradoException;
 import sgedu.negocios.entidade.usuarios.Coordenador;
 
 public class NegocioCoordenador {
 	
-	private RepositorioCoordenador repositorio;
+	private IRepositorioCoordenador repositorio;
 	
 	
-	public NegocioCoordenador(RepositorioCoordenador repositorio) {
+	public NegocioCoordenador(IRepositorioCoordenador repositorio) {
 		this.repositorio=repositorio;		
 	}
 	
@@ -22,6 +22,10 @@ public class NegocioCoordenador {
 		if(coordenadorBusca==null) {
 			repositorio.addCoordenador(coordenador);
 		}
+	}
+	
+	public Coordenador buscarLogin(String login) {
+		return repositorio.buscarCoordenadorLogin(login);
 	}
 	
 	
