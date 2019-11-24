@@ -11,7 +11,7 @@ public class Boletim {
 
     private Aluno aluno;
     private int ano;
-    private FrequenciaDiaria frequencia;
+    private Frequencia frequencia;
     private Avaliacao avaliacao;
     
     

@@ -38,7 +38,7 @@ public class LoginProfessorController {
          		///setando o usuario logado
          		fachada.setUsuarioLogado(fachada.buscarLoginProfessor(tfLogin.getText()));
          		
-         	/////carregando a proxima tela
+         		/////carregando a proxima tela
         		FXMLLoader loader = new FXMLLoader(getClass().getResource("../telas/ProfessorLogado.fxml"));
         		Parent root = loader.load();
         		
@@ -46,8 +46,14 @@ public class LoginProfessorController {
         		
         		///transferindo a informação do usuario logado para a proxima tela
         		professorLogadoController.transferirMessagem(fachada.getUsuarioLogado().getNome());
+        	
         		
-        	////troca a tela atual para o menu
+        		
+        		////////apaga as informaçõe dos campos login e senha
+        	    		tfLogin.setText("");
+        	    		pfSenha.setText("");
+        	    		
+        	    ////troca a tela atual para o menu
         		Main.changeScreen("Menu");
         		
         		////exibe a nova tela com o usuario logado

@@ -38,24 +38,25 @@ public class LoginCoordenadorController {
 	    		fachada.setUsuarioLogado(fachada.buscarLoginCoordenador(tfLogin.getText()));
 	    		
 	    		
-	    	/////carregando a proxima tela
+	    		/////carregando a proxima tela
 	    		FXMLLoader loader = new FXMLLoader(getClass().getResource("../telas/CoordenadorLogado.fxml"));
 	    		Parent root = loader.load();
 	    		
 	    		CoordenadorLogadoController coordenadorLogadoController=loader.getController();
 	    		
-	    		System.out.println("usuario logado"+fachada.getUsuarioLogado().getNome());
+	    		
 	    		
 	    		///transferindo a informação do usuario logado para a proxima tela
 	    		coordenadorLogadoController.transferirMessagem(fachada.getUsuarioLogado().getNome());
+	
+	    		////////apaga as informaçõe dos campos login e senha
+	    		tfLogin.setText("");
+	    		pfSenha.setText("");
 	    		
-	    		
-	    	////troca a tela atual para o menu
-        		Main.changeScreen("Menu");
+	    		////troca a tela atual para o menu
+	    		Main.changeScreen("Menu");
         		
-        	////exibe a nova tela com o usuario logado
-        		
-        		
+	    		////exibe a nova tela com o usuario logado 		
         		Stage stage = new Stage();
                 stage.setScene(new Scene(root));
                 stage.setTitle("Coordenador Logado");
@@ -81,8 +82,8 @@ public class LoginCoordenadorController {
 
     @FXML
     void botaoVoltar(ActionEvent event) {
-    	Stage stage = (Stage) btVoltar.getScene().getWindow();
-    	stage.close();
+    	System.out.println("voltar menu");
+    	Main.changeScreen("Menu");
     }
     
     

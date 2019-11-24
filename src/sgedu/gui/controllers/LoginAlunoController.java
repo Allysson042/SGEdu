@@ -38,8 +38,8 @@ public class LoginAlunoController implements Initializable {
     
     @FXML
     void botaoVoltar() {
-    	Stage stage = (Stage) btVoltar.getScene().getWindow();
-    	stage.close();
+    	System.out.println("voltar menu");
+    	Main.changeScreen("Menu");
     }
     
     @FXML
@@ -58,6 +58,12 @@ public class LoginAlunoController implements Initializable {
             		///transferindo a informação do usuario logado para a proxima tela
             		alunoLogadoController.transferirMessagem(fachada.getUsuarioLogado().getNome());
             		
+            		
+            		
+            		////////apaga as informaçõe dos campos login e senha
+    	    		tfLogin.setText("");
+    	    		pfSenha.setText("");
+    	    		
             		////troca a tela atual para o menu
             		Main.changeScreen("Menu");
             		
