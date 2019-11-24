@@ -92,6 +92,14 @@ public class Fachada {
 		return negocioResponsavel.confirmaLogin(login, senha);
 	}
 	
+	public void addAlunoEmResponsavel(Responsavel responsavel, Aluno aluno) {
+		negocioResponsavel.addAluno(responsavel, aluno);
+	}
+	
+	public Usuario buscarLoginResponsavel(String login) {
+		return negocioResponsavel.buscaLogin(login);
+	}
+	
 	
 	
 	

@@ -16,6 +16,7 @@ import sgedu.negocios.entidade.turma.Disciplina;
 import sgedu.negocios.entidade.usuarios.Aluno;
 import sgedu.negocios.entidade.usuarios.Coordenador;
 import sgedu.negocios.entidade.usuarios.Professor;
+import sgedu.negocios.entidade.usuarios.Responsavel;
 
 
 public class Main extends Application {
@@ -123,7 +124,7 @@ public class Main extends Application {
 		
 	}
 	
-	public static void main(String[] args) throws UsuarioJaCadastradoException, IOException {
+	public static void main(String[] args) throws UsuarioJaCadastradoException, IOException, ClassNotFoundException {
 		
 		
 		Fachada fachada=Fachada.criaObjeto();
@@ -134,6 +135,12 @@ public class Main extends Application {
 		System.out.println(aluno.getLogin());
 		
 		fachada.adicionarAluno(aluno);
+		
+		//////////////////////
+		Responsavel responsavel=new Responsavel("pai de allysson","123");
+		fachada.addAlunoEmResponsavel(responsavel, aluno);
+		fachada.adicionarReponsavel(responsavel);
+		System.out.println(responsavel.getLogin());
 
 		///////////
 		Coordenador coordenador = new Coordenador("Jooj","123");

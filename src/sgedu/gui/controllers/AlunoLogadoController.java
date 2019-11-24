@@ -9,6 +9,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import sgedu.fachada.Fachada;
 import sgedu.main.Main;
 
@@ -37,8 +38,8 @@ public class AlunoLogadoController  implements Initializable {
 
     @FXML
     void botaoVoltar(ActionEvent event) {
-    	System.out.println("voltar menu");
-    	Main.changeScreen("Menu");
+    	Stage stage = (Stage) btVoltar.getScene().getWindow();
+    	stage.close();
     }
 
 }
