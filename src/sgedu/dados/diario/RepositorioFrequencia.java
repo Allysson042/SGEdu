@@ -11,6 +11,11 @@ import sgedu.negocios.entidade.diario.Frequencia;
 import sgedu.negocios.entidade.turma.Disciplina;
 import sgedu.negocios.entidade.usuarios.Aluno;
 
+/**
+ * Repositorio Frequencia tem como objetivo guardar todos os objetos frequencia, fazer buscas dentro do repositório
+ * e remover, caso precise. Os objetos frequencia são armazenados em um ArrayList e um arquivo binário.
+ * @author laisy
+ */
 public class RepositorioFrequencia implements IRepositorioFrequencia{
 	
 	ArrayList<Frequencia> frequencias;
@@ -51,6 +56,12 @@ public class RepositorioFrequencia implements IRepositorioFrequencia{
 		Frequencia f = buscaFrequenciaAluno(aluno, bimestre, disciplina);
 		frequencias.remove(f);
 		salvarArquivoFrequencia();
+	}
+	
+	public void alterarFrequencia(Frequencia freq) {
+		Frequencia f = buscaFrequenciaAluno(freq.getAluno(), freq.getBimestre(), freq.getDisciplina());
+		f.setQuantidadeFaltas();
+		
 	}
 	
 }

@@ -5,6 +5,12 @@ import java.text.SimpleDateFormat;
 import sgedu.negocios.entidade.turma.Disciplina;
 import sgedu.negocios.entidade.usuarios.Aluno;
 
+/**
+ * Classe Frequencia representa a frequencia do aluno nas aulas, a partir da quantidade de faltas e 
+ * quantidades de aula por disciplina. A Frequencia pertence a um aluno, de uma disciplina em um bimestre
+ * contabilizada por datas.
+ * @author laisy
+ */
 public class Frequencia{
 
 	private Aluno aluno;
