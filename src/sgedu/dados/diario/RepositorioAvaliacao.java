@@ -53,7 +53,7 @@ public class RepositorioAvaliacao implements IRepositorioAvaliacao{
 	}
 	
 	public void alterarNota(Avaliacao ava) throws IOException{ 
-		Avaliacao a = buscaAvaliacaoAluno(ava.getAluno());
+		Avaliacao a = buscaAvaliacaoAluno(ava.getAluno(), ava.getBimestre(), ava.getDisciplina());
 		
 		ava.setNota(a.getNota());
 		salvarArquivoAvaliacao();

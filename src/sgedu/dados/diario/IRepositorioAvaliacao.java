@@ -2,6 +2,7 @@ package sgedu.dados.diario;
 
 import java.io.IOException;
 import sgedu.negocios.entidade.diario.Avaliacao;
+import sgedu.negocios.entidade.turma.Disciplina;
 import sgedu.negocios.entidade.usuarios.Aluno;
 
 public interface IRepositorioAvaliacao {
@@ -12,9 +13,9 @@ public interface IRepositorioAvaliacao {
 	
 	void addAvaliacao(Avaliacao a) throws IOException;
 	
-	Avaliacao buscaAvaliacaoAluno(Aluno aluno);
+	Avaliacao buscaAvaliacaoAluno(Aluno aluno, String bimestre, Disciplina disciplina);
 	
-	void removerAvaliacao(Aluno aluno) throws IOException;
+	void removerAvaliacao(Aluno aluno, String bimestre, Disciplina disciplina) throws IOException;
 	
 	void alterarNota(Avaliacao ava) throws IOException;
 

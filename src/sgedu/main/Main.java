@@ -1,26 +1,20 @@
 package sgedu.main;
 	
 import java.io.IOException;
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import sgedu.dados.usuarios.RepositorioAluno;
 import sgedu.dados.usuarios.UsuarioJaCadastradoException;
 import sgedu.fachada.Fachada;
-import sgedu.fachada.Fachada;
-import sgedu.negocios.NegocioAluno;
 import sgedu.negocios.entidade.turma.Disciplina;
 import sgedu.negocios.entidade.usuarios.Aluno;
 import sgedu.negocios.entidade.usuarios.Coordenador;
 import sgedu.negocios.entidade.usuarios.Professor;
 import sgedu.negocios.entidade.usuarios.Responsavel;
 
-
 public class Main extends Application {
-	
 	
 	///variaveis staticas para formar o "cache" de cenas para trocar
 	private static Stage stage;
@@ -34,7 +28,6 @@ public class Main extends Application {
 	private static Scene ProfessorLogado;
 	private static Scene CoordenadorLogado;
 	private static Scene ResponsavelLogado;
-	
 	
 	@Override
 	public void start(Stage Pstage) throws Exception {
@@ -74,18 +67,11 @@ public class Main extends Application {
 		VisualizarBoletim=new Scene(FXMLVisualizarBoletim);
 		*/
 		
-		
-		
-		
-		
 		//Scene scene = new Scene(menu);
-		
-		
 		
 		stage.setScene(menu);
 		stage.show();		
 	}
-	
 	
 	///metodo que troca as cenas
 	
@@ -118,17 +104,14 @@ public class Main extends Application {
 			case "ResponsavelLogado":
 				stage.setScene(ResponsavelLogado);
 				break;
-				
-		
+			
 		}
 		
 	}
 	
 	public static void main(String[] args) throws UsuarioJaCadastradoException, IOException, ClassNotFoundException {
 		
-		
 		Fachada fachada=Fachada.criaObjeto();
-		
 		
 		//////////usuarios testes///////////
 		Aluno aluno = new Aluno("Allysson","123");
@@ -154,11 +137,6 @@ public class Main extends Application {
 		fachada.adicionarProfessor(professor);
 		
 		/////////////////////
-		
-		
-		
-		
-		
 		
 		launch(args);
 	}

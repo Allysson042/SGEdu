@@ -14,9 +14,8 @@ public class Boletim {
     private Frequencia frequencia;
     private Avaliacao avaliacao;
     
-    
-   public Boletim GerarBoletim() {
-	return null;
+    public Boletim GerarBoletim() {
+    	return null;
 	   
    }
    
