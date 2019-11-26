@@ -24,4 +24,6 @@ public interface IRepositorioResponsavel {
 	
 	void alterarNomeResponsavel(Responsavel responsavel) throws IOException;
 	
+	void salvarContadorResponsavel() throws IOException;
+	
 }

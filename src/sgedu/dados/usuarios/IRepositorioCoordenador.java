@@ -22,5 +22,7 @@ public interface IRepositorioCoordenador {
 	void alterarSenhaCoordenador(Coordenador coordenador) throws IOException;
 	
 	void alterarNomeCoordenador(Coordenador coordenador) throws IOException;
+	
+	void salvarContadorCoordenador() throws IOException;
 
 }

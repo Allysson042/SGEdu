@@ -23,4 +23,6 @@ public interface IRepositorioAluno {
 	void alterarNomeAluno(Aluno aluno) throws IOException;
 	
 	void alterarSenhaAluno(Aluno aluno) throws IOException;
+	
+	void salvarContadorAluno() throws IOException;
 }

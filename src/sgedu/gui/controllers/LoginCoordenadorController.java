@@ -29,6 +29,8 @@ public class LoginCoordenadorController {
     private PasswordField pfSenha;
     
     Fachada fachada=Fachada.criaObjeto();
+    
+  
 
     @FXML
     void BotaoLogar(ActionEvent event) {

@@ -10,7 +10,6 @@ import sgedu.dados.usuarios.RepositorioAluno;
 import sgedu.dados.usuarios.RepositorioCoordenador;
 import sgedu.dados.usuarios.RepositorioProfessor;
 import sgedu.dados.usuarios.RepositorioResponsavel;
-import sgedu.dados.usuarios.UsuarioJaCadastradoException;
 import sgedu.negocios.NegocioAluno;
 import sgedu.negocios.NegocioCoordenador;
 import sgedu.negocios.NegocioProfessor;
@@ -20,6 +19,7 @@ import sgedu.negocios.entidade.usuarios.Coordenador;
 import sgedu.negocios.entidade.usuarios.Professor;
 import sgedu.negocios.entidade.usuarios.Responsavel;
 import sgedu.negocios.entidade.usuarios.Usuario;
+import sgedu.negocios.excecoes.UsuarioJaCadastradoException;
 
 
 public class Fachada {
@@ -82,9 +82,11 @@ public class Fachada {
 		return negocioAluno.buscarLogin(login);
 	}
 	
+	
+	
 	///////////////Responsavel
 	
-	public void adicionarReponsavel(Responsavel responsavel) throws IOException {
+	public void adicionarReponsavel(Responsavel responsavel) throws IOException, UsuarioJaCadastradoException {
 		negocioResponsavel.adicionar(responsavel);
 	}
 	
@@ -117,7 +119,11 @@ public class Fachada {
 		return negocioCoordenador.buscarLogin(login);
 	}
 	
-	
+	public Aluno cadastrarAluno(String nome, String senha) throws ClassNotFoundException, UsuarioJaCadastradoException, IOException {
+		Aluno aluno= negocioCoordenador.cadatrarAluno(nome, senha);
+		this.adicionarAluno(aluno);
+		return aluno;
+	}
 	
 	/////////professor
 	

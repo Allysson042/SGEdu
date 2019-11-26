@@ -3,6 +3,7 @@ package sgedu.negocios;
 import java.io.IOException;
 
 import sgedu.dados.usuarios.IRepositorioCoordenador;
+import sgedu.negocios.entidade.usuarios.Aluno;
 import sgedu.negocios.entidade.usuarios.Coordenador;
 import sgedu.negocios.excecoes.UsuarioJaCadastradoException;
 
@@ -38,6 +39,13 @@ public class NegocioCoordenador {
 	public boolean confirmaLogin(String login, String senha) {
 		return repositorio.buscarCoordenadorLogin(login).verificaSenha(senha);
 	}
+	
+	
+	public Aluno cadatrarAluno(String nome, String senha) {
+		Aluno aluno=new Aluno(nome, senha);
+		return aluno;
+	}
+	
 	
 	
 	
