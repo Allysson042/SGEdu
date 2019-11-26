@@ -24,5 +24,6 @@
             <Font size="20.0" />
          </font>
       </Label>
+      <Button fx:id="btCrudAluno" layoutX="272.0" layoutY="147.0" mnemonicParsing="false" onAction="#botaoCrudAluno" text="CRUD aluno" />
    </children>
 </AnchorPane>

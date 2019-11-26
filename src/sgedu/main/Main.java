@@ -1,18 +1,19 @@
 package sgedu.main;
 	
 import java.io.IOException;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import sgedu.dados.usuarios.UsuarioJaCadastradoException;
 import sgedu.fachada.Fachada;
 import sgedu.negocios.entidade.turma.Disciplina;
 import sgedu.negocios.entidade.usuarios.Aluno;
 import sgedu.negocios.entidade.usuarios.Coordenador;
 import sgedu.negocios.entidade.usuarios.Professor;
 import sgedu.negocios.entidade.usuarios.Responsavel;
+import sgedu.negocios.excecoes.UsuarioJaCadastradoException;
 
 public class Main extends Application {
 	
@@ -116,7 +117,6 @@ public class Main extends Application {
 		//////////usuarios testes///////////
 		Aluno aluno = new Aluno("Allysson","123");
 		System.out.println(aluno.getLogin());
-		
 		fachada.adicionarAluno(aluno);
 		
 		//////////////////////

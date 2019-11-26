@@ -19,4 +19,6 @@ public interface IRepositorioNotificacoes {
 	Notificacao buscaNotificacaoID(int id);
 	
 	void removerNotificacao(int id) throws IOException;
+	
+	void salvarContadorNotificacao() throws IOException;
 }

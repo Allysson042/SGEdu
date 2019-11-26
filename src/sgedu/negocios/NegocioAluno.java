@@ -26,9 +26,7 @@ public class NegocioAluno {
 				repositorio.addAluno(aluno);	
 			}else {	
 				throw new UsuarioJaCadastradoException();
-			}
-				
-			
+			}		
 		}
 	}
 	

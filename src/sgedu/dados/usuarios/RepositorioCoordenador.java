@@ -1,5 +1,6 @@
 package sgedu.dados.usuarios;
 
+import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -22,6 +23,7 @@ public class RepositorioCoordenador implements IRepositorioCoordenador {
 		ObjectOutputStream os = new ObjectOutputStream(file);
 		os.writeObject(coordenadores);
 		os.close();
+		salvarContadorCoordenador();
 	}
 	
 	public void buscarArquivoCoordenador() throws IOException{
@@ -30,6 +32,7 @@ public class RepositorioCoordenador implements IRepositorioCoordenador {
 			ObjectInputStream is = new ObjectInputStream(file);
 			coordenadores = (ArrayList<Coordenador>) is.readObject();
 			is.close();
+			salvarContadorCoordenador();
 		} catch(IOException | ClassNotFoundException e) {
 			salvarArquivoCoordenador();
 		}
@@ -86,6 +89,20 @@ public class RepositorioCoordenador implements IRepositorioCoordenador {
 		 
 		coordenador.setNome(c.getNome());
 		salvarArquivoCoordenador();
+	}
+	
+	public void salvarContadorCoordenador() throws IOException {
+		try {
+			FileInputStream file = new FileInputStream("contadorCoordenador.dat");
+			DataInputStream is = new DataInputStream(file);
+			contadorCoordenador = (int) is.readInt();
+			is.close();
+		} catch(IOException e) {
+			FileOutputStream file = new FileOutputStream("contadorCoordenador.dat");
+			ObjectOutputStream os = new ObjectOutputStream(file);
+			os.writeInt(contadorCoordenador);
+			os.close();
+		}
 	}
 	
 }

@@ -1,5 +1,6 @@
 package sgedu.dados.usuarios;
 
+import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -23,6 +24,7 @@ public class RepositorioResponsavel implements IRepositorioResponsavel{
 		ObjectOutputStream os = new ObjectOutputStream(file);
 		os.writeObject(responsaveis);
 		os.close();
+		salvarContadorResponsavel();
 	}
 	
 	public void buscarArquivoResponsavel() throws IOException{
@@ -31,6 +33,7 @@ public class RepositorioResponsavel implements IRepositorioResponsavel{
 			ObjectInputStream is = new ObjectInputStream(file);
 			responsaveis = (ArrayList<Responsavel>) is.readObject();
 			is.close();
+			salvarContadorResponsavel();
 		} catch(IOException | ClassNotFoundException e) {
 			salvarArquivoResponsavel();
 		}
@@ -88,4 +91,19 @@ public class RepositorioResponsavel implements IRepositorioResponsavel{
 		responsavel.setNome(r.getNome());
 		salvarArquivoResponsavel();
 	}
+	
+	public void salvarContadorResponsavel() throws IOException {
+		try {
+			FileInputStream file = new FileInputStream("contadorResponsavel.dat");
+			DataInputStream is = new DataInputStream(file);
+			contadorResponsavel = (int) is.readInt();
+			is.close();
+		} catch(IOException e) {
+			FileOutputStream file = new FileOutputStream("contadorResponsavel.dat");
+			ObjectOutputStream os = new ObjectOutputStream(file);
+			os.writeInt(contadorResponsavel);
+			os.close();
+		}
+	}
+
 }

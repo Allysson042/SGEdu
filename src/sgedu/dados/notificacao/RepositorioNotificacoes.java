@@ -1,5 +1,6 @@
 package sgedu.dados.notificacao;
 
+import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -22,6 +23,7 @@ public class RepositorioNotificacoes implements IRepositorioNotificacoes{
 		ObjectOutputStream os = new ObjectOutputStream(file);
 		os.writeObject(notificacoes);
 		os.close();
+		salvarContadorNotificacao();
 	}
 	
 	public void buscarArquivoNotificacao() throws IOException{
@@ -30,6 +32,7 @@ public class RepositorioNotificacoes implements IRepositorioNotificacoes{
 			ObjectInputStream is = new ObjectInputStream(file);
 			notificacoes = (ArrayList<Notificacao>) is.readObject();
 			is.close();
+			salvarContadorNotificacao();
 		} catch(IOException | ClassNotFoundException e) {
 			salvarArquivoNotificacao();
 		}
@@ -74,4 +77,19 @@ public class RepositorioNotificacoes implements IRepositorioNotificacoes{
 		notificacoes.remove(noti);
 		salvarArquivoNotificacao();
 	}
+	
+	public void salvarContadorNotificacao() throws IOException {
+		try {
+			FileInputStream file = new FileInputStream("contadorNotificacao.dat");
+			DataInputStream is = new DataInputStream(file);
+			contadorNotificacao = (int) is.readInt();
+			is.close();
+		} catch(IOException e) {
+			FileOutputStream file = new FileOutputStream("contadorNotificacao.dat");
+			ObjectOutputStream os = new ObjectOutputStream(file);
+			os.writeInt(contadorNotificacao);
+			os.close();
+		}
+	}
+
 }

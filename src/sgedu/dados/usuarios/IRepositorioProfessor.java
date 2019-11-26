@@ -23,5 +23,7 @@ public interface IRepositorioProfessor {
 	void alterarSenhaProfessor(Professor professor) throws IOException;
 	
 	void alterarNomeProfessor(Professor professor) throws IOException;
+	
+	void salvarContadorProfessor() throws IOException;
 
 }
