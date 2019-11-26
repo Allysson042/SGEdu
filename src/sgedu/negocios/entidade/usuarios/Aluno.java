@@ -10,6 +10,11 @@ import sgedu.dados.usuarios.RepositorioAluno;
  */
 public class Aluno extends Usuario implements Serializable{
 	
+	@Override
+	public String toString() {
+		return "Aluno [responsavel=" + responsavel + ", login=" + login + "]";
+	}
+
 	private Responsavel responsavel;
 	private String login;
 	
@@ -17,6 +22,8 @@ public class Aluno extends Usuario implements Serializable{
         super(nome, senha);
         this.gerarLogin();
     }
+    
+
 	
 	public Responsavel getResponsavel() {
 		return responsavel;

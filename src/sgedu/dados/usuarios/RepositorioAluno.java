@@ -1,6 +1,5 @@
 package sgedu.dados.usuarios;
 
-import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -17,6 +16,7 @@ public class RepositorioAluno implements IRepositorioAluno{
 	
 	public RepositorioAluno() {
 		alunos = new ArrayList<Aluno>();
+		contadorAluno=0;
 	}
 	
 	public void salvarArquivoAluno() throws IOException {
@@ -33,6 +33,7 @@ public class RepositorioAluno implements IRepositorioAluno{
 			ObjectInputStream is = new ObjectInputStream(file);
 			alunos = (ArrayList<Aluno>) is.readObject();
 			is.close();
+			salvarArquivoAluno();
 			salvarContadorAluno();
 		} catch (IOException | ClassNotFoundException e) {
 			salvarArquivoAluno();
@@ -42,8 +43,11 @@ public class RepositorioAluno implements IRepositorioAluno{
 	
 	public void addAluno(Aluno a) throws IOException{
 		alunos.add(a);
-		salvarArquivoAluno();
+		System.out.println("CONTADOR: "+contadorAluno);
 		contadorAluno ++;
+		System.out.println("CONTADOR: "+contadorAluno);
+		salvarArquivoAluno();
+		
 	}
 	
 	public void removerAlunoNome(String nome) throws IOException{
@@ -93,16 +97,22 @@ public class RepositorioAluno implements IRepositorioAluno{
 	}
 	
 	public void salvarContadorAluno() throws IOException {
+		FileOutputStream file = new FileOutputStream("ContadorAluno.dat");
+		ObjectOutputStream os = new ObjectOutputStream(file);
+		os.writeInt(contadorAluno);
+		os.close();
+	}
+	
+	
+	public void buscarContadorAluno() throws IOException {
 		try {
 			FileInputStream file = new FileInputStream("ContadorAluno.dat");
-			DataInputStream is = new DataInputStream(file);
-			contadorAluno = (int) is.readInt();
+			ObjectInputStream is = new ObjectInputStream(file);
+			contadorAluno = (int) is.readObject();
 			is.close();
-		} catch(IOException e) {
-			FileOutputStream file = new FileOutputStream("ContadorAluno.dat");
-			ObjectOutputStream os = new ObjectOutputStream(file);
-			os.writeInt(contadorAluno);
-			os.close();
+			salvarContadorAluno();
+		} catch (IOException | ClassNotFoundException e) {
+			salvarContadorAluno();
 		}
 	}
 }

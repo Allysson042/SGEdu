@@ -34,7 +34,12 @@ public class NegocioProfessor {
 	
 	
 	public boolean confirmaLogin(String login, String senha) {
-		return repositorio.buscarProfessorLogin(login).verificaSenha(senha);		
+		Professor resposta= repositorio.buscarProfessorLogin(login);
+		
+		if(resposta!=null) {
+			return resposta.verificaSenha(senha);
+		}
+		return false;
 	}
 	
 	

@@ -16,6 +16,7 @@ public class RepositorioCoordenador implements IRepositorioCoordenador {
 	
 	public RepositorioCoordenador() {
 		coordenadores = new ArrayList<Coordenador>();
+		contadorCoordenador=0;
 	}
 	
 	public void salvarArquivoCoordenador() throws IOException {
@@ -41,7 +42,9 @@ public class RepositorioCoordenador implements IRepositorioCoordenador {
 	
 	public void addCoordenador(Coordenador c) throws IOException {
 		coordenadores.add(c);
+		System.out.println("CONTADOR: "+contadorCoordenador);
 		contadorCoordenador ++;
+		System.out.println("CONTADOR: "+contadorCoordenador);
 		salvarArquivoCoordenador();
 	}
 	
@@ -92,16 +95,22 @@ public class RepositorioCoordenador implements IRepositorioCoordenador {
 	}
 	
 	public void salvarContadorCoordenador() throws IOException {
+		FileOutputStream file = new FileOutputStream("ContadorCoordenador.dat");
+		ObjectOutputStream os = new ObjectOutputStream(file);
+		os.writeInt(contadorCoordenador);
+		os.close();
+	}
+	
+	
+	public void buscarContadorCoordenador() throws IOException {
 		try {
-			FileInputStream file = new FileInputStream("contadorCoordenador.dat");
-			DataInputStream is = new DataInputStream(file);
-			contadorCoordenador = (int) is.readInt();
+			FileInputStream file = new FileInputStream("ContadorCoordenador.dat");
+			ObjectInputStream is = new ObjectInputStream(file);
+			contadorCoordenador = (int) is.readObject();
 			is.close();
-		} catch(IOException e) {
-			FileOutputStream file = new FileOutputStream("contadorCoordenador.dat");
-			ObjectOutputStream os = new ObjectOutputStream(file);
-			os.writeInt(contadorCoordenador);
-			os.close();
+			salvarContadorCoordenador();
+		} catch (IOException | ClassNotFoundException e) {
+			salvarContadorCoordenador();
 		}
 	}
 	

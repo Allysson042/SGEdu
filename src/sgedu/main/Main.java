@@ -119,6 +119,13 @@ public class Main extends Application {
 		System.out.println(aluno.getLogin());
 		fachada.adicionarAluno(aluno);
 		
+		
+		
+		
+		Aluno aluno2 = new Aluno("teste","123");
+		System.out.println(aluno2.getLogin());
+		fachada.adicionarAluno(aluno2);
+		
 		//////////////////////
 		Responsavel responsavel=new Responsavel("pai de allysson","123");
 		fachada.addAlunoEmResponsavel(responsavel, aluno);
