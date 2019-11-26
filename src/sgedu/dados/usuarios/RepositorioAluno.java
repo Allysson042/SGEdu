@@ -25,15 +25,19 @@ public class RepositorioAluno implements IRepositorioAluno{
 		os.close();
 	}
 	
-	public void buscarArquivoAluno() throws IOException, ClassNotFoundException {
-		FileInputStream file = new FileInputStream("Alunos.dat");
-		ObjectInputStream is = new ObjectInputStream(file);
-		alunos = (ArrayList<Aluno>) is.readObject();
-		is.close();
+	public void buscarArquivoAluno() throws IOException {
+		try {
+			FileInputStream file = new FileInputStream("Alunos.dat");
+			ObjectInputStream is = new ObjectInputStream(file);
+			alunos = (ArrayList<Aluno>) is.readObject();
+			is.close();
+		} catch (IOException | ClassNotFoundException e) {
+			salvarArquivoAluno();
+		}
+		
 	}
 	
-	public void addAluno(Aluno a) throws IOException, ClassNotFoundException{
-
+	public void addAluno(Aluno a) throws IOException{
 		alunos.add(a);
 		salvarArquivoAluno();
 		contadorAluno ++;

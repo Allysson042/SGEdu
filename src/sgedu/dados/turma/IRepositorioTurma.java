@@ -8,7 +8,7 @@ public interface IRepositorioTurma {
 	
 	void salvarArquivoTurma() throws IOException;
 	
-	void buscarArquivoTurma() throws IOException, ClassNotFoundException ;
+	void buscarArquivoTurma() throws IOException;
 	
 	void addTurma(Turma t) throws IOException;
 	

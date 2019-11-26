@@ -3,8 +3,8 @@ package sgedu.negocios;
 import java.io.IOException;
 
 import sgedu.dados.usuarios.IRepositorioAluno;
-import sgedu.dados.usuarios.UsuarioJaCadastradoException;
 import sgedu.negocios.entidade.usuarios.Aluno;
+import sgedu.negocios.excecoes.UsuarioJaCadastradoException;
 
 public class NegocioAluno {
 	
@@ -14,14 +14,22 @@ public class NegocioAluno {
 		this.repositorio=repositorio;	
 	}
 	
-	public void adicionar(Aluno aluno) throws UsuarioJaCadastradoException, IOException, ClassNotFoundException {
-		Aluno alunoBusca=repositorio.buscarAlunoLogin(aluno.getLogin());
-		
-		if(alunoBusca==null) {
-			//System.out.println("contador Aluno: "+RepositorioAluno.contadorAluno);
-			repositorio.addAluno(aluno);	
-			//System.out.println("contador Aluno: "+RepositorioAluno.contadorAluno);
-		}		
+	public void adicionar(Aluno aluno) throws UsuarioJaCadastradoException, IOException{
+		try {
+			repositorio.buscarArquivoAluno();
+		} catch(IOException e) {
+			
+			Aluno alunoBusca=repositorio.buscarAlunoLogin(aluno.getLogin());
+				
+			if(alunoBusca==null) {
+				
+				repositorio.addAluno(aluno);	
+			}else {	
+				throw new UsuarioJaCadastradoException();
+			}
+				
+			
+		}
 	}
 	
 	public Aluno buscarLogin(String login) {
@@ -35,14 +43,8 @@ public class NegocioAluno {
 		
 	}
 	
-	
 	public boolean confirmaLogin(String login, String senha) {
 		return repositorio.buscarAlunoLogin(login).verificaSenha(senha);		
 	}
-	
-	
-	
-	
-	
 	
 }

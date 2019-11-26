@@ -1,4 +1,4 @@
-package sgedu.dados.usuarios;
+package sgedu.negocios.excecoes;
 
 public class BoletimNaoEncontradoException extends Exception{
 	

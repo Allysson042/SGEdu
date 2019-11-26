@@ -24,11 +24,16 @@ public class RepositorioNotificacoes implements IRepositorioNotificacoes{
 		os.close();
 	}
 	
-	public void buscarArquivoNotificacao() throws IOException, ClassNotFoundException {
-		FileInputStream file = new FileInputStream("Notificacoes.dat");
-		ObjectInputStream is = new ObjectInputStream(file);
-		notificacoes = (ArrayList<Notificacao>) is.readObject();
-		is.close();
+	public void buscarArquivoNotificacao() throws IOException{
+		try {
+			FileInputStream file = new FileInputStream("Notificacoes.dat");
+			ObjectInputStream is = new ObjectInputStream(file);
+			notificacoes = (ArrayList<Notificacao>) is.readObject();
+			is.close();
+		} catch(IOException | ClassNotFoundException e) {
+			salvarArquivoNotificacao();
+		}
+		
 	}
 	
 	public void addNotificacao(Notificacao noti) throws IOException {

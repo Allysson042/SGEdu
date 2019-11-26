@@ -24,11 +24,16 @@ public class RepositorioCoordenador implements IRepositorioCoordenador {
 		os.close();
 	}
 	
-	public void buscarArquivoCoordenador() throws IOException, ClassNotFoundException {
-		FileInputStream file = new FileInputStream("Coordenadores.dat");
-		ObjectInputStream is = new ObjectInputStream(file);
-		coordenadores = (ArrayList<Coordenador>) is.readObject();
-		is.close();
+	public void buscarArquivoCoordenador() throws IOException{
+		try{
+			FileInputStream file = new FileInputStream("Coordenadores.dat");
+			ObjectInputStream is = new ObjectInputStream(file);
+			coordenadores = (ArrayList<Coordenador>) is.readObject();
+			is.close();
+		} catch(IOException | ClassNotFoundException e) {
+			salvarArquivoCoordenador();
+		}
+		
 	}
 	
 	public void addCoordenador(Coordenador c) throws IOException {

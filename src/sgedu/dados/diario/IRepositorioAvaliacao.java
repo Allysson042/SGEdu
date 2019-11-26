@@ -9,7 +9,7 @@ public interface IRepositorioAvaliacao {
 	
 	void salvarArquivoAvaliacao() throws IOException;
 	
-	void buscarArquivoAvaliacao() throws IOException, ClassNotFoundException;
+	void buscarArquivoAvaliacao() throws IOException;
 	
 	void addAvaliacao(Avaliacao a) throws IOException;
 	

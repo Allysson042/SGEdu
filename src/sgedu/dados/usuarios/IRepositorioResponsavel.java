@@ -8,7 +8,7 @@ public interface IRepositorioResponsavel {
 
 	void salvarArquivoResponsavel() throws IOException;
 	
-	void buscarArquivoResponsavel() throws IOException, ClassNotFoundException;
+	void buscarArquivoResponsavel() throws IOException;
 	
 	void addResponsavel(Responsavel r) throws IOException;
 	

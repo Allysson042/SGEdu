@@ -8,7 +8,7 @@ public interface IRepositorioProfessor {
 	
 	void salvarArquivoProfessor() throws IOException ;
 	
-	void buscarArquivoProfessor() throws IOException, ClassNotFoundException;
+	void buscarArquivoProfessor() throws IOException;
 	
 	void addProfessor(Professor p) throws IOException;
 	

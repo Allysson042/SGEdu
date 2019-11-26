@@ -24,11 +24,15 @@ public class RepositorioTurma implements IRepositorioTurma{
 		os.close();
 	}
 	
-	public void buscarArquivoTurma() throws IOException, ClassNotFoundException {
-		FileInputStream file = new FileInputStream("Turmas.dat");
-		ObjectInputStream is = new ObjectInputStream(file);
-		turmas = (ArrayList<Turma>) is.readObject();
-		is.close();
+	public void buscarArquivoTurma() throws IOException{
+		try {
+			FileInputStream file = new FileInputStream("Turmas.dat");
+			ObjectInputStream is = new ObjectInputStream(file);
+			turmas = (ArrayList<Turma>) is.readObject();
+			is.close();
+		} catch(IOException | ClassNotFoundException e) {
+			salvarArquivoTurma();
+		}
 	}
 
 

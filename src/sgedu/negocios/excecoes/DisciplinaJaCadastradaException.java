@@ -1,4 +1,4 @@
-package sgedu.dados.turma;
+package sgedu.negocios.excecoes;
 
 public class DisciplinaJaCadastradaException extends Exception{
 	public DisciplinaJaCadastradaException(String mensagem) {
