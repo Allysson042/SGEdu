@@ -8,7 +8,7 @@ public interface IRepositorioDisciplina {
 	
 	void salvarArquivoDisciplina() throws IOException;
 	
-	void buscarArquivoDisciplina() throws IOException, ClassNotFoundException;
+	void buscarArquivoDisciplina() throws IOException;
 	
 	void addDisciplina(Disciplina d) throws IOException;
 	

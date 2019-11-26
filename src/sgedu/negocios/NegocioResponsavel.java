@@ -5,6 +5,7 @@ import java.io.IOException;
 import sgedu.dados.usuarios.IRepositorioResponsavel;
 import sgedu.negocios.entidade.usuarios.Aluno;
 import sgedu.negocios.entidade.usuarios.Responsavel;
+import sgedu.negocios.excecoes.UsuarioJaCadastradoException;
 
 public class NegocioResponsavel {
 	
@@ -14,13 +15,21 @@ public class NegocioResponsavel {
 		this.repositorio=repositorio;
 	}
 	
-	public void adicionar(Responsavel responsavel) throws IOException {
-		Responsavel responsavelBusca=repositorio.buscarResponsavelLogin(responsavel.getLogin());
-		
-		if(responsavelBusca==null) {
-			repositorio.addResponsavel(responsavel);
+	public void adicionar(Responsavel responsavel) throws IOException, UsuarioJaCadastradoException {
+		try {
+			repositorio.buscarArquivoResponsavel();
+		} catch (IOException e){
+			Responsavel responsavelBusca=repositorio.buscarResponsavelLogin(responsavel.getLogin());
+			
+			if(responsavelBusca==null) {
+				repositorio.addResponsavel(responsavel);
+				
+			} else {
+				throw new UsuarioJaCadastradoException();
+			}
 			
 		}
+		
 	}
 	
 	public boolean confirmaLogin(String login, String senha) {

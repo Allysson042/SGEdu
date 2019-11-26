@@ -8,9 +8,9 @@ public interface IRepositorioAluno {
 	
 	void salvarArquivoAluno() throws IOException;
 	
-	void buscarArquivoAluno() throws IOException, ClassNotFoundException;
+	void buscarArquivoAluno() throws IOException;
 	
-	void addAluno(Aluno a) throws IOException, ClassNotFoundException;
+	void addAluno(Aluno a) throws IOException;
 	
 	void removerAlunoNome(String nome) throws IOException;
 	

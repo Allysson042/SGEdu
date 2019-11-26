@@ -25,11 +25,16 @@ public class RepositorioProfessor implements IRepositorioProfessor{
 		os.close();
 	}
 	
-	public void buscarArquivoProfessor() throws IOException, ClassNotFoundException {
-		FileInputStream file = new FileInputStream("Professores.dat");
-		ObjectInputStream is = new ObjectInputStream(file);
-		professores = (ArrayList<Professor>) is.readObject();
-		is.close();
+	public void buscarArquivoProfessor() throws IOException{
+		try{
+			FileInputStream file = new FileInputStream("Professores.dat");
+			ObjectInputStream is = new ObjectInputStream(file);
+			professores = (ArrayList<Professor>) is.readObject();
+			is.close();
+		} catch(IOException | ClassNotFoundException e) {
+			salvarArquivoProfessor();
+		}
+		
 	}
 
 	public void addProfessor(Professor p) throws IOException{

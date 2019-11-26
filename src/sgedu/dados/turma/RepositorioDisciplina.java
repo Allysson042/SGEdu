@@ -24,11 +24,15 @@ public class RepositorioDisciplina implements IRepositorioDisciplina {
 		os.close();
 	}
 	
-	public void buscarArquivoDisciplina() throws IOException, ClassNotFoundException {
-		FileInputStream file = new FileInputStream("Disciplinas.dat");
-		ObjectInputStream is = new ObjectInputStream(file);
-		disciplinas = (ArrayList<Disciplina>) is.readObject();
-		is.close();
+	public void buscarArquivoDisciplina() throws IOException{
+		try {
+			FileInputStream file = new FileInputStream("Disciplinas.dat");
+			ObjectInputStream is = new ObjectInputStream(file);
+			disciplinas = (ArrayList<Disciplina>) is.readObject();
+			is.close();
+		} catch(IOException | ClassNotFoundException e) {
+			salvarArquivoDisciplina();
+		}
 	}
 	
 	public void addDisciplina(Disciplina d) throws IOException {

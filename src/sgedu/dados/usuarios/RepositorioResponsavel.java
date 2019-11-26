@@ -25,11 +25,16 @@ public class RepositorioResponsavel implements IRepositorioResponsavel{
 		os.close();
 	}
 	
-	public void buscarArquivoResponsavel() throws IOException, ClassNotFoundException {
-		FileInputStream file = new FileInputStream("Responsaveis.dat");
-		ObjectInputStream is = new ObjectInputStream(file);
-		responsaveis = (ArrayList<Responsavel>) is.readObject();
-		is.close();
+	public void buscarArquivoResponsavel() throws IOException{
+		try {
+			FileInputStream file = new FileInputStream("Responsaveis.dat");
+			ObjectInputStream is = new ObjectInputStream(file);
+			responsaveis = (ArrayList<Responsavel>) is.readObject();
+			is.close();
+		} catch(IOException | ClassNotFoundException e) {
+			salvarArquivoResponsavel();
+		}
+		
 	}
 	
 	public void addResponsavel(Responsavel r) throws IOException {

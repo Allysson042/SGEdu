@@ -31,11 +31,16 @@ public class RepositorioFrequencia implements IRepositorioFrequencia{
 		os.close();
 	}
 	
-	public void buscarArquivoFrequencia() throws IOException, ClassNotFoundException {
-		FileInputStream file = new FileInputStream("Frequencia.dat");
-		ObjectInputStream is = new ObjectInputStream(file);
-		frequencias = (ArrayList<Frequencia>) is.readObject();
-		is.close();
+	public void buscarArquivoFrequencia() throws IOException{
+		try {
+			FileInputStream file = new FileInputStream("Frequencia.dat");
+			ObjectInputStream is = new ObjectInputStream(file);
+			frequencias = (ArrayList<Frequencia>) is.readObject();
+			is.close();
+		} catch(IOException | ClassNotFoundException e) {
+			salvarArquivoFrequencia();
+		}
+	
 	}
 	
 	public void addFrequencia(Frequencia f) throws IOException {

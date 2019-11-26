@@ -3,10 +3,8 @@ package sgedu.negocios;
 import java.io.IOException;
 
 import sgedu.dados.usuarios.IRepositorioProfessor;
-import sgedu.dados.usuarios.UsuarioJaCadastradoException;
-import sgedu.negocios.entidade.usuarios.Coordenador;
 import sgedu.negocios.entidade.usuarios.Professor;
-import sgedu.negocios.entidade.usuarios.Usuario;
+import sgedu.negocios.excecoes.UsuarioJaCadastradoException;
 
 public class NegocioProfessor {
 	
@@ -17,12 +15,17 @@ public class NegocioProfessor {
 	}
 	
 	public void adicionar(Professor professor) throws UsuarioJaCadastradoException, IOException{
-		Professor professorBusca=repositorio.buscarProfessorLogin(professor.getLogin());
-		
-		if(professorBusca==null) {
-			repositorio.addProfessor(professor);	
+		try {
+			repositorio.buscarArquivoProfessor();
+		} catch(IOException e) {
+			Professor professorBusca=repositorio.buscarProfessorLogin(professor.getLogin());
+			
+			if(professorBusca==null) {
+				repositorio.addProfessor(professor);	
+			} else {
+				throw new UsuarioJaCadastradoException();
+			}
 		}
-		
 	}
 	
 	public Professor buscarLogin(String login) {

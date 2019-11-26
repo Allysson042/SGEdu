@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+
 import sgedu.negocios.entidade.diario.Avaliacao;
 import sgedu.negocios.entidade.turma.Disciplina;
 import sgedu.negocios.entidade.usuarios.Aluno;
@@ -25,11 +26,16 @@ public class RepositorioAvaliacao implements IRepositorioAvaliacao{
 		os.close();
 	}
 	
-	public void buscarArquivoAvaliacao() throws IOException, ClassNotFoundException {
-		FileInputStream file = new FileInputStream("Avaliacao.dat");
-		ObjectInputStream is = new ObjectInputStream(file);
-		avaliacoes = (ArrayList<Avaliacao>) is.readObject();
-		is.close();
+	public void buscarArquivoAvaliacao() throws IOException{
+		try {
+			FileInputStream file = new FileInputStream("Avaliacao.dat");
+			ObjectInputStream is = new ObjectInputStream(file);
+			avaliacoes = (ArrayList<Avaliacao>) is.readObject();
+			is.close();
+		} catch(IOException | ClassNotFoundException e) {
+			salvarArquivoAvaliacao();
+		}
+		
 	}
 	
 	public void addAvaliacao(Avaliacao a) throws IOException {

@@ -1,4 +1,4 @@
-package sgedu.dados.turma;
+package sgedu.negocios.excecoes;
 
 public class TurmaJaCriadaException extends Exception{
 	

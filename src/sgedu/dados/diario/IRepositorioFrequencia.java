@@ -15,7 +15,7 @@ public interface IRepositorioFrequencia {
 	
 	void salvarArquivoFrequencia() throws IOException;
 	
-	void buscarArquivoFrequencia() throws IOException, ClassNotFoundException;
+	void buscarArquivoFrequencia() throws IOException;
 	
 	public void addFrequencia(Frequencia f) throws IOException;
 	

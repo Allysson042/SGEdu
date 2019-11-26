@@ -1,4 +1,4 @@
-package sgedu.dados.notificacao;
+package sgedu.negocios.excecoes;
 
 public class NotificacaoJaAdicionadaException extends Exception{
 	

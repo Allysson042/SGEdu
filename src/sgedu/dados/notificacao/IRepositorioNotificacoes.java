@@ -8,7 +8,7 @@ public interface IRepositorioNotificacoes {
 
 	void salvarArquivoNotificacao() throws IOException;
 	
-	void buscarArquivoNotificacao() throws IOException, ClassNotFoundException;
+	void buscarArquivoNotificacao() throws IOException;
 	
 	void addNotificacao(Notificacao noti) throws IOException;
 	
