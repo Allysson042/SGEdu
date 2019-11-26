@@ -17,12 +17,19 @@ public class NegocioAluno {
 	public void adicionar(Aluno aluno) throws UsuarioJaCadastradoException, IOException{
 		try {
 			repositorio.buscarArquivoAluno();
+			Aluno alunoBusca=repositorio.buscarAlunoLogin(aluno.getLogin());
+			
+			if(alunoBusca==null) {		
+				repositorio.addAluno(aluno);	
+			}else {	
+				throw new UsuarioJaCadastradoException();
+			}		
+			
 		} catch(IOException e) {
 			
 			Aluno alunoBusca=repositorio.buscarAlunoLogin(aluno.getLogin());
 				
-			if(alunoBusca==null) {
-				
+			if(alunoBusca==null) {		
 				repositorio.addAluno(aluno);	
 			}else {	
 				throw new UsuarioJaCadastradoException();
@@ -42,7 +49,11 @@ public class NegocioAluno {
 	}
 	
 	public boolean confirmaLogin(String login, String senha) {
-		return repositorio.buscarAlunoLogin(login).verificaSenha(senha);		
+		Aluno resposta =repositorio.buscarAlunoLogin(login)	;
+		if(resposta!=null) {
+			return resposta.verificaSenha(senha);
+		}
+		return false;
 	}
 	
 }

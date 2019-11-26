@@ -37,7 +37,12 @@ public class NegocioCoordenador {
 	
 	
 	public boolean confirmaLogin(String login, String senha) {
-		return repositorio.buscarCoordenadorLogin(login).verificaSenha(senha);
+		Coordenador resposta= repositorio.buscarCoordenadorLogin(login);
+		if(resposta!=null) {
+			return resposta.verificaSenha(senha);
+		}
+		return false;
+		
 	}
 	
 	

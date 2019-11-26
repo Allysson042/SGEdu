@@ -36,6 +36,7 @@ public class Fachada {
 		usuarioLogado=null;
 		
 		IRepositorioAluno repositorioAluno=new RepositorioAluno();
+		
 		this.negocioAluno=new NegocioAluno(repositorioAluno);
 		
 		IRepositorioResponsavel repositorioResponsavel=new RepositorioResponsavel();

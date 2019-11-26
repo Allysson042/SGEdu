@@ -33,9 +33,10 @@ public class NegocioResponsavel {
 	}
 	
 	public boolean confirmaLogin(String login, String senha) {
-		Responsavel responsavelBusca=repositorio.buscarResponsavelLogin(login);
-		if(responsavelBusca!=null) {
-			return responsavelBusca.verificaSenha(senha);
+		Responsavel resposta=repositorio.buscarResponsavelLogin(login);
+
+		if(resposta!=null) {
+			return resposta.verificaSenha(senha);
 		}
 		return false;
 	}		

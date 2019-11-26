@@ -39,7 +39,6 @@ public class CoordenadorLogadoController {
 			/////carregando a proxima tela
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("../telas/CrudAluno.fxml"));
 			Parent root = loader.load();
-			CoordenadorLogadoController coordenadorLogadoController=loader.getController();
 			
 			Stage stage = new Stage();
             stage.setScene(new Scene(root));
